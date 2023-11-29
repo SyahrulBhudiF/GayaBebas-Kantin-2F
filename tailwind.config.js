@@ -3,9 +3,10 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,php,html,css,ts,jsx,tsx}",
+    "./public/**/*.{js,php,html,css,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};
