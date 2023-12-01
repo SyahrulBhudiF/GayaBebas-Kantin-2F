@@ -1,3 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*,
+:root {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.containerSidebar {
+  @apply flex gap-3 flex-col p-4 rounded-xl cursor-pointer;
+  transition: all 1s ease-in-out;
+}
+
+.activeSidebar {
+  @apply border border-Primary-blue bg-Primary-surface;
+}
+
+.textSidebar {
+  @apply text-base font-semibold;
+  transition: all 0.2s ease-in-out;
+}
+
+.fadeIn {
+  animation: fadeIn alternate 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
