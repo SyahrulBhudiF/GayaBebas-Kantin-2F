@@ -72,7 +72,7 @@
             <p class="textSidebar text-Neutral/70">Log Aktivitas</p>
         </a>
     </div>
-    <button class="flex gap-3 items-center p-4 rounded-xl cursor-pointer group">
+    <button class="flex w-fit h-fit gap-3 items-center p-4 rounded-xl cursor-pointer group">
         <svg class="" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="vuesax/outline/3dcube">
                 <g id="3dcube">
