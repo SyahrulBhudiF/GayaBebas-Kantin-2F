@@ -1,5 +1,5 @@
 <nav class="flex w-full bg-Neutral/10">
-    <div class="flex gap-2 items-center border-r border-b border-neutral-20 w-[15%] p-6">
+    <div class="flex gap-2 items-center border-r border-b border-neutral-20 w-[15%] laptop1:w-[18%] laptop2:w-[20%] laptop3:w-[20%] p-6">
         <img src="../../Assets/img/Logo Polinema.png" alt="logo" class="w-[2.5rem]">
         <div class="flex flex-col">
             <p class="text-Neutral/60 text-xs">Polinema</p>

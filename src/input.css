@@ -35,3 +35,31 @@
     opacity: 1;
   }
 }
+
+.cardDashboard {
+  @apply p-5 bg-Neutral/10 rounded-xl;
+}
+
+.tableHead {
+  @apply text-center py-3;
+}
+
+.tableContent {
+  @apply border-b text-center py-3;
+}
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+/* Mengubah tampilan track scrollbar */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Mengubah tampilan thumb scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 1rem;
+  height: 10px;
+}
