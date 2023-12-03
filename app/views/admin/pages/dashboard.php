@@ -4,12 +4,12 @@
         <div class="cardDashboard">
             <div class="flex justify-between">
                 <div class="flex items-center gap-3">
-                    <img src="../../../../src/Assets/svg/moneys.svg" alt="money" class="p-3 bg-Primary-surface rounded-xl">
+                    <img src="../public/Assets/svg/moneys.svg" alt="money" class="p-3 bg-Primary-surface rounded-xl">
                     <p class="text-Neutral/100 text-base font-semibold">Total Pendapatan</p>
                 </div>
                 <div class="flex g-2 border border-Neutral/30 px-4 py-3 rounded-full">
                     <p>Hari Ini</p>
-                    <img src="../../../src/Assets/svg/Frame.svg" alt="frame">
+                    <img src="../public/Assets/svg/Frame.svg" alt="frame">
                 </div>
             </div>
             <div class="mt-10">
@@ -20,12 +20,12 @@
         <div class="cardDashboard">
             <div class="flex justify-between">
                 <div class="flex items-center gap-3">
-                    <img src="../../../../src/Assets/svg/box-tick.svg" alt="box" class="p-3 bg-Primary-surface rounded-xl">
+                    <img src="../public/Assets/svg/box-tick.svg" alt="box" class="p-3 bg-Primary-surface rounded-xl">
                     <p class="text-Neutral/100 text-base font-semibold">Terjual</p>
                 </div>
                 <div class="flex g-2 border border-Neutral/30 px-4 py-3 rounded-full">
                     <p>Hari Ini</p>
-                    <img src="../../../src/Assets/svg/Frame.svg" alt="frame">
+                    <img src="../public/Assets/svg/Frame.svg" alt="frame">
                 </div>
             </div>
             <div class="mt-10">
@@ -36,12 +36,12 @@
         <div class="cardDashboard">
             <div class="flex justify-between">
                 <div class="flex items-center gap-3">
-                    <img src="../../../../src/Assets/svg/3d-cube-scan.svg" alt="money" class="p-3 bg-Primary-surface rounded-xl">
+                    <img src="../public/Assets/svg/3d-cube-scan.svg" alt="money" class="p-3 bg-Primary-surface rounded-xl">
                     <p class="text-Neutral/100 text-base font-semibold">Total Stok</p>
                 </div>
                 <div class="flex g-2 border border-Neutral/30 px-4 py-3 rounded-full">
                     <p>Hari Ini</p>
-                    <img src="../../../src/Assets/svg/Frame.svg" alt="frame">
+                    <img src="../public/Assets/svg/Frame.svg" alt="frame">
                 </div>
             </div>
             <div class="mt-10">
@@ -61,12 +61,12 @@
             </div>
             <div class="flex gap-3">
                 <div class="flex gap-3 bg-Neutral/20 rounded-full items-center px-7 py-4">
-                    <img src="../../../../src/Assets/svg/filter.svg" alt="filter">
+                    <img src="../public/Assets/svg/filter.svg" alt="filter">
                     <p>Filter</p>
                 </div>
                 <div class="flex justify-between px-7 py-4 border border-Neutral/30 rounded-full">
                     <input type="search" name="" id="" class="outline-none" placeholder="Cari barang">
-                    <img src="../../../../src/Assets/svg/search-normal.svg" alt="search">
+                    <img src="../public/Assets/svg/search-normal.svg" alt="search">
                 </div>
             </div>
         </div>

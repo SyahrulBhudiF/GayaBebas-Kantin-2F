@@ -1,6 +1,6 @@
 <aside class="flex flex-col justify-between items-stretch p-6 w-[15%] laptop1:w-[18%] laptop2:w-[20%] laptop3:w-[20%] bg-Neutral/10 h-[88vh]">
     <div>
-        <a id="dashboard" class="containerSidebar <?php echo $active == 'Dashboard' ? 'activeSidebar' : ''; ?>" href="home.php?page=dashboard">
+        <a id="dashboard" class="containerSidebar <?php echo $active == 'Dashboard' ? 'activeSidebar' : ''; ?>" href="<?= BASEURL; ?>/dashboard">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="vuesax/outline/3dcube">
                     <g id="3dcube">
@@ -15,7 +15,7 @@
                 Dashboard
             </p>
         </a>
-        <a id="dataKaryawan" class="containerSidebar" href="home.php?page=dataKaryawan">
+        <a id="dataKaryawan" class="containerSidebar" href="<?= BASEURL; ?>/datakaryawan">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="vuesax/outline/profile-2user">
                     <g id="profile-2user">
@@ -29,7 +29,7 @@
             <p class="textSidebar text-Neutral/70">Data
                 Karyawan</p>
         </a>
-        <a id="dataBarang" class="containerSidebar" href="home.php?page=dataBarang">
+        <a id="dataBarang" class="containerSidebar" href="<?= BASEURL; ?>/databarang">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="vuesax/outline/box">
                     <g id="box">
@@ -43,7 +43,7 @@
 
             <p class="textSidebar text-Neutral/70">Data Barang</p>
         </a>
-        <a id="laporan" class="containerSidebar" href="home.php?page=laporan">
+        <a id="laporan" class="containerSidebar" href="<?= BASEURL; ?>/laporan">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="vuesax/outline/receipt">
                     <g id="receipt">
@@ -54,9 +54,9 @@
                 </g>
             </svg>
 
-            <p class="textSidebar text-Neutral/70">Laporan Harian</p>
+            <p class="textSidebar text-Neutral/70">Laporan</p>
         </a>
-        <a id="log" class="containerSidebar" href="home.php?page=log">
+        <a id="log" class="containerSidebar" href="<?= BASEURL; ?>/log">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="vuesax/outline/personalcard">
                     <g id="personalcard">
