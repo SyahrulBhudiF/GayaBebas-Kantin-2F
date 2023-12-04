@@ -1,4 +1,4 @@
-<section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
+<section class="flex flex-col animateGlobal p-4 gap-2 w-full h-screen">
     <!-- start card grid -->
     <div class="grid grid-cols-custom justify-center gap-2">
         <div class="cardDashboard">
@@ -36,8 +36,7 @@
         <div class="cardDashboard">
             <div class="flex justify-between">
                 <div class="flex items-center gap-3">
-                    <img src="../public/Assets/svg/3d-cube-scan.svg" alt="money"
-                        class="p-3 bg-Primary-surface rounded-xl">
+                    <img src="../public/Assets/svg/3d-cube-scan.svg" alt="money" class="p-3 bg-Primary-surface rounded-xl">
                     <p class="text-Neutral/100 text-base font-semibold">Total Stok</p>
                 </div>
                 <div class="flex g-2 border border-Neutral/30 px-4 py-3 rounded-full">
@@ -53,8 +52,7 @@
     </div>
     <!-- end card -->
     <!-- start table -->
-    <div
-        class="flex flex-col bg-Neutral/10 rounded-[1.25rem] py-6 px-5 gap-2 h-[65%] laptop1:h-[61%] laptop2:h-[55%] laptop3:h-[62%] laptop4:h-[53%]">
+    <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] py-6 px-5 gap-2 h-[65%] laptop1:h-[61%] laptop2:h-[55%] laptop3:h-[62%] laptop4:h-[53%]">
         <!-- header -->
         <div class="flex justify-between items-center">
             <div>
