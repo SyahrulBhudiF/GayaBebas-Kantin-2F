@@ -36,6 +36,17 @@
   }
 }
 
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .cardDashboard {
   @apply p-5 bg-Neutral/10 rounded-xl;
 }
@@ -100,4 +111,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .addButton {
   @apply px-7 py-3 text-white bg-Primary-blue rounded-full cursor-pointer active:opacity-80;
+}
+
+.modal {
+  animation: scaleIn 0.3s ease-in-out;
 }

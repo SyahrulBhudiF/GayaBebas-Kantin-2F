@@ -65,8 +65,7 @@
         <!-- End Table -->
         <!-- modal add -->
         <div id="modal" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
-            <div
-                class="flex flex-col bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[28%] laptop1:w-[36%] laptop3:w-[42%]">
+            <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[28%] laptop1:w-[36%] laptop3:w-[42%]">
                 <div class="flex justify-between items-center">
                     <h2 class="text-xl font-semibold text-Neutral/100">Tambah Data Karyawan</h2>
                     <button id="closeModal" class="cursor-pointer">
@@ -76,23 +75,19 @@
                 <form class="flex flex-col gap-8">
                     <div class="flex flex-col g-3">
                         <label for="nama" class="textInputKaryawan">Nama Lengkap</label>
-                        <input type="text" name="nama" id="nama" class="inputKaryawan"
-                            placeholder="Masukkan nama lengkap">
+                        <input type="text" name="nama" id="nama" class="inputKaryawan" placeholder="Masukkan nama lengkap">
                     </div>
                     <div class="flex flex-col gap-3">
                         <label for="noTelp" class="textInputKaryawan">Nomor Telepon</label>
-                        <input type="number" name="noTelp" id="noTelp" class="inputKaryawan"
-                            placeholder="Masukkan nomor telepon">
+                        <input type="number" name="noTelp" id="noTelp" class="inputKaryawan" placeholder="Masukkan nomor telepon">
                     </div>
                     <div class="flex flex-col gap-3">
                         <label for="username" class="textInputKaryawan">Username</label>
-                        <input type="text" name="username" id="username" class="inputKaryawan"
-                            placeholder="Masukkan username">
+                        <input type="text" name="username" id="username" class="inputKaryawan" placeholder="Masukkan username">
                     </div>
                     <div class="flex flex-col gap-3">
                         <label for="password" class="textInputKaryawan">Password</label>
-                        <input type="password" name="password" id="password" class="inputKaryawan"
-                            placeholder="Masukkan password">
+                        <input type="password" name="password" id="password" class="inputKaryawan" placeholder="Masukkan password">
                     </div>
                     <button class="addButton">Tambah</button>
                 </form>
@@ -101,8 +96,7 @@
         <!-- end modal add -->
         <!-- modal edit -->
         <div id="modalEdit" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
-            <div
-                class="flex flex-col bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[28%] laptop1:w-[36%] laptop3:w-[42%]">
+            <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[28%] laptop1:w-[36%] laptop3:w-[42%]">
                 <div class="flex justify-between items-center">
                     <h2 class="text-xl font-semibold text-Neutral/100">Edit Data Karyawan</h2>
                     <button id="closeEdit" class="cursor-pointer">
@@ -112,23 +106,19 @@
                 <form class="flex flex-col gap-8">
                     <div class="flex flex-col g-3">
                         <label for="nama" class="textInputKaryawan">Nama Lengkap</label>
-                        <input type="text" name="nama" id="nama" class="inputKaryawan"
-                            placeholder="Masukkan nama lengkap">
+                        <input type="text" name="nama" id="nama" class="inputKaryawan" placeholder="Masukkan nama lengkap">
                     </div>
                     <div class="flex flex-col gap-3">
                         <label for="noTelp" class="textInputKaryawan">Nomor Telepon</label>
-                        <input type="number" name="noTelp" id="noTelp" class="inputKaryawan"
-                            placeholder="Masukkan nomor telepon">
+                        <input type="number" name="noTelp" id="noTelp" class="inputKaryawan" placeholder="Masukkan nomor telepon">
                     </div>
                     <div class="flex flex-col gap-3">
                         <label for="username" class="textInputKaryawan">Username</label>
-                        <input type="text" name="username" id="username" class="inputKaryawan"
-                            placeholder="Masukkan username">
+                        <input type="text" name="username" id="username" class="inputKaryawan" placeholder="Masukkan username">
                     </div>
                     <div class="flex flex-col gap-3">
                         <label for="password" class="textInputKaryawan">Password</label>
-                        <input type="password" name="password" id="password" class="inputKaryawan"
-                            placeholder="Masukkan password">
+                        <input type="password" name="password" id="password" class="inputKaryawan" placeholder="Masukkan password">
                     </div>
                     <button class="addButton">Simpan</button>
                 </form>
@@ -137,8 +127,7 @@
         <!-- end modal edit -->
         <!-- modal delete -->
         <div id="modalDelete" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
-            <div
-                class="flex flex-col bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[20%] laptop1:w-[27%] laptop3:w-[30%]">
+            <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[20%] laptop1:w-[27%] laptop3:w-[30%]">
                 <p class="text-Neutral/100 text-xl font-semibold text-center">Apakah anda yakin ingin menghapus data
                     ini?</p>
                 <div class="flex justify-between">
