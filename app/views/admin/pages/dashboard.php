@@ -52,7 +52,7 @@
     </div>
     <!-- end card -->
     <!-- start table -->
-    <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] py-6 px-5 gap-2 h-[65%] laptop1:h-[61%] laptop2:h-[55%] laptop3:h-[62%]">
+    <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] py-6 px-5 gap-2 h-[65%] laptop1:h-[61%] laptop2:h-[55%] laptop3:h-[62%] laptop4:h-[53%]">
         <!-- header -->
         <div class="flex justify-between items-center">
             <div>

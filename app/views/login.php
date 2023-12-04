@@ -11,7 +11,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="../../dist/output.css" />
+    <link rel="stylesheet" href="../../public/dist/output.css" />
 </head>
 
 <body>
@@ -19,7 +19,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <form action="#">
             <div class="bg-white w-96 p-10 rounded-2xl shadow-sm">
                 <div class="flex items-center justify-center mb-4">
-                    <img src="../Assets/img/Logo Polinema.png" class="h-16" />
+                    <img src="../../public/Assets/img/Logo Polinema.png" class="h-16" />
                 </div>
                 <div class="flex items-center justify-center mb-12">
                     <label class="text-2xl font-semibold">Kantin JTI</label>
