@@ -729,6 +729,11 @@ video {
   background-color: rgb(168 85 247 / var(--tw-bg-opacity));
 }
 
+.bg-slate-800{
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+}
+
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -740,6 +745,10 @@ video {
 
 .fill-gray-500{
   fill: #6b7280;
+}
+
+.fill-\[\#A5A5A5\]{
+  fill: #A5A5A5;
 }
 
 .p-10{
@@ -1003,9 +1012,18 @@ video {
   fill: #5E51D9;
 }
 
+.group:hover .group-hover\:fill-red-600{
+  fill: #dc2626;
+}
+
 .group:hover .group-hover\:text-Primary-blue{
   --tw-text-opacity: 1;
   color: rgb(94 81 217 / var(--tw-text-opacity));
+}
+
+.group:hover .group-hover\:text-red-600{
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
 }
 
 @media (min-width: 1280px) and (max-width: 1439px){
@@ -1035,5 +1053,43 @@ video {
 
   .laptop2\:w-\[20\%\]{
     width: 20%;
+  }
+}
+
+@media (min-width: 1364px) and (max-height: 768px){
+  .laptop4\:h-\[45\%\]{
+    height: 45%;
+  }
+
+  .laptop4\:h-\[20\%\]{
+    height: 20%;
+  }
+
+  .laptop4\:h-\[30\%\]{
+    height: 30%;
+  }
+
+  .laptop4\:h-\[35\%\]{
+    height: 35%;
+  }
+
+  .laptop4\:h-\[40\%\]{
+    height: 40%;
+  }
+
+  .laptop4\:h-\[50\%\]{
+    height: 50%;
+  }
+
+  .laptop4\:h-\[55\%\]{
+    height: 55%;
+  }
+
+  .laptop4\:h-\[53\%\]{
+    height: 53%;
+  }
+
+  .laptop4\:h-\[85vh\]{
+    height: 85vh;
   }
 }

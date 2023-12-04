@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link rel="stylesheet" href="<?= BASEURL; ?>/dist/output.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/output.css">
 </head>
 
 <body class="w-full h-screen bg-Neutral/40 bg-opacity-60 overflow-hidden">
