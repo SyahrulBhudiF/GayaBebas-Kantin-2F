@@ -36,16 +36,27 @@
   }
 }
 
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .cardDashboard {
   @apply p-5 bg-Neutral/10 rounded-xl;
 }
 
 .tableHead {
-  @apply text-center py-3;
+  @apply text-start py-3 px-8;
 }
 
 .tableContent {
-  @apply border-b text-center py-3;
+  @apply border-b text-start px-8 py-3;
 }
 
 ::-webkit-scrollbar {
@@ -62,4 +73,46 @@
   background: #888;
   border-radius: 1rem;
   height: 10px;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.rounded-thead th:first-child {
+  border-top-left-radius: 1rem;
+}
+
+.rounded-thead th:last-child {
+  border-top-right-radius: 1rem;
+}
+
+.iconKaryawan {
+  @apply p-3 rounded-full border border-Neutral/40 cursor-pointer;
+}
+
+.iconKaryawan:active {
+  opacity: 0.6;
+}
+
+.textInputKaryawan {
+  @apply text-base font-semibold text-Neutral/100;
+}
+
+.inputKaryawan {
+  @apply outline-none px-6 py-4 bg-Neutral/20 rounded-xl;
+}
+
+.addButton {
+  @apply px-7 py-3 text-white bg-Primary-blue rounded-full cursor-pointer active:opacity-80;
+}
+
+.modal {
+  animation: scaleIn 0.3s ease-in-out;
 }

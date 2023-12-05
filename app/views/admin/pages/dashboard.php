@@ -74,7 +74,7 @@
         <!-- start table -->
         <div class="overflow-auto">
             <table class="table-auto w-full px-3">
-                <thead class="bg-Neutral/20">
+                <thead class="bg-Neutral/20 rounded-thead">
                     <tr>
                         <th class="tableHead">No</th>
                         <th class="tableHead">Nama Barang</th>
@@ -87,140 +87,204 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
                     <tr>
-                        <td class="tableContent">1</td>
+                        <td class="tableContent text-Neutral/60">01</td>
                         <td class="tableContent">Citato</td>
                         <td class="tableContent">Makanan</td>
                         <td class="tableContent">218</td>
-                        <td class="tableContent">4.000</td>
+                        <td class="tableContent">Rp4.000</td>
                         <td class="tableContent">50</td>
-                        <td class="tableContent">200.000</td>
+                        <td class="tableContent">Rp200.000</td>
                     </tr>
+                    <tr>
+                        <td class="tableContent text-Neutral/60">01</td>
+                        <td class="tableContent">Citato</td>
+                        <td class="tableContent">Makanan</td>
+                        <td class="tableContent">218</td>
+                        <td class="tableContent">Rp4.000</td>
+                        <td class="tableContent">50</td>
+                        <td class="tableContent">Rp200.000</td>
+                    </tr>
+                    <tr>
+                        <td class="tableContent text-Neutral/60">01</td>
+                        <td class="tableContent">Citato</td>
+                        <td class="tableContent">Makanan</td>
+                        <td class="tableContent">218</td>
+                        <td class="tableContent">Rp4.000</td>
+                        <td class="tableContent">50</td>
+                        <td class="tableContent">Rp200.000</td>
+                    </tr>
+                    <tr>
+                        <td class="tableContent text-Neutral/60">01</td>
+                        <td class="tableContent">Citato</td>
+                        <td class="tableContent">Makanan</td>
+                        <td class="tableContent">218</td>
+                        <td class="tableContent">Rp4.000</td>
+                        <td class="tableContent">50</td>
+                        <td class="tableContent">Rp200.000</td>
+                    </tr>
+                    <tr>
+                        <td class="tableContent text-Neutral/60">01</td>
+                        <td class="tableContent">Citato</td>
+                        <td class="tableContent">Makanan</td>
+                        <td class="tableContent">218</td>
+                        <td class="tableContent">Rp4.000</td>
+                        <td class="tableContent">50</td>
+                        <td class="tableContent">Rp200.000</td>
+                    </tr>
+                    <tr>
+                        <td class="tableContent text-Neutral/60">01</td>
+                        <td class="tableContent">Citato</td>
+                        <td class="tableContent">Makanan</td>
+                        <td class="tableContent">218</td>
+                        <td class="tableContent">Rp4.000</td>
+                        <td class="tableContent">50</td>
+                        <td class="tableContent">Rp200.000</td>
+                    </tr>
+                    <tr>
+                        <td class="tableContent text-Neutral/60">01</td>
+                        <td class="tableContent">Citato</td>
+                        <td class="tableContent">Makanan</td>
+                        <td class="tableContent">218</td>
+                        <td class="tableContent">Rp4.000</td>
+                        <td class="tableContent">50</td>
+                        <td class="tableContent">Rp200.000</td>
+                    </tr>
+                    <tr>
+                        <td class="tableContent text-Neutral/60">01</td>
+                        <td class="tableContent">Citato</td>
+                        <td class="tableContent">Makanan</td>
+                        <td class="tableContent">218</td>
+                        <td class="tableContent">Rp4.000</td>
+                        <td class="tableContent">50</td>
+                        <td class="tableContent">Rp200.000</td>
+                    </tr>
+
                 </tbody>
             </table>
         </div>
