@@ -113,10 +113,6 @@ input[type="number"]::-webkit-outer-spin-button {
   @apply px-7 py-3 text-white bg-Primary-blue rounded-full cursor-pointer active:opacity-80;
 }
 
-.animateGlobal {
-  animation: scaleIn 0.5s ease-in-out;
-}
-
 .modal {
   animation: scaleIn 0.3s ease-in-out;
 }

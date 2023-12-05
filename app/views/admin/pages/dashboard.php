@@ -1,4 +1,4 @@
-<section class="flex flex-col animateGlobal p-4 gap-2 w-full h-screen">
+<section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <!-- start card grid -->
     <div class="grid grid-cols-custom justify-center gap-2">
         <div class="cardDashboard">

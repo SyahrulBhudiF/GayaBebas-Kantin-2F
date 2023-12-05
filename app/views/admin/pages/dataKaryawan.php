@@ -1,4 +1,4 @@
-<section class="flex flex-col animateGlobal p-4 gap-2 w-full h-screen">
+<section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <div class="flex justify-between">
             <div class="flex justify-between w-[22%] px-7 py-3 border border-Neutral/30 rounded-full">

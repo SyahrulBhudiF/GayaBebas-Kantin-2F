@@ -1165,10 +1165,6 @@ input[type="number"]::-webkit-outer-spin-button {
   opacity: 0.8;
 }
 
-.animateGlobal {
-  animation: scaleIn 0.5s ease-in-out;
-}
-
 .modal {
   animation: scaleIn 0.3s ease-in-out;
 }
