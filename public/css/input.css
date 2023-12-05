@@ -116,3 +116,15 @@ input[type="number"]::-webkit-outer-spin-button {
 .modal {
   animation: scaleIn 0.3s ease-in-out;
 }
+
+.inputRadio {
+  @apply flex gap-2 px-6 py-4 bg-Neutral/20 rounded-xl w-full;
+}
+
+input[type="radio"] {
+  @apply w-4;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
