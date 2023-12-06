@@ -144,8 +144,14 @@
                             </div>
                             <div class="flex flex-col gap-3">
                                 <label for="harga" class="textInputKaryawan">Harga Jual</label>
-                                <input type="text" name="harga" id="harga" class="inputKaryawan"
-                                    placeholder="Rp | Masukkan harga">
+                                <div class="flex gap-2 items-baseline px-6 py-4 bg-Neutral/20 rounded-xl w-full">
+                                    <span class="text-Neutral/50">
+                                        Rp |
+                                    </span>
+                                    <input type="number" name="harga" id="inputEditHarga"
+                                        class="bg-Neutral/20 outline-none w-[80%]" placeholder="Masukkan harga"
+                                        oninput="formatNumber(this)">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -213,15 +219,21 @@
                             <div class="flex flex-col gap-3">
                                 <label for="date-input" class="textInputKaryawan">Tanggal Kadaluarsa</label>
                                 <div class="flex gap-2 w-full bg-Neutral/20 pr-6 rounded-xl">
-                                    <input type="text" name="date" id="date-input" class="inputKaryawan w-full"
+                                    <input type="text" name="date" id="date-input-edit" class="inputKaryawan w-full"
                                         placeholder="Masukkan tanggal" onblur="blurDate()" onfocus="focusDate()">
                                     <img src="../public/Assets/svg/calendar-2.svg" alt="">
                                 </div>
                             </div>
                             <div class="flex flex-col gap-3">
                                 <label for="harga" class="textInputKaryawan">Harga Jual</label>
-                                <input type="text" name="harga" id="harga" class="inputKaryawan"
-                                    placeholder="Rp | Masukkan harga">
+                                <div class="flex gap-2 items-baseline px-6 py-4 bg-Neutral/20 rounded-xl w-full">
+                                    <span class="text-Neutral/50">
+                                        Rp |
+                                    </span>
+                                    <input type="number" name="harga" id="inputEditHarga"
+                                        class="bg-Neutral/20 outline-none w-[80%]" placeholder="Masukkan harga"
+                                        oninput="formatNumber(this)">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -318,16 +330,19 @@ const showFile = () => {
 // start date
 
 const input = document.getElementById('date-input');
+const inputEdit = document.getElementById('date-input-edit');
 
 const focusDate = () => {
-    if (input) {
+    if (input || inputEdit) {
         input.type = "date";
+        inputEdit.type = "date"
     }
 };
 
 const blurDate = () => {
-    if (input && input.value.trim() === '') {
+    if ((input && input.value.trim() === '') || (inputEdit && inputEdit.value.trim() === '')) {
         input.type = "text";
+        inputEdit.type = "text";
     }
 };
 // start end date
@@ -408,4 +423,8 @@ const closeDeleteBarang = () => {
     deleteBarang.classList.remove('flex');
 }
 // end delete
+function formatNumber(input) {
+    let value = input.value.replace(/\./g, '');
+    input.value = Number(value).toLocaleString('de-DE');
+}
 </script>
