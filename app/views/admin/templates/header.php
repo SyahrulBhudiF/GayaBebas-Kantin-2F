@@ -9,7 +9,7 @@
 </head>
 
 <body class="w-full h-screen bg-Neutral/40 bg-opacity-60 overflow-hidden">
-    <?php include_once '../app/views/components/navbar.php'; ?>
+    <?php include_once '../app/views/admin/components/navbar.php'; ?>
     <div class="flex w-full">
-        <?php include_once '../app/views/components/sideBar.php'; ?>
+        <?php include_once '../app/views/admin/components/sideBar.php'; ?>
         <div class="w-full">
