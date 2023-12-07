@@ -6,8 +6,8 @@ class Dashboard extends Controller
     {
         $data['page'] = 'dashboard';
         // $data['transaksi'] = $this->model('Dashboard_model')->getTransaksi();
-        $this->view('templates/header');
+        $this->view('admin/templates/header');
         $this->view('admin/pages/dashboard', $data);
-        $this->view('templates/footer', $data);
+        $this->view('admin/templates/footer', $data);
     }
 }
