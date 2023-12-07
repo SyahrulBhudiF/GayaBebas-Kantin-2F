@@ -36,7 +36,8 @@
         <div class="cardDashboard">
             <div class="flex justify-between">
                 <div class="flex items-center gap-3">
-                    <img src="../public/Assets/svg/3d-cube-scan.svg" alt="money" class="p-3 bg-Primary-surface rounded-xl">
+                    <img src="../public/Assets/svg/3d-cube-scan.svg" alt="money"
+                        class="p-3 bg-Primary-surface rounded-xl">
                     <p class="text-Neutral/100 text-base font-semibold">Total Stok</p>
                 </div>
                 <div class="flex g-2 border border-Neutral/30 px-4 py-3 rounded-full">
@@ -52,242 +53,145 @@
     </div>
     <!-- end card -->
     <!-- start table -->
-    <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] py-6 px-5 gap-2 h-[65%] laptop1:h-[61%] laptop2:h-[55%] laptop3:h-[62%] laptop4:h-[53%]">
+    <div
+        class="flex flex-col bg-Neutral/10 rounded-[1.25rem] py-6 px-5 gap-2 h-[65%] laptop1:h-[61%] laptop2:h-[55%] laptop3:h-[62%] laptop4:h-[53%]">
         <!-- header -->
         <div class="flex justify-between items-center">
             <div>
-                <p class="text-Neutral/100 font-semibold text-xl">Aktivitas Produk</p>
-                <p class="text-Neutral/50">List barang dengan jumlah penjualan terbanyak</p>
+                <p class="text-Neutral/100 font-semibold text-xl">Produk dengan stok paling sedikit</p>
+                <p class="text-Neutral/50">List barang dengan jumlah stok paling sedikit</p>
             </div>
-            <div class="flex gap-3">
-                <div class="flex gap-3 bg-Neutral/20 rounded-full items-center px-7 py-4">
-                    <img src="../public/Assets/svg/filter.svg" alt="filter">
-                    <p>Filter</p>
-                </div>
-                <div class="flex justify-between px-7 py-4 border border-Neutral/30 rounded-full">
-                    <input type="search" name="" id="" class="outline-none" placeholder="Cari barang">
-                    <img src="../public/Assets/svg/search-normal.svg" alt="search">
-                </div>
+            <div class="flex justify-between px-7 py-3 border border-Neutral/30 rounded-full">
+                <input type="search" name="" id="" class="outline-none" placeholder="Cari barang">
+                <img src="../public/Assets/svg/search-normal.svg" alt="search">
             </div>
         </div>
         <!-- end header -->
-        <!-- start table -->
+        <!-- start list item -->
         <div class="overflow-auto">
-            <table class="table-auto w-full px-3">
-                <thead class="bg-Neutral/20 rounded-thead">
-                    <tr>
-                        <th class="tableHead">No</th>
-                        <th class="tableHead">Nama Barang</th>
-                        <th class="tableHead">Kategori</th>
-                        <th class="tableHead">Tersedia</th>
-                        <th class="tableHead">Harga (Rp)</th>
-                        <th class="tableHead">Terjual</th>
-                        <th class="tableHead">Total (Rp)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Citato</td>
-                        <td class="tableContent">Makanan</td>
-                        <td class="tableContent">218</td>
-                        <td class="tableContent">Rp4.000</td>
-                        <td class="tableContent">50</td>
-                        <td class="tableContent">Rp200.000</td>
-                    </tr>
+            <section class="grid grid-cols-4 gap-4 p-2 overflow-auto">
+                <!-- item -->
+                <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
+                    <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
+                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start">219 Tersedia</span>
+                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                    </div>
+                    <div class="flex flex-col gap-3 p-4">
+                        <p
+                            class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                            Tricks
+                            Bulgogi Keripik
+                            Kentang</p>
+                        <p class="text-Neutral/70 text-sm">Makanan</p>
+                    </div>
+                </div>
 
-                </tbody>
-            </table>
+                <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
+                    <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
+                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start">219 Tersedia</span>
+                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                    </div>
+                    <div class="flex flex-col gap-3 p-4">
+                        <p
+                            class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                            Tricks
+                            Bulgogi Keripik
+                            Kentang</p>
+                        <p class="text-Neutral/70 text-sm">Makanan</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
+                    <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
+                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start">219 Tersedia</span>
+                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                    </div>
+                    <div class="flex flex-col gap-3 p-4">
+                        <p
+                            class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                            Tricks
+                            Bulgogi Keripik
+                            Kentang</p>
+                        <p class="text-Neutral/70 text-sm">Makanan</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
+                    <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
+                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start">219 Tersedia</span>
+                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                    </div>
+                    <div class="flex flex-col gap-3 p-4">
+                        <p
+                            class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                            Tricks
+                            Bulgogi Keripik
+                            Kentang</p>
+                        <p class="text-Neutral/70 text-sm">Makanan</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
+                    <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
+                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start">219 Tersedia</span>
+                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                    </div>
+                    <div class="flex flex-col gap-3 p-4">
+                        <p
+                            class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                            Tricks
+                            Bulgogi Keripik
+                            Kentang</p>
+                        <p class="text-Neutral/70 text-sm">Makanan</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
+                    <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
+                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start">219 Tersedia</span>
+                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                    </div>
+                    <div class="flex flex-col gap-3 p-4">
+                        <p
+                            class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                            Tricks
+                            Bulgogi Keripik
+                            Kentang</p>
+                        <p class="text-Neutral/70 text-sm">Makanan</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
+                    <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
+                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start">219 Tersedia</span>
+                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                    </div>
+                    <div class="flex flex-col gap-3 p-4">
+                        <p
+                            class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                            Tricks
+                            Bulgogi Keripik
+                            Kentang</p>
+                        <p class="text-Neutral/70 text-sm">Makanan</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
+                    <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
+                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start">219 Tersedia</span>
+                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                    </div>
+                    <div class="flex flex-col gap-3 p-4">
+                        <p
+                            class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                            Tricks
+                            Bulgogi Keripik
+                            Kentang</p>
+                        <p class="text-Neutral/70 text-sm">Makanan</p>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
-    <!-- end table -->
+    <!-- end list item -->
 </section>

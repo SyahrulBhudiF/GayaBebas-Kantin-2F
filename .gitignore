@@ -59,6 +59,7 @@ node_modules/
 # Ignore build directories.
 /build
 /dist
+public/css/output.css
 
 # ignore composer vendor directory
 /vendor
@@ -117,3 +118,4 @@ Thumbs.db
 !.gitignore
 !.nvmrc
 !.phpcs.xml.dist
+

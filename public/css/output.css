@@ -657,6 +657,10 @@ video {
   width: 50%;
 }
 
+.w-\[80\%\]{
+  width: 80%;
+}
+
 .w-fit{
   width: -moz-fit-content;
   width: fit-content;
@@ -696,6 +700,10 @@ video {
 
 .items-center{
   align-items: center;
+}
+
+.items-baseline{
+  align-items: baseline;
 }
 
 .items-stretch{
@@ -938,6 +946,11 @@ video {
   padding-right: 1.25rem;
 }
 
+.px-6{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .px-7{
   padding-left: 1.75rem;
   padding-right: 1.75rem;
@@ -1103,10 +1116,6 @@ video {
   outline-offset: 2px;
 }
 
-.filter{
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
 .transition{
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1136,6 +1145,9 @@ video {
   flex-direction: column;
   gap: 0.75rem;
   border-radius: 0.75rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
   padding: 1rem;
   transition: all 1s ease-in-out;
 }
@@ -1193,6 +1205,8 @@ video {
   padding-left: 2rem;
   padding-right: 2rem;
   text-align: start;
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .tableContent{
@@ -1202,6 +1216,8 @@ video {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   text-align: start;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 ::-webkit-scrollbar {
@@ -1307,12 +1323,36 @@ input[type="number"]::-webkit-outer-spin-button {
   padding-bottom: 1rem;
 }
 
+.inputRadioLapor{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(246 246 246 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 246 246 / var(--tw-bg-opacity));
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 input[type="radio"]{
   width: 1rem;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
+}
+
+input[type="radio"] {
+  transform: scale(1.2);
+}
+
+label.inputRadioLapor.checked {
+  border: 1px solid #5e51d9;
 }
 
 .hover\:bg-purple-600:hover{
