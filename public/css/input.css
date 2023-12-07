@@ -10,7 +10,7 @@
 }
 
 .containerSidebar {
-  @apply flex gap-3 flex-col p-4 rounded-xl cursor-pointer;
+  @apply flex gap-3 flex-col p-4 rounded-xl cursor-pointer border border-Neutral/10;
   transition: all 1s ease-in-out;
 }
 
@@ -52,11 +52,11 @@
 }
 
 .tableHead {
-  @apply text-start py-3 px-8;
+  @apply text-start text-xs py-3 px-8;
 }
 
 .tableContent {
-  @apply border-b text-start px-8 py-3;
+  @apply border-b text-sm text-start px-8 py-3;
 }
 
 ::-webkit-scrollbar {
@@ -121,10 +121,22 @@ input[type="number"]::-webkit-outer-spin-button {
   @apply flex gap-2 px-6 py-4 bg-Neutral/20 rounded-xl w-full;
 }
 
+.inputRadioLapor {
+  @apply flex gap-2 items-center px-6 py-4 bg-Neutral/20 rounded-full border border-Neutral/20;
+}
+
 input[type="radio"] {
   @apply w-4;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
+}
+
+input[type="radio"] {
+  transform: scale(1.2);
+}
+
+label.inputRadioLapor.checked {
+  border: 1px solid #5e51d9;
 }
