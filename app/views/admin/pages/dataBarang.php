@@ -1,3 +1,11 @@
+<?php
+// Contoh data
+$data_barang = array(
+    array("Nama" => "Tricks Bulgogi Keripik Kentang", "Harga" => 6000, "Tersedia" => 219, "Kategori" => "Makanan", "Exp" => "26/10/2023"),
+    array("Nama" => "Choco Paradise Cookies", "Harga" => 12000, "Tersedia" => 150, "Kategori" => "Kue", "Exp" => "30/11/2023"),
+    array("Nama" => "Vanilla Dream Ice Cream", "Harga" => 25000, "Tersedia" => 50, "Kategori" => "Es Krim", "Exp" => "15/12/2023"),
+);
+?>
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <div class="flex justify-between">
@@ -19,51 +27,30 @@
         </div>
         <!-- start grid -->
         <section class="grid grid-cols-4 gap-4 p-2 overflow-auto">
-            <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
-                <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
-                    <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start">219 Tersedia</span>
-                    <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
-                </div>
-                <div class="flex flex-col gap-3 p-4">
-                    <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
-                        Tricks
-                        Bulgogi Keripik
-                        Kentang</p>
-                    <p class="text-Primary-blue text-xl font-semibold">Rp6.000<span class="text-Neutral/50 text-xs">/pcs</span></p>
-                    <div class="flex gap-1 text-Neutral/70 font-medium text-sm">
-                        <p>Makanan</p>
-                        <img src="../public/Assets/svg/Ellipse 5.svg" alt="">
-                        <p>Exp 26/10/2023</p>
+            <?php foreach ($data_barang as $barang) : ?>
+                <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
+                    <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
+                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start"><?php echo $barang['Tersedia']; ?>
+                            Tersedia</span>
+                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                    </div>
+                    <div class="flex flex-col gap-3 p-4">
+                        <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
+                            <?php echo $barang['Nama']; ?>
+                        </p>
+                        <p class="text-Primary-blue text-xl font-semibold">Rp<?php echo $barang['Harga']; ?><span class="text-Neutral/50 text-xs">/pcs</span></p>
+                        <div class="flex gap-1 text-Neutral/70 font-medium text-sm">
+                            <p><?php echo $barang['Kategori']; ?></p>
+                            <img src="../public/Assets/svg/Ellipse 5.svg" alt="">
+                            <p>Exp <?php echo $barang['Exp']; ?></p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 p-4 -mt-2 w-full">
+                        <img src="../public/Assets/svg/trash.svg" alt="delete" class="deleteItem py-2 px-3 border rounded-full border-Neutral/40 cursor-pointer active:opacity-80" onclick="openDeleteBarang()">
+                        <button class="EditItem w-full bg-Neutral/20 rounded-full text-center p-3 text-Primary-blue active:opacity-80" onclick="editBarang()">Edit</button>
                     </div>
                 </div>
-                <div class="flex gap-2 p-4 -mt-2 w-full">
-                    <img src="../public/Assets/svg/trash.svg" alt="delete" class="deleteItem py-2 px-3 border rounded-full border-Neutral/40  cursor-pointer active:opacity-80" onclick="openDeleteBarang()">
-                    <button class="EditItem w-full bg-Neutral/20 rounded-full text-center p-3 text-Primary-blue active:opacity-80" onclick="editBarang()">Edit</button>
-                </div>
-            </div>
-
-            <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
-                <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
-                    <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start">219 Tersedia</span>
-                    <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
-                </div>
-                <div class="flex flex-col gap-3 p-4">
-                    <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
-                        Tricks
-                        Bulgogi Keripik
-                        Kentang</p>
-                    <p class="text-Primary-blue text-xl font-semibold">Rp6.000<span class="text-Neutral/50 text-xs">/pcs</span></p>
-                    <div class="flex gap-1 text-Neutral/70 font-medium text-sm">
-                        <p>Makanan</p>
-                        <img src="../public/Assets/svg/Ellipse 5.svg" alt="">
-                        <p>Exp 26/10/2023</p>
-                    </div>
-                </div>
-                <div class="flex gap-2 p-4 -mt-2 w-full">
-                    <img src="../public/Assets/svg/trash.svg" alt="delete" class="deleteItem py-2 px-3 border rounded-full border-Neutral/40  cursor-pointer active:opacity-80" onclick="openDeleteBarang()">
-                    <button class="EditItem w-full bg-Neutral/20 rounded-full text-center p-3 text-Primary-blue active:opacity-80" onclick="editBarang()">Edit</button>
-                </div>
-            </div>
+            <?php endforeach; ?>
 
         </section>
         <!-- end grid -->

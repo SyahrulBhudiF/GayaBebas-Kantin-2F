@@ -1046,6 +1046,10 @@ video {
   font-weight: 500;
 }
 
+.font-normal{
+  font-weight: 400;
+}
+
 .font-semibold{
   font-weight: 600;
 }
@@ -1353,6 +1357,82 @@ input[type="radio"] {
 
 label.inputRadioLapor.checked {
   border: 1px solid #5e51d9;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-clip: content-box;
+  border: 1px solid #c6c6c6;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  width: 20px;
+  height: 20px;
+  background-color: #5e51d9;
+  border: 5px solid rgba(94, 81, 217, 0.08);
+}
+
+.statusProses{
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 246 246 / var(--tw-bg-opacity));
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.buttonReq{
+  border-radius: 9999px;
+  border-width: 1px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.activeReject{
+  --tw-border-opacity: 1;
+  border-color: rgb(255 0 0 / var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 0 0 / var(--tw-text-opacity));
+}
+
+.notActiveReject{
+  pointer-events: none;
+  --tw-border-opacity: 1;
+  border-color: rgb(198 198 198 / var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(198 198 198 / var(--tw-text-opacity));
+}
+
+.activeAcc{
+  --tw-border-opacity: 1;
+  border-color: rgb(94 81 217 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(94 81 217 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.notActiveAcc{
+  pointer-events: none;
+  --tw-border-opacity: 1;
+  border-color: rgb(198 198 198 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(198 198 198 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .hover\:bg-purple-600:hover{
