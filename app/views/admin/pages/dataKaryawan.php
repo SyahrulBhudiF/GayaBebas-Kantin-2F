@@ -1,3 +1,13 @@
+<?php
+// Contoh data
+$data_karyawan = array(
+    array("No" => 1, "Nama Lengkap" => "Budi Setyaningrum", "No. Telepon" => "0812-7182-9102", "Tanggal Bergabung" => "26 Oktober 2023"),
+    array("No" => 2, "Nama Lengkap" => "Siti Rahmawati", "No. Telepon" => "0812-3456-7890", "Tanggal Bergabung" => "15 September 2023"),
+    array("No" => 3, "Nama Lengkap" => "John Doe", "No. Telepon" => "0812-1234-5678", "Tanggal Bergabung" => "10 Mei 2023"),
+    array("No" => 4, "Nama Lengkap" => "Jane Smith", "No. Telepon" => "0812-9876-5432", "Tanggal Bergabung" => "18 April 2023"),
+);
+
+?>
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <div class="flex justify-between">
@@ -20,11 +30,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($data_karyawan as $karyawan) : ?>
                     <tr>
-                        <td class="tableContent text-Neutral/60">01</td>
-                        <td class="tableContent">Budi Setyaningrum</td>
-                        <td class="tableContent">0812-7182-9102</td>
-                        <td class="tableContent">26 Oktober 2023</td>
+                        <td class="tableContent text-Neutral/60"><?php echo $karyawan['No']; ?></td>
+                        <td class="tableContent"><?php echo $karyawan['Nama Lengkap']; ?></td>
+                        <td class="tableContent"><?php echo $karyawan['No. Telepon']; ?></td>
+                        <td class="tableContent"><?php echo $karyawan['Tanggal Bergabung']; ?></td>
                         <td class="tableContent flex justify-start gap-2">
                             <img onclick="openModalEdit()" src="../public/Assets/svg/edit.svg" alt="edit"
                                 class="iconKaryawan edit">
@@ -32,41 +43,7 @@
                                 class="iconKaryawan delete">
                         </td>
                     </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">02</td>
-                        <td class="tableContent">Siti Rahmawati</td>
-                        <td class="tableContent">0812-3456-7890</td>
-                        <td class="tableContent">15 September 2023</td>
-                        <td class="tableContent flex justify-start gap-2">
-                            <img onclick="openModalEdit()" src="../public/Assets/svg/edit.svg" alt="edit"
-                                class="iconKaryawan edit">
-                            <img onclick="openModalDelete()" src="../public/Assets/svg/trash.svg" alt="delete"
-                                class="iconKaryawan delete">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">03</td>
-                        <td class="tableContent">John Doe</td>
-                        <td class="tableContent">0812-1234-5678</td>
-                        <td class="tableContent">10 Mei 2023</td>
-                        <td class="tableContent flex justify-start gap-2">
-                            <img onclick="openModalEdit()" src="../public/Assets/svg/edit.svg" alt="edit"
-                                class="iconKaryawan edit">
-                            <img onclick="openModalDelete()" src="../public/Assets/svg/trash.svg" alt="delete"
-                                class="iconKaryawan delete">
-                    </tr>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">04</td>
-                        <td class="tableContent">Jane Smith</td>
-                        <td class="tableContent">0812-9876-5432</td>
-                        <td class="tableContent">18 April 2023</td>
-                        <td class="tableContent flex justify-start gap-2">
-                            <img onclick="openModalEdit()" src="../public/Assets/svg/edit.svg" alt="edit"
-                                class="iconKaryawan edit">
-                            <img onclick="openModalDelete()" src="../public/Assets/svg/trash.svg" alt="delete"
-                                class="iconKaryawan delete">
-                        </td>
-                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
