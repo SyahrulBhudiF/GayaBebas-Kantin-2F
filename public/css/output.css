@@ -1359,6 +1359,25 @@ label.inputRadioLapor.checked {
   border: 1px solid #5e51d9;
 }
 
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-clip: content-box;
+  border: 1px solid #c6c6c6;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  width: 20px;
+  height: 20px;
+  background-color: #5e51d9;
+  border: 5px solid rgba(94, 81, 217, 0.08);
+}
+
 .statusProses{
   display: flex;
   width: -moz-fit-content;
