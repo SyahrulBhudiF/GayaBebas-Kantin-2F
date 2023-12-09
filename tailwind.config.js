@@ -42,7 +42,7 @@ module.exports = {
         },
 
         laptop4: {
-          raw: '(min-width: 1364px) and (max-height: 768px)'
+          raw: '(min-width: 1300px) and (max-height: 768px)'
         },
       },
     },

@@ -165,7 +165,7 @@ input[type="radio"]:checked {
 }
 
 .buttonReq {
-  @apply py-3 px-6 border rounded-full;
+  @apply py-3 px-6 border rounded-full active:opacity-60;
 }
 
 .activeReject {
