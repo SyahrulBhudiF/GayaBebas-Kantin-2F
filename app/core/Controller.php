@@ -4,15 +4,7 @@ class Controller
 {
     public function view($view, $data = [])
     {
-        if (!isset($_SESSION)) {
-            session_start();
-        }
-
-        if (!isset($_SESSION['nama'])) {
-            require_once '../app/views/login.php';
-        } else {
-            require_once '../app/views/' . $view . '.php';
-        }
+        require_once '../app/views/' . $view . '.php';
     }
 
     public function model($model)

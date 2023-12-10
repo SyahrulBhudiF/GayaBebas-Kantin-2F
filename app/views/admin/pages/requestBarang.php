@@ -9,7 +9,7 @@ function getStatusLabel($status)
 {
     switch ($status) {
         case 'proses':
-            return 'Dalam Diproses';
+            return 'Sedang Diproses';
         case 'tolak':
             return 'Ditolak';
         case 'setuju':

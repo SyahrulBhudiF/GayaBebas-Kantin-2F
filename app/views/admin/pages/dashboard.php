@@ -1,18 +1,31 @@
 <?php
+foreach ($data['total_penjualan'] as $tp) :
+    $total_penjualan = "Rp " . number_format($tp, 0, ',', '.');
+endforeach;
+
+foreach ($data['barang_terjual'] as $bt) :
+    $barang_terjual = $bt;
+endforeach;
+
+foreach ($data['total_stok'] as $ts) :
+    $total_stok = $ts;
+endforeach;
+
 // Contoh data
 $data_dashboard = array(
-    array("Icon" => "Assets/svg/moneys.svg", "Title" => "Total Pendapatan", "Value" => "Rp 3.450.000", "Subtitle" => "Total pendapatan kotor hari ini"),
-    array("Icon" => "Assets/svg/box-tick.svg", "Title" => "Terjual", "Value" => "524", "Subtitle" => "Barang laku terjual ke pembeli"),
-    array("Icon" => "Assets/svg/3d-cube-scan.svg", "Title" => "Total Stok", "Value" => "412", "Subtitle" => "Jumlah stok barang tersedia di kantin"),
+    array("Icon" => "Assets/svg/moneys.svg", "Title" => "Total Pendapatan", "Value" => $total_penjualan, "Subtitle" => "Total pendapatan kotor"),
+    array("Icon" => "Assets/svg/box-tick.svg", "Title" => "Terjual", "Value" => $barang_terjual, "Subtitle" => "Barang laku terjual ke pembeli"),
+    array("Icon" => "Assets/svg/3d-cube-scan.svg", "Title" => "Total Stok", "Value" => $total_stok, "Subtitle" => "Jumlah stok barang tersedia di kantin"),
 );
-
 
 // Contoh data
-$data_produk = array(
-    array("Tersedia" => 0, "Image" => "Assets/img/jajan.png", "Nama" => "Vanilla Dream Ice Cream", "Kategori" => "Minuman"),
-    array("Tersedia" => 150, "Image" => "Assets/img/jajan.png", "Nama" => "Choco Paradise Cookies", "Kategori" => "Makanan"),
-    array("Tersedia" => 219, "Image" => "Assets/img/jajan.png", "Nama" => "Tricks Bulgogi Keripik Kentang", "Kategori" => "Makanan"),
-);
+$data_produk = $data['barang'];
+
+// array(
+//     array("Tersedia" => 0, "Image" => "Assets/img/jajan.png", "Nama" => "Vanilla Dream Ice Cream", "Kategori" => "Minuman"),
+//     array("Tersedia" => 150, "Image" => "Assets/img/jajan.png", "Nama" => "Choco Paradise Cookies", "Kategori" => "Makanan"),
+//     array("Tersedia" => 219, "Image" => "Assets/img/jajan.png", "Nama" => "Tricks Bulgogi Keripik Kentang", "Kategori" => "Makanan"),
+// );
 
 ?>
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
@@ -25,10 +38,10 @@ $data_produk = array(
                         <img src="<?php echo $card['Icon']; ?>" alt="money" class="p-3 bg-Primary-surface rounded-xl">
                         <p class="text-Neutral/100 text-base font-semibold"><?php echo $card['Title']; ?></p>
                     </div>
-                    <div class="flex g-2 border border-Neutral/30 px-4 py-3 rounded-full">
+                    <!-- <div class="flex g-2 border border-Neutral/30 px-4 py-3 rounded-full">
                         <p>Hari Ini</p>
                         <img src="Assets/svg/Frame.svg" alt="frame">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="mt-10">
                     <p class="text-Neutral/100 text-[2.5rem] font-semibold"><?php echo $card['Value']; ?></p>
@@ -47,27 +60,27 @@ $data_produk = array(
                 <p class="text-Neutral/50">List barang dengan jumlah stok paling sedikit</p>
             </div>
             <div class="flex justify-between px-7 py-3 border border-Neutral/30 rounded-full">
-                <input type="search" name="" id="" class="outline-none" placeholder="Cari barang">
+                <input type="search" name="" id="cari-barang" onkeyup="cariBarang()" class="outline-none" placeholder="Cari barang">
                 <img src="../public/Assets/svg/search-normal.svg" alt="search">
             </div>
         </div>
         <!-- end header -->
         <!-- start list item -->
         <div class="overflow-auto">
-            <section class="grid grid-cols-4 gap-4 p-2 overflow-auto">
+            <section class="grid grid-cols-4 gap-4 p-2 overflow-auto" id="section-barang">
                 <!-- item -->
                 <?php foreach ($data_produk as $produk) : ?>
-                    <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem]">
+                    <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem] div-barang">
                         <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
-                            <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start"><?php echo $produk['Tersedia']; ?>
+                            <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start"><?php echo $produk['stok']; ?>
                                 Tersedia</span>
-                            <img src="<?php echo $produk['Image']; ?>" alt="jajan" class="w-[50%]">
+                            <img src="<?php echo /* $produk['Image']; */ "Assets/img/jajan.png"; ?>" alt="jajan" class="w-[50%]">
                         </div>
                         <div class="flex flex-col gap-3 p-4">
-                            <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis">
-                                <?php echo $produk['Nama']; ?>
+                            <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
+                                <?php echo $produk['nama']; ?>
                             </p>
-                            <p class="text-Neutral/70 text-sm"><?php echo $produk['Kategori']; ?></p>
+                            <p class="text-Neutral/70 text-sm"><?php echo $produk['kategori']; ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -77,3 +90,25 @@ $data_produk = array(
     </div>
     <!-- end list item -->
 </section>
+
+<script>
+    function cariBarang() {
+        var input, filter, section, items, item, title, i, txtValue;
+        input = document.getElementById('cari-barang');
+        filter = input.value.toUpperCase();
+        section = document.getElementById('section-barang');
+        items = section.getElementsByClassName('div-barang');
+
+        for (i = 0; i < items.length; i++) {
+            item = items[i];
+            title = item.querySelector('p.p-barang');
+            txtValue = title.textContent || title.innerText;
+
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        }
+    }
+</script>
