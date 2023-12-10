@@ -17,17 +17,17 @@ $data_transaksi = array(
                         <th class="tableHead">No</th>
                         <th class="tableHead">Nama Operator</th>
                         <th class="tableHead">Aksi Operator</th>
-                        <th class="tableHead">Tanggal Transaksi</th>
+                        <th class="tableHead">Tanggal Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($data_transaksi as $data) : ?>
-                    <tr>
-                        <td class="tableContent text-Neutral/60">0<?php echo $data['No']; ?></td>
-                        <td class="tableContent"><?php echo $data['Nama Operator']; ?></td>
-                        <td class="tableContent"><?php echo $data['Aksi Operator']; ?></td>
-                        <td class="tableContent"><?php echo $data['Tanggal Transaksi']; ?></td>
-                    </tr>
+                        <tr>
+                            <td class="tableContent text-Neutral/60">0<?php echo $data['No']; ?></td>
+                            <td class="tableContent"><?php echo $data['Nama Operator']; ?></td>
+                            <td class="tableContent"><?php echo $data['Aksi Operator']; ?></td>
+                            <td class="tableContent"><?php echo $data['Tanggal Transaksi']; ?></td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>

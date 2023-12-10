@@ -1,6 +1,6 @@
 <aside class="flex flex-col justify-between items-stretch p-6 w-[15%] laptop1:w-[18%] laptop2:w-[20%] laptop3:w-[20%] bg-Neutral/10 h-[88vh] laptop4:h-[85vh]">
     <div>
-        <a id="dashboard" class="containerSidebar <?php echo $active == 'Dashboard' ? 'activeSidebar' : ''; ?>" href="<?= BASEURL; ?>/dashboard">
+        <a id="transaksi" class="containerSidebar <?php echo $active == 'Transaksi' ? 'activeSidebar' : ''; ?>" href="<?= BASEURL; ?>/operatortransaksi">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="vuesax/outline/3dcube">
                     <g id="3dcube">
@@ -11,11 +11,12 @@
                 </g>
             </svg>
 
-            <p class="textSidebar <?php echo $active == 'Dashboard' ? 'text-Primary-blue' : 'text-Neutral/70';  ?>">
-                Dashboard
+            <p class="textSidebar <?php echo $active == 'Transaksi' ? 'text-Primary-blue' : 'text-Neutral/70';  ?>">
+                Transaksi
             </p>
         </a>
-        <a id="dataKaryawan" class="containerSidebar" href="<?= BASEURL; ?>/datakaryawan">
+        <!-- <a id="dataKaryawan" class="containerSidebar" href="<?php // BASEURL; 
+                                                                    ?>/datakaryawan">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="vuesax/outline/profile-2user">
                     <g id="profile-2user">
@@ -28,8 +29,8 @@
             </svg>
             <p class="textSidebar text-Neutral/70">Data
                 Karyawan</p>
-        </a>
-        <a id="dataBarang" class="containerSidebar" href="<?= BASEURL; ?>/databarang">
+        </a> -->
+        <a id="requestBarang" class="containerSidebar" href="<?= BASEURL; ?>/operatorrequestbarang">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="vuesax/outline/box">
                     <g id="box">
@@ -41,9 +42,9 @@
                 </g>
             </svg>
 
-            <p class="textSidebar text-Neutral/70">Data Barang</p>
+            <p class="textSidebar text-Neutral/70">Request Barang</p>
         </a>
-        <a id="laporan" class="containerSidebar" href="<?= BASEURL; ?>/laporan">
+        <a id="laporan" class="containerSidebar" href="<?= BASEURL; ?>/operatorlaporan">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="vuesax/outline/receipt">
                     <g id="receipt">
@@ -56,7 +57,7 @@
 
             <p class="textSidebar text-Neutral/70">Laporan</p>
         </a>
-        <a id="log" class="containerSidebar" href="<?= BASEURL; ?>/log">
+        <a id="log" class="containerSidebar" href="<?= BASEURL; ?>/operatorlog">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="vuesax/outline/personalcard">
                     <g id="personalcard">
