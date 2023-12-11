@@ -1,6 +1,6 @@
 <aside class="flex flex-col justify-between items-stretch p-6 w-[15%] laptop1:w-[18%] laptop2:w-[20%] laptop3:w-[20%] bg-Neutral/10 h-[88vh] laptop4:h-[85vh]">
     <div>
-        <a id="dashboard" class="containerSidebar <?php echo $active == 'Dashboard' ? 'activeSidebar' : ''; ?>" href="<?= BASEURL; ?>/dashboard">
+        <a id="dashboard" class="containerSidebar <?= $active == 'Dashboard' ? 'activeSidebar' : ''; ?>" href="<?= BASEURL; ?>/dashboard">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="vuesax/outline/3dcube">
                     <g id="3dcube">
@@ -11,7 +11,7 @@
                 </g>
             </svg>
 
-            <p class="textSidebar <?php echo $active == 'Dashboard' ? 'text-Primary-blue' : 'text-Neutral/70';  ?>">
+            <p class="textSidebar <?= $active == 'Dashboard' ? 'text-Primary-blue' : 'text-Neutral/70';  ?>">
                 Dashboard
             </p>
         </a>

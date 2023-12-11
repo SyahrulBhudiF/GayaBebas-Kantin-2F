@@ -41,14 +41,14 @@ $data_penjualan = array(
                 </thead>
                 <tbody>
                     <?php foreach ($data_penjualan as $data) : ?>
-                    <tr>
-                        <td class="tableContent text-Neutral/60"><?php echo $data['No']; ?></td>
-                        <td class="tableContent"><?php echo $data['Nama Operator']; ?></td>
-                        <td class="tableContent"><?php echo $data['Nama Barang']; ?></td>
-                        <td class="tableContent"><?php echo $data['Jumlah Barang']; ?></td>
-                        <td class="tableContent"><?php echo $data['Total Penjualan']; ?></td>
-                        <td class="tableContent"><?php echo $data['Tanggal Transaksi']; ?></td>
-                    </tr>
+                        <tr>
+                            <td class="tableContent text-Neutral/60"><?= $data['No']; ?></td>
+                            <td class="tableContent"><?= $data['Nama Operator']; ?></td>
+                            <td class="tableContent"><?= $data['Nama Barang']; ?></td>
+                            <td class="tableContent"><?= $data['Jumlah Barang']; ?></td>
+                            <td class="tableContent"><?= $data['Total Penjualan']; ?></td>
+                            <td class="tableContent"><?= $data['Tanggal Transaksi']; ?></td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -56,10 +56,10 @@ $data_penjualan = array(
         <!-- End Table -->
 </section>
 <script>
-function toggleCheckedClass(label) {
-    document.querySelectorAll('label.inputRadioLapor').forEach(label => label.classList.remove('checked'));
-    if (label.control.checked) {
-        label.classList.add('checked');
+    function toggleCheckedClass(label) {
+        document.querySelectorAll('label.inputRadioLapor').forEach(label => label.classList.remove('checked'));
+        if (label.control.checked) {
+            label.classList.add('checked');
+        }
     }
-}
 </script>

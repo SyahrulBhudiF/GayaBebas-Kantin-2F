@@ -34,13 +34,13 @@ $data_karyawan = $data['karyawan'];
                     <?php $no = 1;
                     foreach ($data_karyawan as $karyawan) : ?>
                         <tr>
-                            <td class="tableContent text-Neutral/60"><?php echo $no; ?></td>
-                            <td class="tableContent"><?php echo $karyawan['nama']; ?></td>
-                            <td class="tableContent"><?php echo $karyawan['no_telp']; ?></td>
-                            <td class="tableContent"><?php echo tgl_indo(date($karyawan['tgl_bergabung'])); ?></td>
+                            <td class="tableContent text-Neutral/60"><?= $no; ?></td>
+                            <td class="tableContent"><?= $karyawan['nama']; ?></td>
+                            <td class="tableContent"><?= $karyawan['no_telp']; ?></td>
+                            <td class="tableContent"><?= tgl_indo(date($karyawan['tgl_bergabung'])); ?></td>
                             <td class="tableContent flex justify-start gap-2">
-                                <img onclick="openModalEdit<?php echo $karyawan['id_user']; ?>()" src="../public/Assets/svg/edit.svg" alt="edit" class="iconKaryawan edit">
-                                <img onclick="openModalDelete<?php echo $karyawan['id_user']; ?>()" src="../public/Assets/svg/trash.svg" alt="delete" class="iconKaryawan delete">
+                                <img onclick="openModalEdit<?= $karyawan['id_user']; ?>()" src="../public/Assets/svg/edit.svg" alt="edit" class="iconKaryawan edit">
+                                <img onclick="openModalDelete<?= $karyawan['id_user']; ?>()" src="../public/Assets/svg/trash.svg" alt="delete" class="iconKaryawan delete">
                             </td>
                         </tr>
                     <?php $no++;
@@ -82,30 +82,30 @@ $data_karyawan = $data['karyawan'];
         <!-- end modal add -->
         <!-- modal edit -->
         <?php foreach ($data_karyawan as $karyawan) : ?>
-            <div id="modalEdit<?php echo $karyawan['id_user']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
+            <div id="modalEdit<?= $karyawan['id_user']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
                 <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[28%] laptop1:w-[36%] laptop3:w-[42%]">
                     <div class="flex justify-between items-center">
                         <h2 class="text-xl font-semibold text-Neutral/100">Edit Data Karyawan</h2>
                         <button id="closeEdit" class="cursor-pointer">
-                            <img onclick="closeModalEdit<?php echo $karyawan['id_user']; ?>()" src="../public/Assets/svg/close.svg" alt="close">
+                            <img onclick="closeModalEdit<?= $karyawan['id_user']; ?>()" src="../public/Assets/svg/close.svg" alt="close">
                         </button>
                     </div>
-                    <form class="flex flex-col gap-8" action="<?= BASEURL; ?>/datakaryawan/ubahDataKaryawanById/<?php echo $karyawan['id_user']; ?>" method="POST">
+                    <form class="flex flex-col gap-8" action="<?= BASEURL; ?>/datakaryawan/ubahDataKaryawanById/<?= $karyawan['id_user']; ?>" method="POST">
                         <div class="flex flex-col g-3">
                             <label for="nama" class="textInputKaryawan">Nama Lengkap</label>
-                            <input type="text" name="nama" id="editnama" class="inputKaryawan" placeholder="Masukkan nama lengkap" value="<?php echo $karyawan['nama']; ?>">
+                            <input type="text" name="nama" id="editnama" class="inputKaryawan" placeholder="Masukkan nama lengkap" value="<?= $karyawan['nama']; ?>">
                         </div>
                         <div class="flex flex-col gap-3">
                             <label for="noTelp" class="textInputKaryawan">Nomor Telepon</label>
-                            <input type="number" name="noTelp" id="editnoTelp" class="inputKaryawan" placeholder="Masukkan nomor telepon" value="<?php echo $karyawan['no_telp']; ?>">
+                            <input type="number" name="noTelp" id="editnoTelp" class="inputKaryawan" placeholder="Masukkan nomor telepon" value="<?= $karyawan['no_telp']; ?>">
                         </div>
                         <div class="flex flex-col gap-3">
                             <label for="username" class="textInputKaryawan">Username</label>
-                            <input type="text" name="username" id="editusername" class="inputKaryawan" placeholder="Masukkan username" value="<?php echo $karyawan['username']; ?>">
+                            <input type="text" name="username" id="editusername" class="inputKaryawan" placeholder="Masukkan username" value="<?= $karyawan['username']; ?>">
                         </div>
                         <div class="flex flex-col gap-3">
                             <label for="password" class="textInputKaryawan">Password</label>
-                            <input type="text" name="password" id="editpassword" class="inputKaryawan" placeholder="Masukkan password" value="<?php echo $karyawan['password']; ?>">
+                            <input type="text" name="password" id="editpassword" class="inputKaryawan" placeholder="Masukkan password" value="<?= $karyawan['password']; ?>">
                         </div>
                         <button class="addButton">Simpan</button>
                     </form>
@@ -113,15 +113,15 @@ $data_karyawan = $data['karyawan'];
             </div>
             <!-- end modal edit -->
             <!-- modal delete -->
-            <div id="modalDelete<?php echo $karyawan['id_user']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
+            <div id="modalDelete<?= $karyawan['id_user']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
                 <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[20%] laptop1:w-[27%] laptop3:w-[30%]">
                     <p class="text-Neutral/100 text-xl font-semibold text-center">Apakah anda yakin ingin menghapus data
                         ini?</p>
                     <div class="flex justify-between">
-                        <a href="<?= BASEURL; ?>/datakaryawan/hapusDataKaryawanById/<?php echo $karyawan['id_user']; ?>">
+                        <a href="<?= BASEURL; ?>/datakaryawan/hapusDataKaryawanById/<?= $karyawan['id_user']; ?>">
                             <button class="px-[3.25rem] py-3 text-white bg-red-600 rounded-full">Hapus</button>
                         </a>
-                        <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeModalDelete<?php echo $karyawan['id_user']; ?>()">Batal</button>
+                        <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeModalDelete<?= $karyawan['id_user']; ?>()">Batal</button>
                     </div>
                 </div>
             </div>
@@ -143,29 +143,29 @@ $data_karyawan = $data['karyawan'];
         };
 
         <?php foreach ($data_karyawan as $karyawan) : ?>
-            const modalEdit<?php echo $karyawan['id_user']; ?> = document.getElementById('modalEdit<?php echo $karyawan['id_user']; ?>');
+            const modalEdit<?= $karyawan['id_user']; ?> = document.getElementById('modalEdit<?= $karyawan['id_user']; ?>');
 
-            const openModalEdit<?php echo $karyawan['id_user']; ?> = () => {
-                modalEdit<?php echo $karyawan['id_user']; ?>.classList.remove('hidden');
-                modalEdit<?php echo $karyawan['id_user']; ?>.classList.add('flex');
+            const openModalEdit<?= $karyawan['id_user']; ?> = () => {
+                modalEdit<?= $karyawan['id_user']; ?>.classList.remove('hidden');
+                modalEdit<?= $karyawan['id_user']; ?>.classList.add('flex');
             };
 
-            const closeModalEdit<?php echo $karyawan['id_user']; ?> = () => {
-                modalEdit<?php echo $karyawan['id_user']; ?>.classList.add('hidden');
-                modalEdit<?php echo $karyawan['id_user']; ?>.classList.remove('flex');
+            const closeModalEdit<?= $karyawan['id_user']; ?> = () => {
+                modalEdit<?= $karyawan['id_user']; ?>.classList.add('hidden');
+                modalEdit<?= $karyawan['id_user']; ?>.classList.remove('flex');
             };
 
 
-            const modalDelete<?php echo $karyawan['id_user']; ?> = document.getElementById("modalDelete<?php echo $karyawan['id_user']; ?>");
+            const modalDelete<?= $karyawan['id_user']; ?> = document.getElementById("modalDelete<?= $karyawan['id_user']; ?>");
 
-            const openModalDelete<?php echo $karyawan['id_user']; ?> = () => {
-                modalDelete<?php echo $karyawan['id_user']; ?>.classList.remove('hidden');
-                modalDelete<?php echo $karyawan['id_user']; ?>.classList.add('flex');
+            const openModalDelete<?= $karyawan['id_user']; ?> = () => {
+                modalDelete<?= $karyawan['id_user']; ?>.classList.remove('hidden');
+                modalDelete<?= $karyawan['id_user']; ?>.classList.add('flex');
             };
 
-            const closeModalDelete<?php echo $karyawan['id_user']; ?> = () => {
-                modalDelete<?php echo $karyawan['id_user']; ?>.classList.add('hidden');
-                modalDelete<?php echo $karyawan['id_user']; ?>.classList.remove('flex');
+            const closeModalDelete<?= $karyawan['id_user']; ?> = () => {
+                modalDelete<?= $karyawan['id_user']; ?>.classList.add('hidden');
+                modalDelete<?= $karyawan['id_user']; ?>.classList.remove('flex');
             };
         <?php endforeach; ?>
         // end modal dataKaryawan

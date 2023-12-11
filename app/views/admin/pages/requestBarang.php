@@ -56,33 +56,33 @@ function getStatusLabel($status)
                         $status = $value['Status'];
                         ?>
                         <tr>
-                            <td class="tableContent text-Neutral/60"><?php echo $no; ?></td>
-                            <td class="tableContent"><?php echo $namaOperator; ?></td>
-                            <td class="tableContent"><?php echo $namaBarang; ?></td>
+                            <td class="tableContent text-Neutral/60"><?= $no; ?></td>
+                            <td class="tableContent"><?= $namaOperator; ?></td>
+                            <td class="tableContent"><?= $namaBarang; ?></td>
                             <td class="tableContent">
                                 <div>
                                     <?php
                                     if ($status === 'proses') : ?>
                                         <span class="statusProses">
                                             <img src="Assets/svg/kuning.svg" al t="">
-                                            <?php echo getStatusLabel($status); ?>
+                                            <?= getStatusLabel($status); ?>
                                         </span>
                                     <?php elseif ($status === 'tolak') : ?>
                                         <span class="statusProses">
                                             <img src="Assets/svg/merah.svg" al t="">
-                                            <?php echo getStatusLabel($status); ?>
+                                            <?= getStatusLabel($status); ?>
                                         </span>
                                     <?php elseif ($status === 'setuju') : ?>
                                         <span class="statusProses">
                                             <img src="Assets/svg/hijau.svg" al t="">
-                                            <?php echo getStatusLabel($status); ?>
+                                            <?= getStatusLabel($status); ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
                             </td>
                             <td class="tableContent flex justify-start gap-2">
-                                <button onclick="openModalReject()" class="buttonReq <?php echo $status === 'proses' ? 'activeReject' : 'notActiveReject'; ?>">Tolak</button>
-                                <button onclick="openModalAcc()" class="buttonReq <?php echo $status === 'proses' ? 'activeAcc' : 'notActiveAcc'; ?>">Setujui</button>
+                                <button onclick="openModalReject()" class="buttonReq <?= $status === 'proses' ? 'activeReject' : 'notActiveReject'; ?>">Tolak</button>
+                                <button onclick="openModalAcc()" class="buttonReq <?= $status === 'proses' ? 'activeAcc' : 'notActiveAcc'; ?>">Setujui</button>
                             </td>
                         </tr>
                     <?php endforeach; ?>

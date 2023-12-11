@@ -32,24 +32,26 @@ $data_barang = $data['barang'];
             <?php foreach ($data_barang as $barang) : ?>
                 <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem] div-barang">
                     <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
-                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start"><?php echo $barang['stok']; ?>
+                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start"><?= $barang['stok']; ?>
                             Tersedia</span>
                         <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
                     </div>
                     <div class="flex flex-col gap-3 p-4">
                         <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
-                            <?php echo $barang['nama']; ?>
+                            <?= $barang['nama']; ?>
                         </p>
-                        <p class="text-Primary-blue text-xl font-semibold">Rp <?php echo $barang['hrg_jual']; ?><span class="text-Neutral/50 text-xs">/pcs</span></p>
+                        <p class="text-Primary-blue text-xl font-semibold">Rp <?= $barang['hrg_jual']; ?><span class="text-Neutral/50 text-xs">/pcs</span></p>
                         <div class="flex gap-1 text-Neutral/70 font-medium text-sm">
-                            <p><?php echo $barang['kategori']; ?></p>
+                            <p><?= $barang['kategori']; ?></p>
                             <img src="../public/Assets/svg/Ellipse 5.svg" alt="">
-                            <p>Exp <?php echo ($barang['tgl_expire'] != NULL) ? date('d/m/Y', strtotime($barang['tgl_expire'])) : ''; ?></p>
+                            <p>Exp
+                                <?= ($barang['tgl_expire'] != NULL) ? date('d/m/Y', strtotime($barang['tgl_expire'])) : ''; ?>
+                            </p>
                         </div>
                     </div>
                     <div class="flex gap-2 p-4 -mt-2 w-full">
-                        <img src="../public/Assets/svg/trash.svg" alt="delete" class="deleteItem py-2 px-3 border rounded-full border-Neutral/40 cursor-pointer active:opacity-80" onclick="openDeleteBarang<?php echo $barang['id_barang']; ?>()">
-                        <button class="EditItem w-full bg-Neutral/20 rounded-full text-center p-3 text-Primary-blue active:opacity-80" onclick="editBarang<?php echo $barang['id_barang']; ?>()">Edit</button>
+                        <img src="../public/Assets/svg/trash.svg" alt="delete" class="deleteItem py-2 px-3 border rounded-full border-Neutral/40 cursor-pointer active:opacity-80" onclick="openDeleteBarang<?= $barang['id_barang']; ?>()">
+                        <button class="EditItem w-full bg-Neutral/20 rounded-full text-center p-3 text-Primary-blue active:opacity-80" onclick="editBarang<?= $barang['id_barang']; ?>()">Edit</button>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -132,23 +134,23 @@ $data_barang = $data['barang'];
         <!-- end modal add -->
         <!-- start modal edit -->
         <?php foreach ($data_barang as $barang) : ?>
-            <div id="editModalBarang<?php echo $barang['id_barang']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
+            <div id="editModalBarang<?= $barang['id_barang']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
                 <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[50%] laptop1:w-[62%] laptop3:w-[68%]">
                     <div class="flex justify-between items-center">
                         <h2 class="text-xl font-semibold text-Neutral/100">Edit Data Barang</h2>
-                        <button id="closeModal" class="cursor-pointer" onclick="closeEdit<?php echo $barang['id_barang']; ?>()">
+                        <button id="closeModal" class="cursor-pointer" onclick="closeEdit<?= $barang['id_barang']; ?>()">
                             <img src="../public/Assets/svg/close.svg" alt="close">
                         </button>
                     </div>
-                    <form id="formEdit" class="flex flex-col gap-8 justify-center items-stretch" action="<?= BASEURL; ?>/databarang/ubahDataBarangById/<?php echo $barang['id_barang']; ?>" method="POST" enctype="multipart/form-data">
+                    <form id="formEdit" class="flex flex-col gap-8 justify-center items-stretch" action="<?= BASEURL; ?>/databarang/ubahDataBarangById/<?= $barang['id_barang']; ?>" method="POST" enctype="multipart/form-data">
                         <div class="grid grid-cols-2 gap-8">
                             <div class="flex flex-col gap-3">
                                 <label for="editNamaBarang" class="textInputKaryawan">Nama Barang</label>
-                                <input type="text" name="nama" id="editNamaBarang" class="inputKaryawan" placeholder="Masukkan nama barang" value="<?php echo $barang['nama']; ?>">
+                                <input type="text" name="nama" id="editNamaBarang" class="inputKaryawan" placeholder="Masukkan nama barang" value="<?= $barang['nama']; ?>">
                             </div>
                             <div class="flex flex-col gap-3">
                                 <label for="editStok" class="textInputKaryawan">Jumlah Stok</label>
-                                <input type="number" name="stok" id="editStok" class="inputKaryawan" placeholder="Masukkan jumlah stok" value="<?php echo $barang['stok']; ?>">
+                                <input type="number" name="stok" id="editStok" class="inputKaryawan" placeholder="Masukkan jumlah stok" value="<?= $barang['stok']; ?>">
                             </div>
                             <div class="flex flex-col gap-3">
                                 <label for="inputImg" class="textInputKaryawan">Upload gambar produk</label>
@@ -160,7 +162,7 @@ $data_barang = $data['barang'];
                                             atau tarik dan
                                             lepas gambar disini</p>
                                     </label>
-                                    <input type="file" name="inputImgEdit" id="inputImgEdit" class="inputImg" value="<?php echo $barang['foto']; ?>" hidden>
+                                    <input type="file" name="inputImgEdit" id="inputImgEdit" class="inputImg" value="<?= $barang['foto']; ?>" hidden>
                                 </div>
                             </div>
                             <div class="flex flex-col gap-8">
@@ -168,15 +170,15 @@ $data_barang = $data['barang'];
                                     <p class="textInputKaryawan">Kategori</p>
                                     <div class="flex gap-3">
                                         <label for="editMakanan" class="inputRadio">
-                                            <input type="radio" name="kategori" id="editMakanan" value="Makanan" <?php echo ($barang['kategori'] == 'Makanan') ? 'checked' : ''; ?>>
+                                            <input type="radio" name="kategori" id="editMakanan" value="Makanan" <?= ($barang['kategori'] == 'Makanan') ? 'checked' : ''; ?>>
                                             Makanan
                                         </label>
                                         <label for="editMinuman" class="inputRadio">
-                                            <input type="radio" name="kategori" id="editMinuman" value="Minuman" <?php echo ($barang['kategori'] == 'Minuman') ? 'checked' : ''; ?>>
+                                            <input type="radio" name="kategori" id="editMinuman" value="Minuman" <?= ($barang['kategori'] == 'Minuman') ? 'checked' : ''; ?>>
                                             Minuman
                                         </label>
                                         <label for="editAtk" class="inputRadio">
-                                            <input type="radio" name="kategori" id="editAtk" value="ATK" <?php echo ($barang['kategori'] == 'ATK') ? 'checked' : ''; ?>>
+                                            <input type="radio" name="kategori" id="editAtk" value="ATK" <?= ($barang['kategori'] == 'ATK') ? 'checked' : ''; ?>>
                                             ATK
                                         </label>
                                     </div>
@@ -184,7 +186,7 @@ $data_barang = $data['barang'];
                                 <div class="flex flex-col gap-3">
                                     <label for="date-input" class="textInputKaryawan">Tanggal Kadaluarsa</label>
                                     <div class="flex gap-2 w-full bg-Neutral/20 pr-6 rounded-xl">
-                                        <input type="text" name="date" id="date-input-edit" class="inputKaryawan w-full" placeholder="Masukkan tanggal" onblur="blurDate()" onfocus="focusDate()" value="<?php echo $barang['tgl_expire']; ?>">
+                                        <input type="text" name="date" id="date-input-edit" class="inputKaryawan w-full" placeholder="Masukkan tanggal" onblur="blurDate()" onfocus="focusDate()" value="<?= $barang['tgl_expire']; ?>">
                                         <img src="../public/Assets/svg/calendar-2.svg" alt="">
                                     </div>
                                 </div>
@@ -195,7 +197,7 @@ $data_barang = $data['barang'];
                                             Rp |
                                         </span>
                                         <!-- <input type="number" name="harga" id="inputEditHarga" class="bg-Neutral/20 outline-none w-[80%]" placeholder="Masukkan harga" oninput="formatNumber(this)"> -->
-                                        <input type="number" name="harga" id="inputEditHarga" class="bg-Neutral/20 outline-none w-[80%]" placeholder="Masukkan harga" value="<?php echo $barang['hrg_jual']; ?>">
+                                        <input type="number" name="harga" id="inputEditHarga" class="bg-Neutral/20 outline-none w-[80%]" placeholder="Masukkan harga" value="<?= $barang['hrg_jual']; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -208,15 +210,15 @@ $data_barang = $data['barang'];
         <!-- end modal edit -->
         <!-- start modal delete -->
         <?php foreach ($data_barang as $barang) : ?>
-            <div id="deleteBarang<?php echo $barang['id_barang']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
+            <div id="deleteBarang<?= $barang['id_barang']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
                 <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[20%] laptop1:w-[27%] laptop3:w-[30%]">
                     <p class="text-Neutral/100 text-xl font-semibold text-center">Apakah anda yakin ingin menghapus data
                         ini?</p>
                     <div class="flex justify-between">
-                        <a href="<?= BASEURL; ?>/databarang/hapusDataBarangById/<?php echo $barang['id_barang']; ?>">
+                        <a href="<?= BASEURL; ?>/databarang/hapusDataBarangById/<?= $barang['id_barang']; ?>">
                             <button class="px-[3.25rem] py-3 text-white bg-red-600 rounded-full">Hapus</button>
                         </a>
-                        <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeDeleteBarang<?php echo $barang['id_barang']; ?>()">Batal</button>
+                        <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeDeleteBarang<?= $barang['id_barang']; ?>()">Batal</button>
                     </div>
                 </div>
             </div>
@@ -314,16 +316,16 @@ $data_barang = $data['barang'];
 
     // modal edit
     <?php foreach ($data_barang as $barang) : ?>
-        const edit<?php echo $barang['id_barang']; ?> = document.getElementById('editModalBarang<?php echo $barang['id_barang']; ?>')
+        const edit<?= $barang['id_barang']; ?> = document.getElementById('editModalBarang<?= $barang['id_barang']; ?>')
 
-        const editBarang<?php echo $barang['id_barang']; ?> = () => {
-            edit<?php echo $barang['id_barang']; ?>.classList.remove('hidden')
-            edit<?php echo $barang['id_barang']; ?>.classList.add('flex');
+        const editBarang<?= $barang['id_barang']; ?> = () => {
+            edit<?= $barang['id_barang']; ?>.classList.remove('hidden')
+            edit<?= $barang['id_barang']; ?>.classList.add('flex');
         }
 
-        const closeEdit<?php echo $barang['id_barang']; ?> = () => {
-            edit<?php echo $barang['id_barang']; ?>.classList.add('hidden');
-            edit<?php echo $barang['id_barang']; ?>.classList.remove('flex');
+        const closeEdit<?= $barang['id_barang']; ?> = () => {
+            edit<?= $barang['id_barang']; ?>.classList.add('hidden');
+            edit<?= $barang['id_barang']; ?>.classList.remove('flex');
         }
     <?php endforeach; ?>
 
@@ -379,16 +381,16 @@ $data_barang = $data['barang'];
     // end edit
     // modal delete
     <?php foreach ($data_barang as $barang) : ?>
-        const deleteBarang<?php echo $barang['id_barang']; ?> = document.getElementById('deleteBarang<?php echo $barang['id_barang']; ?>')
+        const deleteBarang<?= $barang['id_barang']; ?> = document.getElementById('deleteBarang<?= $barang['id_barang']; ?>')
 
-        const openDeleteBarang<?php echo $barang['id_barang']; ?> = () => {
-            deleteBarang<?php echo $barang['id_barang']; ?>.classList.remove('hidden')
-            deleteBarang<?php echo $barang['id_barang']; ?>.classList.add('flex');
+        const openDeleteBarang<?= $barang['id_barang']; ?> = () => {
+            deleteBarang<?= $barang['id_barang']; ?>.classList.remove('hidden')
+            deleteBarang<?= $barang['id_barang']; ?>.classList.add('flex');
         }
 
-        const closeDeleteBarang<?php echo $barang['id_barang']; ?> = () => {
-            deleteBarang<?php echo $barang['id_barang']; ?>.classList.add('hidden');
-            deleteBarang<?php echo $barang['id_barang']; ?>.classList.remove('flex');
+        const closeDeleteBarang<?= $barang['id_barang']; ?> = () => {
+            deleteBarang<?= $barang['id_barang']; ?>.classList.add('hidden');
+            deleteBarang<?= $barang['id_barang']; ?>.classList.remove('flex');
         }
     <?php endforeach; ?>
     // end delete

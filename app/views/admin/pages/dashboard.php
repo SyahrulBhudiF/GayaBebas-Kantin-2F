@@ -11,22 +11,13 @@ foreach ($data['total_stok'] as $ts) :
     $total_stok = $ts;
 endforeach;
 
-// Contoh data
 $data_dashboard = array(
     array("Icon" => "Assets/svg/moneys.svg", "Title" => "Total Pendapatan", "Value" => $total_penjualan, "Subtitle" => "Total pendapatan kotor"),
     array("Icon" => "Assets/svg/box-tick.svg", "Title" => "Terjual", "Value" => $barang_terjual, "Subtitle" => "Barang laku terjual ke pembeli"),
     array("Icon" => "Assets/svg/3d-cube-scan.svg", "Title" => "Total Stok", "Value" => $total_stok, "Subtitle" => "Jumlah stok barang tersedia di kantin"),
 );
 
-// Contoh data
 $data_produk = $data['barang'];
-
-// array(
-//     array("Tersedia" => 0, "Image" => "Assets/img/jajan.png", "Nama" => "Vanilla Dream Ice Cream", "Kategori" => "Minuman"),
-//     array("Tersedia" => 150, "Image" => "Assets/img/jajan.png", "Nama" => "Choco Paradise Cookies", "Kategori" => "Makanan"),
-//     array("Tersedia" => 219, "Image" => "Assets/img/jajan.png", "Nama" => "Tricks Bulgogi Keripik Kentang", "Kategori" => "Makanan"),
-// );
-
 ?>
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <!-- start card grid -->
@@ -35,17 +26,13 @@ $data_produk = $data['barang'];
             <div class="cardDashboard">
                 <div class="flex justify-between">
                     <div class="flex items-center gap-3">
-                        <img src="<?php echo $card['Icon']; ?>" alt="money" class="p-3 bg-Primary-surface rounded-xl">
-                        <p class="text-Neutral/100 text-base font-semibold"><?php echo $card['Title']; ?></p>
+                        <img src="<?= $card['Icon']; ?>" alt="money" class="p-3 bg-Primary-surface rounded-xl">
+                        <p class="text-Neutral/100 text-base font-semibold"><?= $card['Title']; ?></p>
                     </div>
-                    <!-- <div class="flex g-2 border border-Neutral/30 px-4 py-3 rounded-full">
-                        <p>Hari Ini</p>
-                        <img src="Assets/svg/Frame.svg" alt="frame">
-                    </div> -->
                 </div>
                 <div class="mt-10">
-                    <p class="text-Neutral/100 text-[2.5rem] font-semibold"><?php echo $card['Value']; ?></p>
-                    <p class="text-Neutral/50"><?php echo $card['Subtitle']; ?></p>
+                    <p class="text-Neutral/100 text-[2.5rem] font-semibold"><?= $card['Value']; ?></p>
+                    <p class="text-Neutral/50"><?= $card['Subtitle']; ?></p>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -72,15 +59,15 @@ $data_produk = $data['barang'];
                 <?php foreach ($data_produk as $produk) : ?>
                     <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem] div-barang">
                         <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
-                            <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start"><?php echo $produk['stok']; ?>
+                            <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start"><?= $produk['stok']; ?>
                                 Tersedia</span>
-                            <img src="<?php echo /* $produk['Image']; */ "Assets/img/jajan.png"; ?>" alt="jajan" class="w-[50%]">
+                            <img src="<?= /* $produk['Image']; */ "Assets/img/jajan.png"; ?>" alt="jajan" class="w-[50%]">
                         </div>
                         <div class="flex flex-col gap-3 p-4">
                             <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
-                                <?php echo $produk['nama']; ?>
+                                <?= $produk['nama']; ?>
                             </p>
-                            <p class="text-Neutral/70 text-sm"><?php echo $produk['kategori']; ?></p>
+                            <p class="text-Neutral/70 text-sm"><?= $produk['kategori']; ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>
