@@ -19,6 +19,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         custom: "1.1fr 1fr 1fr",
+        transaksi: "1fr 1fr"
       },
       screens: {
         sm: "640px",
