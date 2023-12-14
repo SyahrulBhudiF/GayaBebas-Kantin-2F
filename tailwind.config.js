@@ -39,7 +39,7 @@ module.exports = {
         },
 
         laptop2: {
-          raw: "(width: 1280px) and (height: 800px)",
+          raw: "(min-width: 1280px) and (max-height: 800px)",
         },
 
         laptop4: {

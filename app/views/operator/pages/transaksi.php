@@ -7,27 +7,27 @@ $data_barang = array(
 ?>
 <section class="flex fadeIn p-4 gap-2 w-full h-screen">
     <!-- Col 1 -->
-    <div class="flex flex-col w-[80%] bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%]">
-        <div class="flex justify-between w-[22%] px-7 py-3 border border-Neutral/30 rounded-full">
+    <div class="flex flex-col w-[80%] laptop1:w-[75%] laptop3:h-[84vh] laptop2:h-[81vh] bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%]">
+        <div class="flex justify-between w-fit px-7 py-3 border border-Neutral/30 rounded-full">
             <input type="search" name="" id="cari-barang" class="outline-none" placeholder="Cari barang">
             <img src="../public/Assets/svg/search-normal.svg" alt="search">
         </div>
         <!-- start grid -->
-        <section class="grid grid-cols-4 gap-4 p-2 overflow-auto" id="section-barang">
+        <section class="grid grid-cols-4 laptop1:grid-cols-3 laptop3:grid-cols-3 gap-4 p-2 overflow-auto" id="section-barang">
             <?php foreach ($data_barang as $barang) : ?>
                 <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem] div-barang">
                     <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
-                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start"><?= $barang['stok']; ?>
+                        <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start laptop3:text-sm"><?= $barang['stok']; ?>
                             Tersedia</span>
-                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                        <img src="../public/Assets/img/jajan.png" alt="jajan">
                     </div>
                     <div class="flex flex-col gap-3 p-4">
-                        <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
+                        <p class="text-Neutral/100 font-semibold text-base laptop3:text-sm w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
                             <?= $barang['nama']; ?>
                         </p>
                         <p class="text-Primary-blue text-xl font-semibold">Rp
                             <?= number_format($barang['hrg_jual'], 0, ',', '.'); ?><span class="text-Neutral/50 text-xs">/pcs</span></p>
-                        <div class="flex gap-1 text-Neutral/70 font-medium text-sm">
+                        <div class="flex items-center justify-start gap-1 text-Neutral/70 font-medium text-sm laptop3:text-xs">
                             <p><?= $barang['kategori']; ?></p>
                             <img src="../public/Assets/svg/Ellipse 5.svg" alt="">
                             <p>Exp
@@ -47,13 +47,13 @@ $data_barang = array(
     </div>
 
     <!-- Col 2 -->
-    <div class=" flex flex-col justify-between w-[20%] bg-Neutral/10 rounded-[1.25rem] p-6 h-[87%] laptop2:h-[85%]">
+    <div class=" flex flex-col justify-between w-[20%] laptop1:w-[25%] laptop3:w-[30%] bg-Neutral/10 rounded-[1.25rem] p-6 h-[87%] laptop3:h-[84vh] laptop2:h-[81vh]">
         <div class="flex flex-col gap-6">
             <div class="flex justify-between items-center">
                 <p class="text-xl font-semibold text-Neutral/100">Keranjang</p>
                 <p class="text-[#FF0000] font-medium text-xs cursor-pointer" onclick="deleteAll()">Hapus semua</p>
             </div>
-            <section id="keranjang" class="flex flex-col w-full gap-5 items-center justify-start overflow-auto h-[55vh]">
+            <section id="keranjang" class="flex flex-col w-full gap-5 items-center justify-start overflow-auto h-[55vh] laptop2:h-[45vh]">
             </section>
         </div>
 
@@ -137,6 +137,7 @@ $data_barang = array(
         const modal = document.getElementById('modalPembayaran')
         modal.classList.add('hidden');
         modal.classList.remove('flex');
+        document.getElementById('money').value = 0
     }
 
     function deleteAll() {
@@ -177,6 +178,7 @@ $data_barang = array(
     // Fungsi untuk menghitung total harga barang di keranjang
     function calculateTotal() {
         const productCards = document.querySelectorAll('.cards');
+        total = 0;
 
         productCards.forEach((productCard) => {
             const priceElement = productCard.querySelector('.pricing');

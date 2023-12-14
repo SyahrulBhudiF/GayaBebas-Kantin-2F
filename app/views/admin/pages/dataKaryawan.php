@@ -1,16 +1,5 @@
-<?php
-// Contoh data
-$data_karyawan = $data['karyawan'];
-
-// array(
-//     array("No" => 1, "Nama Lengkap" => "Budi Setyaningrum", "No. Telepon" => "0812-7182-9102", "Tanggal Bergabung" => "26 Oktober 2023"),
-//     array("No" => 2, "Nama Lengkap" => "Siti Rahmawati", "No. Telepon" => "0812-3456-7890", "Tanggal Bergabung" => "15 September 2023"),
-//     array("No" => 3, "Nama Lengkap" => "John Doe", "No. Telepon" => "0812-1234-5678", "Tanggal Bergabung" => "10 Mei 2023"),
-//     array("No" => 4, "Nama Lengkap" => "Jane Smith", "No. Telepon" => "0812-9876-5432", "Tanggal Bergabung" => "18 April 2023"),
-// );
-?>
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
-    <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
+    <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop3:h-[84vh] laptop2:h-[81vh]">
         <div class="flex justify-between">
             <div class="flex justify-between w-[22%] px-7 py-3 border border-Neutral/30 rounded-full">
                 <input type="search" name="" id="cari-karyawan" onkeyup="cariKaryawan()" class="outline-none"
@@ -33,7 +22,7 @@ $data_karyawan = $data['karyawan'];
                 </thead>
                 <tbody>
                     <?php $no = 1;
-                    foreach ($data_karyawan as $karyawan) : ?>
+                    foreach ($data['karyawan'] as $karyawan) : ?>
                     <tr>
                         <td class="tableContent text-Neutral/60"><?= $no; ?></td>
                         <td class="tableContent"><?= $karyawan['nama']; ?></td>
@@ -90,7 +79,7 @@ $data_karyawan = $data['karyawan'];
         </div>
         <!-- end modal add -->
         <!-- modal edit -->
-        <?php foreach ($data_karyawan as $karyawan) : ?>
+        <?php foreach ($data['karyawan'] as $karyawan) : ?>
         <div id="modalEdit<?= $karyawan['id_user']; ?>"
             class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
             <div
@@ -190,27 +179,25 @@ $data_karyawan = $data['karyawan'];
     };
     <?php endforeach; ?>
     // end modal dataKaryawan
-    </script>
-</section>
 
-<script>
-function cariKaryawan() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("cari-karyawan");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("tabel-karyawan");
-    tr = table.getElementsByTagName("tr");
+    function cariKaryawan() {
+        let input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("cari-karyawan");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tabel-karyawan");
+        tr = table.getElementsByTagName("tr");
 
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
             }
         }
     }
-}
-</script>
+    </script>
+</section>
