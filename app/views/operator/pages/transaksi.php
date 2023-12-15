@@ -138,11 +138,13 @@ $data_barang = array(
         modal.classList.add('hidden');
         modal.classList.remove('flex');
         document.getElementById('money').value = 0
+        calculateTotal()
     }
 
     function deleteAll() {
         const keranjang = document.getElementById('keranjang');
         keranjang.innerHTML = '';
+        calculateTotal()
     }
 
     // Fungsi untuk membuat elemen HTML di keranjang
@@ -178,6 +180,8 @@ $data_barang = array(
     // Fungsi untuk menghitung total harga barang di keranjang
     function calculateTotal() {
         const productCards = document.querySelectorAll('.cards');
+        const totalElement = document.querySelector('.price');
+        totalElement.textContent = 'Rp 0,00'
         total = 0;
 
         productCards.forEach((productCard) => {
@@ -197,7 +201,7 @@ $data_barang = array(
         });
 
         // Perbarui tampilan total
-        const totalElement = document.querySelector('.price');
+
         totalElement.textContent = numberFormat(total);
 
         return total;
