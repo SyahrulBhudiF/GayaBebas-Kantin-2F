@@ -18,6 +18,13 @@ class UserModel
         return $this->db->single();
     }
 
+    public function getUserByName($name)
+    {
+        $this->db->query("SELECT * FROM " . $this->table . " WHERE nama = :nama");
+        $this->db->bind("nama", $name);
+        return $this->db->single();
+    }
+
     public function getKaryawan()
     {
         $this->db->query("SELECT * FROM " . $this->table . " WHERE level = 'Operator'");

@@ -8,8 +8,9 @@ class Laporan extends Controller
 
         if (isset($_SESSION['nama']) && $_SESSION['level'] == 'Admin') {
             $data['page'] = 'laporan';
+            $data['laporan'] = $this->model('TransaksiModel')->getLaporan();
             $this->view('admin/templates/header');
-            $this->view('admin/pages/laporan');
+            $this->view('admin/pages/laporan', $data);
             $this->view('admin/templates/footer', $data);
         } else if (isset($_SESSION['nama']) && $_SESSION['level'] == 'Operator') {
             header("Location: " . BASEURL . "/auth/blocked");
