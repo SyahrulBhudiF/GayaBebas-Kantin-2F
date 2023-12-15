@@ -1,13 +1,3 @@
-<?php
-// Contoh data
-$data_transaksi = $data['log'];
-// array(
-//     array("No" => 1, "Nama Operator" => "Budi Setyaningrum", "Aksi Operator" => "Menghapus data barang", "Tanggal Transaksi" => "26 Oktober 2023"),
-//     array("No" => 2, "Nama Operator" => "Andi Saputra", "Aksi Operator" => "Menambah stok barang", "Tanggal Transaksi" => "28 Oktober 2023"),
-//     array("No" => 3, "Nama Operator" => "Citra Indah", "Aksi Operator" => "Mengedit detail produk", "Tanggal Transaksi" => "30 Oktober 2023"),
-// );
-
-?>
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <!-- Start table -->
@@ -23,9 +13,9 @@ $data_transaksi = $data['log'];
                 </thead>
                 <tbody>
                     <?php $no = 1;
-                    foreach ($data_transaksi as $data) : ?>
+                    foreach ($data['log'] as $data) : ?>
                         <tr>
-                            <td class="tableContent text-Neutral/60">0<?= $no; ?></td>
+                            <td class="tableContent text-Neutral/60"><?= $no; ?></td>
                             <td class="tableContent"><?= $data['nama_user']; ?></td>
                             <td class="tableContent"><?= $data['aksi']; ?></td>
                             <td class="tableContent"><?= tgl_indo($data['tgl_aksi']); ?></td>

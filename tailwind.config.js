@@ -19,6 +19,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         custom: "1.1fr 1fr 1fr",
+        transaksi: "1fr 1fr"
       },
       screens: {
         sm: "640px",
@@ -38,7 +39,7 @@ module.exports = {
         },
 
         laptop2: {
-          raw: "(width: 1280px) and (height: 800px)",
+          raw: "(min-width: 1280px) and (max-height: 800px)",
         },
 
         laptop4: {

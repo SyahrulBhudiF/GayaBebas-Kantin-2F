@@ -1,13 +1,3 @@
-<?php
-// Contoh data
-$data_penjualan = $data['laporan'];
-// array(
-//     array("No" => 1, "Nama Operator" => "Budi Setyaningrum", "Nama Barang" => "Citato", "Jumlah Barang" => 123, "Total Penjualan" => "Rp 1.500.000", "Tanggal Transaksi" => "26 Oktober 2023"),
-//     array("No" => 2, "Nama Operator" => "Andi Saputra", "Nama Barang" => "Pocari Sweat", "Jumlah Barang" => 75, "Total Penjualan" => "Rp 800.000", "Tanggal Transaksi" => "27 Oktober 2023"),
-//     array("No" => 3, "Nama Operator" => "Citra Indah", "Nama Barang" => "Indomie Goreng", "Jumlah Barang" => 200, "Total Penjualan" => "Rp 2.000.000", "Tanggal Transaksi" => "28 Oktober 2023"),
-// );
-
-?>
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <div class="flex justify-between w-full">
@@ -42,14 +32,14 @@ $data_penjualan = $data['laporan'];
                 </thead>
                 <tbody>
                     <?php $no = 1;
-                    foreach ($data_penjualan as $data) : ?>
+                    foreach ($data['laporan'] as $data) : ?>
                         <tr>
-                            <td class="tableContent text-Neutral/60"><?php echo $no; ?></td>
-                            <td class="tableContent"><?php echo $data['nama_user']; ?></td>
-                            <td class="tableContent"><?php echo $data['nama_barang']; ?></td>
-                            <td class="tableContent"><?php echo $data['jumlah']; ?></td>
-                            <td class="tableContent"><?php echo "Rp " . number_format($data['total'], 0, ',', '.'); ?></td>
-                            <td class="tableContent"><?php echo tgl_indo($data['tgl_transaksi']); ?></td>
+                            <td class="tableContent text-Neutral/60"><?= $no; ?></td>
+                            <td class="tableContent"><?= $data['nama_user']; ?></td>
+                            <td class="tableContent"><?= $data['nama_barang']; ?></td>
+                            <td class="tableContent"><?= $data['jumlah']; ?></td>
+                            <td class="tableContent"><?= "Rp " . number_format($data['total'], 0, ',', '.'); ?></td>
+                            <td class="tableContent"><?= tgl_indo($data['tgl_transaksi']); ?></td>
                         </tr>
                     <?php $no++;
                     endforeach; ?>

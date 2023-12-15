@@ -1,23 +1,3 @@
-<?php
-$data = $data['request'];
-// array(
-//     array("No" => 1, "Nama Operator" => "Syahrul", "Nama Barang" => "Nasi Goreng", "Status" => "proses"),
-//     array("No" => 2, "Nama Operator" => "John", "Nama Barang" => "Mie Goreng", "Status" => "tolak"),
-//     array("No" => 3, "Nama Operator" => "Jane", "Nama Barang" => "Ayam Bakar", "Status" => "setuju")
-// );
-
-// function getStatusLabel($status)
-// {
-//     switch ($status) {
-//         case 'proses':
-//             return 'Sedang Diproses';
-//         case 'tolak':
-//             return 'Ditolak';
-//         case 'setuju':
-//             return 'Disetujui';
-//     }
-// }
-?>
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <div class="flex flex-col w-full gap-4">
@@ -50,35 +30,35 @@ $data = $data['request'];
                 </thead>
                 <tbody>
                     <?php $no = 1;
-                    foreach ($data as $value) : ?>
+                    foreach ($data['request'] as $value) : ?>
                         <tr>
-                            <td class="tableContent text-Neutral/60"><?php echo $no; ?></td>
-                            <td class="tableContent"><?php echo $value['nama_user']; ?></td>
-                            <td class="tableContent"><?php echo $value['nama_barang']; ?></td>
+                            <td class="tableContent text-Neutral/60"><?= $no; ?></td>
+                            <td class="tableContent"><?= $value['nama_user']; ?></td>
+                            <td class="tableContent"><?= $value['nama_barang']; ?></td>
                             <td class="tableContent">
                                 <div>
                                     <?php
                                     if ($value['status'] === 'Sedang Diproses') : ?>
                                         <span class="statusProses">
                                             <img src="Assets/svg/kuning.svg" alt="">
-                                            <?php echo $value['status']; ?>
+                                            <?= $value['status']; ?>
                                         </span>
                                     <?php elseif ($value['status'] === 'Ditolak') : ?>
                                         <span class="statusProses">
                                             <img src="Assets/svg/merah.svg" alt="">
-                                            <?php echo $value['status']; ?>
+                                            <?= $value['status']; ?>
                                         </span>
                                     <?php elseif ($value['status'] === 'Disetujui') : ?>
                                         <span class="statusProses">
                                             <img src="Assets/svg/hijau.svg" alt="">
-                                            <?php echo $value['status']; ?>
+                                            <?= $value['status']; ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
                             </td>
                             <td class="tableContent flex justify-start gap-2">
-                                <button onclick="openModalReject<?php echo $value['id_request']; ?>()" class="buttonReq <?php echo $value['status'] === 'Sedang Diproses' ? 'activeReject' : 'notActiveReject'; ?>">Tolak</button>
-                                <button onclick="openModalAcc<?php echo $value['id_request']; ?>()" class="buttonReq <?php echo $value['status'] === 'Sedang Diproses' ? 'activeAcc' : 'notActiveAcc'; ?>">Setujui</button>
+                                <button onclick="openModalReject<?= $value['id_request']; ?>()" class="buttonReq <?= $value['status'] === 'Sedang Diproses' ? 'activeReject' : 'notActiveReject'; ?>">Tolak</button>
+                                <button onclick="openModalAcc<?= $value['id_request']; ?>()" class="buttonReq <?= $value['status'] === 'Sedang Diproses' ? 'activeAcc' : 'notActiveAcc'; ?>">Setujui</button>
                             </td>
                         </tr>
                     <?php $no++;
