@@ -6,7 +6,7 @@
                     placeholder="Cari karyawan">
                 <img src="../public/Assets/svg/search-normal.svg" alt="search">
             </div>
-            <button id="addKaryawan" class="addButton" onclick="openAddKaryawan()">Tambahkan</button>
+            <button id="addKaryawan" class="addButton" onclick="openModal('modal')">Tambahkan</button>
         </div>
         <!-- Start table -->
         <div class="overflow-auto">
@@ -29,9 +29,9 @@
                         <td class="tableContent"><?= $karyawan['no_telp']; ?></td>
                         <td class="tableContent"><?= tgl_indo(date($karyawan['tgl_bergabung'])); ?></td>
                         <td class="tableContent flex justify-start gap-2">
-                            <img onclick="openModalEdit<?= $karyawan['id_user']; ?>()"
+                            <img onclick="openModal('modalEdit<?= $karyawan['id_user']; ?>')"
                                 src="../public/Assets/svg/edit.svg" alt="edit" class="iconKaryawan edit">
-                            <img onclick="openModalDelete<?= $karyawan['id_user']; ?>()"
+                            <img onclick="openModal('modalDelete<?= $karyawan['id_user']; ?>')"
                                 src="../public/Assets/svg/trash.svg" alt="delete" class="iconKaryawan delete">
                         </td>
                     </tr>
@@ -47,7 +47,7 @@
                 class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[28%] laptop1:w-[36%] laptop3:w-[42%]">
                 <div class="flex justify-between items-center">
                     <h2 class="text-xl font-semibold text-Neutral/100">Tambah Data Karyawan</h2>
-                    <button id="closeModal" class="cursor-pointer" onclick="closeModalBtn()">
+                    <button id="closeModal" class="cursor-pointer" onclick="closeModal('modal')">
                         <img src="../public/Assets/svg/close.svg" alt="close">
                     </button>
                 </div>
@@ -87,8 +87,8 @@
                 <div class="flex justify-between items-center">
                     <h2 class="text-xl font-semibold text-Neutral/100">Edit Data Karyawan</h2>
                     <button id="closeEdit" class="cursor-pointer">
-                        <img onclick="closeModalEdit<?= $karyawan['id_user']; ?>()" src="../public/Assets/svg/close.svg"
-                            alt="close">
+                        <img onclick="closeModal('modalEdit<?= $karyawan['id_user']; ?>')"
+                            src="../public/Assets/svg/close.svg" alt="close">
                     </button>
                 </div>
                 <form class="flex flex-col gap-8"
@@ -131,73 +131,57 @@
                         <button class="px-[3.25rem] py-3 text-white bg-red-600 rounded-full">Hapus</button>
                     </a>
                     <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full"
-                        onclick="closeModalDelete<?= $karyawan['id_user']; ?>()">Batal</button>
+                        onclick="closeModal('modalDelete<?= $karyawan['id_user']; ?>')">Batal</button>
                 </div>
             </div>
         </div>
         <?php endforeach; ?>
         <!-- end modal delete -->
     </div>
-    <script>
-    // modal data karyawan
-    const modal = document.getElementById('modal');
+</section>
+<script>
+const openModal = (modalId) => {
+    const modalElement = document.getElementById(modalId);
+    modalElement.classList.remove('hidden');
+    modalElement.classList.add('flex');
+};
 
-    const openAddKaryawan = () => {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    }
+const closeModal = (modalId) => {
+    const modalElement = document.getElementById(modalId);
+    modalElement.classList.add('hidden');
+    modalElement.classList.remove('flex');
+};
 
-    const closeModalBtn = () => {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-    };
+// Generate modal functions for each user
+// <?php foreach ($data['karyawan'] as $karyawan) : ?>
+//     const modalEdit<?= $karyawan['id_user']; ?> = document.getElementById('modalEdit<?= $karyawan['id_user']; ?>');
+//     const modalDelete<?= $karyawan['id_user']; ?> = document.getElementById('modalDelete<?= $karyawan['id_user']; ?>');
 
-    <?php foreach ($data_karyawan as $karyawan) : ?>
-    const modalEdit<?= $karyawan['id_user']; ?> = document.getElementById('modalEdit<?= $karyawan['id_user']; ?>');
+//     const openModalEdit<?= $karyawan['id_user']; ?> = () => openModal('modalEdit<?= $karyawan['id_user']; ?>');
+//     const closeModalEdit<?= $karyawan['id_user']; ?> = () => closeModal('modalEdit<?= $karyawan['id_user']; ?>');
 
-    const openModalEdit<?= $karyawan['id_user']; ?> = () => {
-        modalEdit<?= $karyawan['id_user']; ?>.classList.remove('hidden');
-        modalEdit<?= $karyawan['id_user']; ?>.classList.add('flex');
-    };
+//     const openModalDelete<?= $karyawan['id_user']; ?> = () => openModal('modalDelete<?= $karyawan['id_user']; ?>');
+//     const closeModalDelete<?= $karyawan['id_user']; ?> = () => closeModal('modalDelete<?= $karyawan['id_user']; ?>');
+// <?php endforeach; ?>
+// End modal data karyawan
 
-    const closeModalEdit<?= $karyawan['id_user']; ?> = () => {
-        modalEdit<?= $karyawan['id_user']; ?>.classList.add('hidden');
-        modalEdit<?= $karyawan['id_user']; ?>.classList.remove('flex');
-    };
+function cariKaryawan() {
+    let input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("cari-karyawan");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabel-karyawan");
+    tr = table.getElementsByTagName("tr");
 
-
-    const modalDelete<?= $karyawan['id_user']; ?> = document.getElementById("modalDelete<?= $karyawan['id_user']; ?>");
-
-    const openModalDelete<?= $karyawan['id_user']; ?> = () => {
-        modalDelete<?= $karyawan['id_user']; ?>.classList.remove('hidden');
-        modalDelete<?= $karyawan['id_user']; ?>.classList.add('flex');
-    };
-
-    const closeModalDelete<?= $karyawan['id_user']; ?> = () => {
-        modalDelete<?= $karyawan['id_user']; ?>.classList.add('hidden');
-        modalDelete<?= $karyawan['id_user']; ?>.classList.remove('flex');
-    };
-    <?php endforeach; ?>
-    // end modal dataKaryawan
-
-    function cariKaryawan() {
-        let input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("cari-karyawan");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("tabel-karyawan");
-        tr = table.getElementsByTagName("tr");
-
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
             }
         }
     }
-    </script>
-</section>
+}
+</script>
