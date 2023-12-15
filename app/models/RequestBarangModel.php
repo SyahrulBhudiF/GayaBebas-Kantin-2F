@@ -17,6 +17,12 @@ class RequestBarangModel
         return $this->db->resultSet();
     }
 
+    public function getCountRequestBarang()
+    {
+        $this->db->query("SELECT COUNT(status) FROM " . $this->view . " WHERE status = 'Sedang Diproses'");
+        return $this->db->single();
+    }
+
     public function acceptRequest($id)
     {
         $query = "UPDATE " . $this->table . " SET status = :status WHERE id_request = :id_request";

@@ -21,20 +21,35 @@ class DataKaryawan extends Controller
 
     public function tambahDataKaryawan()
     {
+        session_start();
+
         if ($this->model('UserModel')->addKaryawan($_POST) > 0) {
+            $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
+            $this->model('LogModel')->afterAddKaryawan($user['id_user']);
+
             header('Location: ' . BASEURL . '/datakaryawan');
         }
     }
     public function ubahDataKaryawanById($id)
     {
+        session_start();
+
         if ($this->model('UserModel')->editKaryawan($id, $_POST) > 0) {
+            $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
+            $this->model('LogModel')->afterEditKaryawan($user['id_user']);
+
             header('Location: ' . BASEURL . '/datakaryawan');
         }
     }
 
     public function hapusDataKaryawanById($id)
     {
+        session_start();
+
         if ($this->model('UserModel')->deleteKaryawan($id) > 0) {
+            $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
+            $this->model('LogModel')->afterDeleteKaryawan($user['id_user']);
+
             header('Location: ' . BASEURL . '/datakaryawan');
         }
     }

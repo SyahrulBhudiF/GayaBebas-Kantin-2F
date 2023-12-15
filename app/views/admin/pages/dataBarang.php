@@ -1,3 +1,9 @@
+<?php
+foreach ($data['count_req'] as $jml) :
+    $jml_req = $jml;
+endforeach;
+?>
+
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <div class="flex justify-between">
@@ -11,7 +17,7 @@
                         <p>
                             Request Barang
                         </p>
-                        <div class="bg-Primary-surface rounded-full px-[0.65rem]">1</div>
+                        <div class="bg-Primary-surface rounded-full px-[0.65rem]"><?= $jml_req; ?></div>
                     </span>
                 </a>
                 <button id="addBarang" class="addButton" onclick="addBarang()">Tambahkan</button>
@@ -375,7 +381,7 @@
     <?php endforeach; ?>
     // end edit
     // modal delete
-    <?php foreach ($data_barang as $barang) : ?>
+    <?php foreach ($data['barang'] as $barang) : ?>
         const deleteBarang<?php echo $barang['id_barang']; ?> = document.getElementById('deleteBarang<?php echo $barang['id_barang']; ?>')
 
         const openDeleteBarang<?= $barang['id_barang']; ?> = () => {

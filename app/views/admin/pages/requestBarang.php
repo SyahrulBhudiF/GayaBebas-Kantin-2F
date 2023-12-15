@@ -69,7 +69,7 @@
         <!-- End Table -->
     </div>
     <!-- modal acc -->
-    <?php foreach ($data as $value) : ?>
+    <?php foreach ($data['request'] as $value) : ?>
         <div id="modalAcc<?php echo $value['id_request']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
             <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[20%] laptop1:w-[27%] laptop3:w-[30%]">
                 <p class="text-Neutral/100 text-xl font-semibold text-center">Apakah anda yakin ingin menyetujui request
@@ -100,7 +100,7 @@
     <!-- end modal reject -->
 </section>
 <script>
-    <?php foreach ($data as $value) : ?>
+    <?php foreach ($data['request'] as $value) : ?>
         const openModalReject<?php echo $value['id_request']; ?> = () => {
             const modal<?php echo $value['id_request']; ?> = document.getElementById('modalReject<?php echo $value['id_request']; ?>')
             modal<?php echo $value['id_request']; ?>.classList.remove('hidden');

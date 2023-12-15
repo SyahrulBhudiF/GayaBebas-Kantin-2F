@@ -6,8 +6,8 @@
                 <thead class="bg-Neutral/20 rounded-thead">
                     <tr>
                         <th class="tableHead">No</th>
-                        <th class="tableHead">Nama Operator</th>
-                        <th class="tableHead">Aksi Operator</th>
+                        <th class="tableHead">Nama User</th>
+                        <th class="tableHead">Aksi User</th>
                         <th class="tableHead">Tanggal Aksi</th>
                     </tr>
                 </thead>

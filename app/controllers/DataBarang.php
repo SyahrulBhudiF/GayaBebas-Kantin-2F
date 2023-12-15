@@ -9,6 +9,7 @@ class DataBarang extends Controller
         if (isset($_SESSION['nama']) && $_SESSION['level'] == 'Admin') {
             $data['page'] = 'dataBarang';
             $data['barang'] = $this->model('BarangModel')->getBarang();
+            $data['count_req'] = $this->model('RequestBarangModel')->getCountRequestBarang();
             $this->view('admin/templates/header');
             $this->view('admin/pages/dataBarang', $data);
             $this->view('admin/templates/footer', $data);
@@ -21,6 +22,8 @@ class DataBarang extends Controller
 
     public function tambahDataBarang()
     {
+        session_start();
+
         $namaFile = 'jajan.png';
 
         if ($_FILES['inputImg']['name']) {
@@ -42,12 +45,17 @@ class DataBarang extends Controller
         }
 
         if ($this->model('BarangModel')->addBarang($_POST, $namaFile) > 0) {
+            $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
+            $this->model('LogModel')->afterAddBarang($user['id_user']);
+
             header('Location: ' . BASEURL . '/databarang');
         }
     }
 
     public function ubahDataBarangById($id)
     {
+        session_start();
+
         $barang = $this->model('BarangModel')->getBarangById($id);
         $namaFile = $barang['foto'];
 
@@ -72,12 +80,17 @@ class DataBarang extends Controller
         }
 
         if ($this->model('BarangModel')->editBarang($id, $_POST, $namaFile) > 0) {
+            $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
+            $this->model('LogModel')->afterEditBarang($user['id_user']);
+
             header('Location: ' . BASEURL . '/databarang');
         }
     }
 
     public function hapusDataBarangById($id)
     {
+        session_start();
+
         $barang = $this->model('BarangModel')->getBarangById($id);
 
         if ($barang['foto'] != 'jajan.png') {
@@ -85,6 +98,9 @@ class DataBarang extends Controller
         }
 
         if ($this->model('BarangModel')->deleteBarang($id) > 0) {
+            $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
+            $this->model('LogModel')->afterHapusBarang($user['id_user']);
+
             header('Location: ' . BASEURL . '/databarang');
         }
     }

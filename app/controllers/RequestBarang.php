@@ -21,14 +21,24 @@ class RequestBarang extends Controller
 
     public function setujuiRequestBarangById($id)
     {
+        session_start();
+
         if ($this->model('RequestBarangModel')->acceptRequest($id) > 0) {
+            $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
+            $this->model('LogModel')->afterAcceptRequest($user['id_user']);
+
             header('Location: ' . BASEURL . '/requestbarang');
         }
     }
 
     public function tolakRequestBarangById($id)
     {
+        session_start();
+
         if ($this->model('RequestBarangModel')->rejectRequest($id) > 0) {
+            $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
+            $this->model('LogModel')->afterRejectRequest($user['id_user']);
+
             header('Location: ' . BASEURL . '/requestbarang');
         }
     }
