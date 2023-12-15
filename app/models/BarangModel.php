@@ -45,6 +45,23 @@ class BarangModel
         return $this->db->rowCount();
     }
 
+    public function editBarang($id, $data, $gambar)
+    {
+        $query = "UPDATE " . $this->table . " SET foto = :foto, nama = :nama, kategori = :kategori, stok = :stok, hrg_jual = :hrg_jual, tgl_expire = :tgl_expire WHERE id_barang = :id_barang";
+        $this->db->query($query);
+        $this->db->bind('foto', $gambar);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('kategori', $data['kategori']);
+        $this->db->bind('stok', $data['stok']);
+        $this->db->bind('hrg_jual', $data['harga']);
+        $this->db->bind('tgl_expire', $data['date']);
+        $this->db->bind('id_barang', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     public function deleteBarang($id)
     {
         $query = "DELETE FROM " . $this->table . " WHERE id_barang = :id_barang";

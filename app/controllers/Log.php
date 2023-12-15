@@ -8,8 +8,9 @@ class Log extends Controller
 
         if (isset($_SESSION['nama']) && $_SESSION['level'] == 'Admin') {
             $data['page'] = 'log';
+            $data['log'] = $this->model('LogModel')->getLog();
             $this->view('admin/templates/header');
-            $this->view('admin/pages/log');
+            $this->view('admin/pages/log', $data);
             $this->view('admin/templates/footer', $data);
         } else if (isset($_SESSION['nama']) && $_SESSION['level'] == 'Operator') {
             header("Location: " . BASEURL . "/auth/blocked");

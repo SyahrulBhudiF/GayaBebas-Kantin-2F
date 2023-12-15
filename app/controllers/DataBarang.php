@@ -46,6 +46,36 @@ class DataBarang extends Controller
         }
     }
 
+    public function ubahDataBarangById($id)
+    {
+        $barang = $this->model('BarangModel')->getBarangById($id);
+        $namaFile = $barang['foto'];
+
+        if ($_FILES['inputImgEdit']['name']) {
+            $namaFile = $_FILES['inputImgEdit']['name'];
+            $tmpName = $_FILES['inputImgEdit']['tmp_name'];
+
+            $ekstensiGambarValid = ['jpg', 'jpeg', '.png', '.gif'];
+            $ekstensiGambar = explode('.', $namaFile);
+            $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+            if (in_array($ekstensiGambar, $ekstensiGambarValid)) {
+                $namaFileBaru = uniqid();
+                $namaFileBaru = $namaFileBaru . '.';
+                $namaFileBaru = $namaFileBaru . $ekstensiGambar;
+
+                unlink('../../GayaBebas-Kantin-2F/public/Assets/img/barang/' . $barang['foto']);
+
+                $namaFile = $namaFileBaru;
+                move_uploaded_file($tmpName, '../../GayaBebas-Kantin-2F/public/Assets/img/barang/' . $namaFileBaru);
+            }
+        }
+
+        if ($this->model('BarangModel')->editBarang($id, $_POST, $namaFile) > 0) {
+            header('Location: ' . BASEURL . '/databarang');
+        }
+    }
+
     public function hapusDataBarangById($id)
     {
         $barang = $this->model('BarangModel')->getBarangById($id);

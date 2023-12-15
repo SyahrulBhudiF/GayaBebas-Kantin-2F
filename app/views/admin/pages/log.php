@@ -1,10 +1,11 @@
 <?php
 // Contoh data
-$data_transaksi = array(
-    array("No" => 1, "Nama Operator" => "Budi Setyaningrum", "Aksi Operator" => "Menghapus data barang", "Tanggal Transaksi" => "26 Oktober 2023"),
-    array("No" => 2, "Nama Operator" => "Andi Saputra", "Aksi Operator" => "Menambah stok barang", "Tanggal Transaksi" => "28 Oktober 2023"),
-    array("No" => 3, "Nama Operator" => "Citra Indah", "Aksi Operator" => "Mengedit detail produk", "Tanggal Transaksi" => "30 Oktober 2023"),
-);
+$data_transaksi = $data['log'];
+// array(
+//     array("No" => 1, "Nama Operator" => "Budi Setyaningrum", "Aksi Operator" => "Menghapus data barang", "Tanggal Transaksi" => "26 Oktober 2023"),
+//     array("No" => 2, "Nama Operator" => "Andi Saputra", "Aksi Operator" => "Menambah stok barang", "Tanggal Transaksi" => "28 Oktober 2023"),
+//     array("No" => 3, "Nama Operator" => "Citra Indah", "Aksi Operator" => "Mengedit detail produk", "Tanggal Transaksi" => "30 Oktober 2023"),
+// );
 
 ?>
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
@@ -21,12 +22,13 @@ $data_transaksi = array(
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($data_transaksi as $data) : ?>
+                    <?php $no = 1;
+                    foreach ($data_transaksi as $data) : ?>
                         <tr>
-                            <td class="tableContent text-Neutral/60">0<?php echo $data['No']; ?></td>
-                            <td class="tableContent"><?php echo $data['Nama Operator']; ?></td>
-                            <td class="tableContent"><?php echo $data['Aksi Operator']; ?></td>
-                            <td class="tableContent"><?php echo $data['Tanggal Transaksi']; ?></td>
+                            <td class="tableContent text-Neutral/60">0<?= $no; ?></td>
+                            <td class="tableContent"><?= $data['nama_user']; ?></td>
+                            <td class="tableContent"><?= $data['aksi']; ?></td>
+                            <td class="tableContent"><?= tgl_indo($data['tgl_aksi']); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

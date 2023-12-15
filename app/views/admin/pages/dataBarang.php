@@ -152,15 +152,16 @@ $data_barang = $data['barang'];
                             </div>
                             <div class="flex flex-col gap-3">
                                 <label for="inputImg" class="textInputKaryawan">Upload gambar produk</label>
-                                <div class="flex flex-col items-center bg-Neutral/20 border-2 border-dashed border-Primary-surface rounded-3xl gap-2 cursor-pointer">
-                                    <label for="inputImgEdit" id="drop-area-edit" class="flex flex-col justify-center items-center m-2 px-[20%] py-[2%] h-[28vh] laptop1:h-[32vh] laptop3:h-[30vh] laptop2:h-[36vh]">
-                                        <img src="../public/Assets/svg/upload.svg" alt="upload">
-                                        <p class="text-Neutral/80 text-center text-sm"><span class="text-Neutral/100 font-semibold underline">Pilih gambar</span> untuk
-                                            diunggah
-                                            atau tarik dan
-                                            lepas gambar disini</p>
+                                <div class="flex flex-col items-center border-2 border-dashed border-Primary-surface rounded-3xl gap-2 cursor-pointer">
+                                    <label for="inputImgEdit<?php echo $barang['id_barang']; ?>" id="drop-area-edit<?php echo $barang['id_barang']; ?>" class="flex flex-col justify-center items-center m-2 px-[20%] py-[2%] h-[28vh] laptop1:h-[32vh] laptop3:h-[30vh] laptop2:h-[36vh]">
+                                        <div class="flex flex-col items-start w-fit">
+                                            <div class="flex justify-end w-full -mb-2 cursor-pointer" onclick="cancelUpEdit<?php echo $barang['id_barang']; ?>()">
+                                                <img src="../public/Assets/svg/close.svg" alt="" class="-mr-[0.8rem]">
+                                            </div>
+                                            <img src="../../GayaBebas-Kantin-2F/public/Assets/img/barang/<?php echo $barang['foto']; ?>" alt="" class="px-10 py-7 bg-Neutral/20 rounded-3xl">
+                                        </div>
                                     </label>
-                                    <input type="file" name="inputImgEdit" id="inputImgEdit" class="inputImg" value="<?php echo $barang['foto']; ?>" hidden>
+                                    <input type="file" name="inputImgEdit" id="inputImgEdit<?php echo $barang['id_barang']; ?>" class="inputImg" hidden>
                                 </div>
                             </div>
                             <div class="flex flex-col gap-8">
@@ -325,57 +326,61 @@ $data_barang = $data['barang'];
             edit<?php echo $barang['id_barang']; ?>.classList.add('hidden');
             edit<?php echo $barang['id_barang']; ?>.classList.remove('flex');
         }
-    <?php endforeach; ?>
-
-    let fileEdit;
-
-    const imgEdit = document.getElementById("inputImgEdit")
-    const dropAreaEdit = document.getElementById("drop-area-edit")
-    const originalEdit = dropAreaEdit.innerHTML
-
-    imgEdit.addEventListener("change", function() {
-        fileEdit = this.files[0]
-        showFileEdit()
-    })
-
-    dropAreaEdit.addEventListener("dragover", e => {
-        e.preventDefault()
-    })
-
-    dropAreaEdit.addEventListener("drop", e => {
-        e.preventDefault()
-        fileEdit = e.dataTransfer.files[0]
-        showFileEdit()
-    })
-
-    const cancelUpEdit = () => {
-        dropAreaEdit.innerHTML = null
-        dropAreaEdit.innerHTML = original
-        dropAreaEdit.parentNode.classList.add("bg-Neutral/20")
-    }
 
 
-    const showFileEdit = () => {
-        let fileType = fileEdit.type;
-        let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
-        if (validExtensions.includes(fileType)) {
-            let fileReader = new FileReader();
-            fileReader.onload = () => {
-                let fileURL = fileReader.result;
-                dropAreaEdit.parentNode.classList.remove("bg-Neutral/20")
-                dropAreaEdit.innerHTML = null;
-                dropAreaEdit.innerHTML = `<div class="flex flex-col items-start w-fit">
-                                <div class="flex justify-end w-full -mb-2 cursor-pointer" onclick="cancelUpEdit()">
-                                    <img src="../public/Assets/svg/close.svg" alt="" class="-mr-[0.8rem]">
-                                </div>
-                                    <img src="${fileURL}" alt="" class="px-10 py-7 bg-Neutral/20 rounded-3xl">
-                                </div>`;
-            }
-            fileReader.readAsDataURL(fileEdit);
-        } else {
-            alert("This is not an Image File!");
+        let fileEdit<?php echo $barang['id_barang']; ?>;
+
+        const imgEdit<?php echo $barang['id_barang']; ?> = document.getElementById("inputImgEdit<?php echo $barang['id_barang']; ?>")
+        const dropAreaEdit<?php echo $barang['id_barang']; ?> = document.getElementById("drop-area-edit<?php echo $barang['id_barang']; ?>")
+
+        imgEdit<?php echo $barang['id_barang']; ?>.addEventListener("change", function() {
+            fileEdit<?php echo $barang['id_barang']; ?> = this.files[0]
+            showFileEdit<?php echo $barang['id_barang']; ?>()
+        })
+
+        dropAreaEdit<?php echo $barang['id_barang']; ?>.addEventListener("dragover", e => {
+            e.preventDefault()
+        })
+
+        dropAreaEdit<?php echo $barang['id_barang']; ?>.addEventListener("drop", e => {
+            e.preventDefault()
+            fileEdit<?php echo $barang['id_barang']; ?> = e.dataTransfer.files[0]
+            showFileEdit<?php echo $barang['id_barang']; ?>()
+        })
+
+        const cancelUpEdit<?php echo $barang['id_barang']; ?> = () => {
+            dropAreaEdit<?php echo $barang['id_barang']; ?>.innerHTML = null
+            dropAreaEdit<?php echo $barang['id_barang']; ?>.innerHTML = `<img src="../public/Assets/svg/upload.svg" alt="upload">
+                                        <p class="text-Neutral/80 text-center text-sm"><span class="text-Neutral/100 font-semibold underline">Pilih gambar</span> untuk
+                                            diunggah
+                                            atau tarik dan
+                                            lepas gambar disini</p>`
+            dropAreaEdit<?php echo $barang['id_barang']; ?>.parentNode.classList.add("bg-Neutral/20")
         }
-    }
+        // --------------------------------------------------------------------
+
+        const showFileEdit<?php echo $barang['id_barang']; ?> = () => {
+            let fileType = fileEdit<?php echo $barang['id_barang']; ?>.type;
+            let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
+            if (validExtensions.includes(fileType)) {
+                let fileReader = new FileReader();
+                fileReader.onload = () => {
+                    let fileURL = fileReader.result;
+                    dropAreaEdit<?php echo $barang['id_barang']; ?>.parentNode.classList.remove("bg-Neutral/20")
+                    dropAreaEdit<?php echo $barang['id_barang']; ?>.innerHTML = null;
+                    dropAreaEdit<?php echo $barang['id_barang']; ?>.innerHTML = `<div class="flex flex-col items-start w-fit">
+                <div class="flex justify-end w-full -mb-2 cursor-pointer" onclick="cancelUpEdit<?php echo $barang['id_barang']; ?>()">
+                <img src="../public/Assets/svg/close.svg" alt="" class="-mr-[0.8rem]">
+                </div>
+                <img src="${fileURL}" alt="" class="px-10 py-7 bg-Neutral/20 rounded-3xl">
+                </div>`;
+                }
+                fileReader.readAsDataURL(fileEdit<?php echo $barang['id_barang']; ?>);
+            } else {
+                alert("This is not an Image File!");
+            }
+        }
+    <?php endforeach; ?>
     // end edit
     // modal delete
     <?php foreach ($data_barang as $barang) : ?>
