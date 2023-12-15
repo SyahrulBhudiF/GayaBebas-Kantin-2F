@@ -23,10 +23,10 @@ $data_transaksi = array(
                 <tbody>
                     <?php foreach ($data_transaksi as $data) : ?>
                         <tr>
-                            <td class="tableContent text-Neutral/60">0<?php echo $data['No']; ?></td>
-                            <td class="tableContent"><?php echo $data['Nama Operator']; ?></td>
-                            <td class="tableContent"><?php echo $data['Aksi Operator']; ?></td>
-                            <td class="tableContent"><?php echo $data['Tanggal Transaksi']; ?></td>
+                            <td class="tableContent text-Neutral/60">0<?= $data['No']; ?></td>
+                            <td class="tableContent"><?= $data['Nama Operator']; ?></td>
+                            <td class="tableContent"><?= $data['Aksi Operator']; ?></td>
+                            <td class="tableContent"><?= $data['Tanggal Transaksi']; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
