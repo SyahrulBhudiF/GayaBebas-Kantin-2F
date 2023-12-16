@@ -38,6 +38,52 @@
             })
         }
     });
+
+    const openModal = (modalId) => {
+        const modalElement = document.getElementById(modalId);
+        modalElement.classList.remove('hidden');
+        modalElement.classList.add('flex');
+    };
+
+    const closeModal = (modalId) => {
+        const modalElement = document.getElementById(modalId);
+        modalElement.classList.add('hidden');
+        modalElement.classList.remove('flex');
+    };
+
+    function cariKaryawan() {
+        let input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("cari-karyawan");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tabel-karyawan");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function cariBarang() {
+        const input = document.getElementById('cari-barang');
+        const filter = input.value.trim().toUpperCase();
+        const section = document.getElementById('section-barang');
+        const items = section.querySelectorAll('.div-barang');
+
+        items.forEach(item => {
+            const title = item.querySelector('p.p-barang');
+            const txtValue = title?.textContent?.trim() || title?.innerText?.trim();
+
+            item.style.display = txtValue?.toUpperCase().includes(filter) ? '' : 'none';
+        });
+    }
 </script>
 
 </html>

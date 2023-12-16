@@ -118,7 +118,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .inputRadio {
-  @apply flex gap-2 px-6 py-4 bg-Neutral/20 rounded-xl w-full;
+  @apply flex gap-2 px-6 py-4 bg-Neutral/20 rounded-xl w-full items-center cursor-pointer;
 }
 
 .inputRadioLapor {
@@ -126,7 +126,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 input[type="radio"] {
-  @apply w-4;
+  @apply w-4 cursor-pointer;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {

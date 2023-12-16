@@ -1,9 +1,11 @@
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop3:h-[84vh] laptop2:h-[81vh]">
         <div class="flex justify-between">
-            <div class="flex justify-between w-[22%] px-7 py-3 border border-Neutral/30 rounded-full">
+            <div class="flex justify-between items-center gap-1 px-7 py-3 border border-Neutral/30 rounded-full">
                 <input type="search" name="" id="cari-karyawan" onkeyup="cariKaryawan()" class="outline-none" placeholder="Cari karyawan">
-                <img src="../public/Assets/svg/search-normal.svg" alt="search">
+                <label for="cari-karyawan">
+                    <img src="../public/Assets/svg/search-normal.svg" alt="search">
+                </label>
             </div>
             <button id="addKaryawan" class="addButton" onclick="openModal('modal')">Tambahkan</button>
         </div>
@@ -118,36 +120,3 @@
         <!-- end modal delete -->
     </div>
 </section>
-<script>
-    const openModal = (modalId) => {
-        const modalElement = document.getElementById(modalId);
-        modalElement.classList.remove('hidden');
-        modalElement.classList.add('flex');
-    };
-
-    const closeModal = (modalId) => {
-        const modalElement = document.getElementById(modalId);
-        modalElement.classList.add('hidden');
-        modalElement.classList.remove('flex');
-    };
-
-    function cariKaryawan() {
-        let input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("cari-karyawan");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("tabel-karyawan");
-        tr = table.getElementsByTagName("tr");
-
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
