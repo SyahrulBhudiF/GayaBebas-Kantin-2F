@@ -26,7 +26,7 @@ function getStatusLabel($status)
                     <img src="Assets/svg/search-normal.svg" alt="search">
                 </div>
                 <div>
-                    <button class="py-3 px-5 rounded-full text-white bg-Primary-blue active:opacity-80" onclick="addreq()">Tambahkan</button>
+                    <button class="py-3 px-5 rounded-full text-white bg-Primary-blue active:opacity-80" onclick="openModal('addReqBarang')">Tambahkan</button>
                 </div>
             </div>
         </div>
@@ -76,8 +76,8 @@ function getStatusLabel($status)
                                 </div>
                             </td>
                             <td class="tableContent flex justify-start gap-2">
-                                <img onclick="editReq()" src="../public/Assets/svg/edit.svg" alt="edit" class="iconKaryawan edit">
-                                <img onclick="openDeleteReq()" src="../public/Assets/svg/trash.svg" alt="delete" class="iconKaryawan delete">
+                                <img onclick="openModal('editReqBarang')" src="../public/Assets/svg/edit.svg" alt="edit" class="iconKaryawan edit">
+                                <img onclick="openModal('deleteReq')" src="../public/Assets/svg/trash.svg" alt="delete" class="iconKaryawan delete">
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -91,7 +91,7 @@ function getStatusLabel($status)
         <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[50%] laptop1:w-[62%] laptop3:w-[68%]">
             <div class="flex justify-between items-center">
                 <h2 class="text-xl font-semibold text-Neutral/100">Tambah Data Barang</h2>
-                <button id="closeModal" class="cursor-pointer" onclick="closeReq()">
+                <button id="closeModal" class="cursor-pointer" onclick="closeModal('addReqBarang')">
                     <img src="../public/Assets/svg/close.svg" alt="close">
                 </button>
             </div>
@@ -164,7 +164,7 @@ function getStatusLabel($status)
         <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[50%] laptop1:w-[62%] laptop3:w-[68%]">
             <div class="flex justify-between items-center">
                 <h2 class="text-xl font-semibold text-Neutral/100">Edit Data Barang</h2>
-                <button id="closeModal" class="cursor-pointer" onclick="closeEdit()">
+                <button id="closeModal" class="cursor-pointer" onclick="closeModal('editReqBarang')">
                     <img src="../public/Assets/svg/close.svg" alt="close">
                 </button>
             </div>
@@ -241,27 +241,13 @@ function getStatusLabel($status)
                 <a href="">
                     <button class="px-[3.25rem] py-3 text-white bg-red-600 rounded-full">Hapus</button>
                 </a>
-                <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeDeleteReq()">Batal</button>
+                <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeModal('deleteReq')">Batal</button>
             </div>
         </div>
     </div>
     <!-- end modal delete -->
 </section>
 <script>
-    // modal data Barang
-
-    const addreq = () => {
-        const modalAddBarang = document.getElementById("addReqBarang")
-        modalAddBarang.classList.remove('hidden')
-        modalAddBarang.classList.add('flex');
-    }
-
-    const closeReq = () => {
-        const modalAddBarang = document.getElementById("addReqBarang")
-        modalAddBarang.classList.add('hidden');
-        modalAddBarang.classList.remove('flex');
-    }
-
     // upload
     const inputFile = document.getElementById("inputImg")
     const dropArea = document.getElementById("drop-area")
@@ -337,18 +323,6 @@ function getStatusLabel($status)
     // start end date
 
     // modal edit
-    const editReq = () => {
-        const modalAddBarang = document.getElementById("editReqBarang")
-        modalAddBarang.classList.remove('hidden')
-        modalAddBarang.classList.add('flex');
-    }
-
-    const closeEdit = () => {
-        const modalAddBarang = document.getElementById("editReqBarang")
-        modalAddBarang.classList.add('hidden');
-        modalAddBarang.classList.remove('flex');
-    }
-
     let fileEdit;
 
     const imgEdit = document.getElementById("inputImgEdit")
@@ -397,17 +371,5 @@ function getStatusLabel($status)
         } else {
             alert("This is not an Image File!");
         }
-    }
-
-    const openDeleteReq = () => {
-        const deleteBarang = document.getElementById('deleteReq')
-        deleteBarang.classList.remove('hidden')
-        deleteBarang.classList.add('flex');
-    }
-
-    const closeDeleteReq = () => {
-        const deleteBarang = document.getElementById('deleteReq')
-        deleteBarang.classList.add('hidden');
-        deleteBarang.classList.remove('flex');
     }
 </script>

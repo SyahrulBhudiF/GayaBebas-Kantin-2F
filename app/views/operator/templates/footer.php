@@ -37,6 +37,18 @@
             })
         }
     });
+
+    const openModal = (modalId) => {
+        const modalElement = document.getElementById(modalId);
+        modalElement.classList.remove('hidden');
+        modalElement.classList.add('flex');
+    };
+
+    const closeModal = (modalId) => {
+        const modalElement = document.getElementById(modalId);
+        modalElement.classList.add('hidden');
+        modalElement.classList.remove('flex');
+    };
 </script>
 
 </html>
