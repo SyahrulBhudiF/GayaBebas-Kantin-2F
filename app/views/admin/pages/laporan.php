@@ -1,9 +1,12 @@
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <div class="flex justify-between w-full">
-            <div class="flex justify-between px-7 py-3 border border-Neutral/30 rounded-full">
-                <input type="search" name="" id="cari-karyawan" onkeyup="cariKaryawan()" class="outline-none" placeholder="Cari karyawan">
-                <img src="../public/Assets/svg/search-normal.svg" alt="search">
+            <div class="flex justify-between items-center gap-1 px-7 py-3 border border-Neutral/30 rounded-full">
+                <input type="search" name="" id="cari-karyawan" onkeyup="cariKaryawan()" class="outline-none"
+                    placeholder="Cari karyawan">
+                <label for="cari-karyawan">
+                    <img src="../public/Assets/svg/search-normal.svg" alt="search">
+                </label>
             </div>
             <div class="flex gap-3">
                 <label for="hari" class="inputRadioLapor checked" onchange="toggleCheckedClass(this)">
@@ -33,14 +36,14 @@
                 <tbody>
                     <?php $no = 1;
                     foreach ($data['laporan'] as $data) : ?>
-                        <tr>
-                            <td class="tableContent text-Neutral/60"><?= $no; ?></td>
-                            <td class="tableContent"><?= $data['nama_user']; ?></td>
-                            <td class="tableContent"><?= $data['nama_barang']; ?></td>
-                            <td class="tableContent"><?= $data['jumlah']; ?></td>
-                            <td class="tableContent"><?= "Rp " . number_format($data['total'], 0, ',', '.'); ?></td>
-                            <td class="tableContent"><?= tgl_indo($data['tgl_transaksi']); ?></td>
-                        </tr>
+                    <tr>
+                        <td class="tableContent text-Neutral/60"><?= $no; ?></td>
+                        <td class="tableContent"><?= $data['nama_user']; ?></td>
+                        <td class="tableContent"><?= $data['nama_barang']; ?></td>
+                        <td class="tableContent"><?= $data['jumlah']; ?></td>
+                        <td class="tableContent"><?= "Rp " . number_format($data['total'], 0, ',', '.'); ?></td>
+                        <td class="tableContent"><?= tgl_indo($data['tgl_transaksi']); ?></td>
+                    </tr>
                     <?php $no++;
                     endforeach; ?>
                 </tbody>
@@ -49,32 +52,10 @@
         <!-- End Table -->
 </section>
 <script>
-    function toggleCheckedClass(label) {
-        document.querySelectorAll('label.inputRadioLapor').forEach(label => label.classList.remove('checked'));
-        if (label.control.checked) {
-            label.classList.add('checked');
-        }
+function toggleCheckedClass(label) {
+    document.querySelectorAll('label.inputRadioLapor').forEach(label => label.classList.remove('checked'));
+    if (label.control.checked) {
+        label.classList.add('checked');
     }
-</script>
-
-<script>
-    function cariKaryawan() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("cari-karyawan");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("tabel-karyawan");
-        tr = table.getElementsByTagName("tr");
-
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
+}
 </script>

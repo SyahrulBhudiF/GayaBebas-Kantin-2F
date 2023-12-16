@@ -9,7 +9,9 @@ endforeach;
         <div class="flex justify-between">
             <div class="flex justify-between px-7 py-3 border border-Neutral/30 rounded-full">
                 <input type="search" name="" id="cari-barang" onkeyup="cariBarang()" class="outline-none" placeholder="Cari barang">
-                <img src="../public/Assets/svg/search-normal.svg" alt="search">
+                <label for="cari-barang">
+                    <img src="../public/Assets/svg/search-normal.svg" alt="search">
+                </label>
             </div>
             <div class="flex gap-3">
                 <a href="<?= BASEURL; ?>/requestbarang">
@@ -20,7 +22,7 @@ endforeach;
                         <div class="bg-Primary-surface rounded-full px-[0.65rem]"><?= $jml_req; ?></div>
                     </span>
                 </a>
-                <button id="addBarang" class="addButton" onclick="addBarang()">Tambahkan</button>
+                <button id="addBarang" class="addButton" onclick="openModal('addModalBarang')">Tambahkan</button>
             </div>
         </div>
         <!-- start grid -->
@@ -36,7 +38,8 @@ endforeach;
                         <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
                             <?= $barang['nama']; ?>
                         </p>
-                        <p class="text-Primary-blue text-xl font-semibold">Rp <?= $barang['hrg_jual']; ?><span class="text-Neutral/50 text-xs">/pcs</span></p>
+                        <p class="text-Primary-blue text-xl font-semibold">Rp
+                            <?= number_format($barang['hrg_jual'], 0, ',', '.'); ?><span class="text-Neutral/50 text-xs">/pcs</span></p>
                         <div class="flex gap-1 text-Neutral/70 font-medium text-sm">
                             <p><?= $barang['kategori']; ?></p>
                             <img src="../public/Assets/svg/Ellipse 5.svg" alt="">
@@ -46,8 +49,8 @@ endforeach;
                         </div>
                     </div>
                     <div class="flex gap-2 p-4 -mt-2 w-full">
-                        <img src="../public/Assets/svg/trash.svg" alt="delete" class="deleteItem py-2 px-3 border rounded-full border-Neutral/40 cursor-pointer active:opacity-80" onclick="openDeleteBarang<?= $barang['id_barang']; ?>()">
-                        <button class="EditItem w-full bg-Neutral/20 rounded-full text-center p-3 text-Primary-blue active:opacity-80" onclick="editBarang<?= $barang['id_barang']; ?>()">Edit</button>
+                        <img src="../public/Assets/svg/trash.svg" alt="delete" class="deleteItem py-2 px-3 border rounded-full border-Neutral/40 cursor-pointer active:opacity-80" onclick="openModal('deleteBarang<?= $barang['id_barang']; ?>')">
+                        <button class="EditItem w-full bg-Neutral/20 rounded-full text-center p-3 text-Primary-blue active:opacity-80" onclick="openModal('editModalBarang<?= $barang['id_barang']; ?>')">Edit</button>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -59,7 +62,7 @@ endforeach;
             <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[50%] laptop1:w-[62%] laptop3:w-[68%]">
                 <div class="flex justify-between items-center">
                     <h2 class="text-xl font-semibold text-Neutral/100">Tambah Data Barang</h2>
-                    <button id="closeModal" class="cursor-pointer" onclick="closeBarang()">
+                    <button id="closeModal" class="cursor-pointer" onclick="closeModal('addModalBarang')">
                         <img src="../public/Assets/svg/close.svg" alt="close">
                     </button>
                 </div>
@@ -134,7 +137,7 @@ endforeach;
                 <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[50%] laptop1:w-[62%] laptop3:w-[68%]">
                     <div class="flex justify-between items-center">
                         <h2 class="text-xl font-semibold text-Neutral/100">Edit Data Barang</h2>
-                        <button id="closeModal" class="cursor-pointer" onclick="closeEdit<?= $barang['id_barang']; ?>()">
+                        <button id="closeModal" class="cursor-pointer" onclick="closeModal('editModalBarang<?= $barang['id_barang']; ?>')">
                             <img src="../public/Assets/svg/close.svg" alt="close">
                         </button>
                     </div>
@@ -193,7 +196,6 @@ endforeach;
                                         <span class="text-Neutral/50">
                                             Rp |
                                         </span>
-                                        <!-- <input type="number" name="harga" id="inputEditHarga" class="bg-Neutral/20 outline-none w-[80%]" placeholder="Masukkan harga" oninput="formatNumber(this)"> -->
                                         <input type="number" name="harga" id="inputEditHarga" class="bg-Neutral/20 outline-none w-[80%]" placeholder="Masukkan harga" value="<?= $barang['hrg_jual']; ?>">
                                     </div>
                                 </div>
@@ -215,7 +217,7 @@ endforeach;
                         <a href="<?= BASEURL; ?>/databarang/hapusDataBarangById/<?= $barang['id_barang']; ?>">
                             <button class="px-[3.25rem] py-3 text-white bg-red-600 rounded-full">Hapus</button>
                         </a>
-                        <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeDeleteBarang<?= $barang['id_barang']; ?>()">Batal</button>
+                        <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeModal('deleteBarang<?= $barang['id_barang']; ?>')">Batal</button>
                     </div>
                 </div>
             </div>
@@ -225,17 +227,6 @@ endforeach;
 </section>
 <script>
     // modal data Barang
-    const modalAddBarang = document.getElementById("addModalBarang")
-
-    const addBarang = () => {
-        modalAddBarang.classList.remove('hidden')
-        modalAddBarang.classList.add('flex');
-    }
-
-    const closeBarang = () => {
-        modalAddBarang.classList.add('hidden');
-        modalAddBarang.classList.remove('flex');
-    }
 
     // upload
     const inputFile = document.getElementById("inputImg")
@@ -313,18 +304,6 @@ endforeach;
 
     // modal edit
     <?php foreach ($data['barang'] as $barang) : ?>
-        const edit<?= $barang['id_barang']; ?> = document.getElementById('editModalBarang<?= $barang['id_barang']; ?>')
-
-        const editBarang<?= $barang['id_barang']; ?> = () => {
-            edit<?= $barang['id_barang']; ?>.classList.remove('hidden')
-            edit<?= $barang['id_barang']; ?>.classList.add('flex');
-        }
-
-        const closeEdit<?= $barang['id_barang']; ?> = () => {
-            edit<?= $barang['id_barang']; ?>.classList.add('hidden');
-            edit<?= $barang['id_barang']; ?>.classList.remove('flex');
-        }
-
         let fileEdit<?= $barang['id_barang']; ?>;
 
         const imgEdit<?= $barang['id_barang']; ?> = document.getElementById("inputImgEdit<?= $barang['id_barang']; ?>")
@@ -381,42 +360,4 @@ endforeach;
     <?php endforeach; ?>
     // end edit
     // modal delete
-    <?php foreach ($data['barang'] as $barang) : ?>
-        const deleteBarang<?php echo $barang['id_barang']; ?> = document.getElementById('deleteBarang<?php echo $barang['id_barang']; ?>')
-
-        const openDeleteBarang<?= $barang['id_barang']; ?> = () => {
-            deleteBarang<?= $barang['id_barang']; ?>.classList.remove('hidden')
-            deleteBarang<?= $barang['id_barang']; ?>.classList.add('flex');
-        }
-
-        const closeDeleteBarang<?= $barang['id_barang']; ?> = () => {
-            deleteBarang<?= $barang['id_barang']; ?>.classList.add('hidden');
-            deleteBarang<?= $barang['id_barang']; ?>.classList.remove('flex');
-        }
-    <?php endforeach; ?>
-    // end delete
-    // function formatNumber(input) {
-    //     let value = input.value.replace(/\./g, '');
-    //     input.value = Number(value).toLocaleString('de-DE');
-    // }
-
-    function cariBarang() {
-        let input, filter, section, items, item, title, i, txtValue;
-        input = document.getElementById('cari-barang');
-        filter = input.value.toUpperCase();
-        section = document.getElementById('section-barang');
-        items = section.getElementsByClassName('div-barang');
-
-        for (i = 0; i < items.length; i++) {
-            item = items[i];
-            title = item.querySelector('p.p-barang');
-            txtValue = title.textContent || title.innerText;
-
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
-            }
-        }
-    }
 </script>

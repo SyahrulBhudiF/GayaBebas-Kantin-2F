@@ -11,7 +11,7 @@
                         kantin</p>
                 </div>
                 <div class="flex justify-between px-7 py-3 border border-Neutral/30 rounded-full">
-                    <input type="search" name="" id="cari-barang" onkeyup="cariBarang()" class="outline-none" placeholder="Cari barang">
+                    <input type="search" name="" id="cari-barang" onkeyup="cariBarangReq()" class="outline-none" placeholder="Cari barang">
                     <img src="Assets/svg/search-normal.svg" alt="search">
                 </div>
             </div>
@@ -57,8 +57,8 @@
                                 </div>
                             </td>
                             <td class="tableContent flex justify-start gap-2">
-                                <button onclick="openModalReject<?= $value['id_request']; ?>()" class="buttonReq <?= $value['status'] === 'Sedang Diproses' ? 'activeReject' : 'notActiveReject'; ?>">Tolak</button>
-                                <button onclick="openModalAcc<?= $value['id_request']; ?>()" class="buttonReq <?= $value['status'] === 'Sedang Diproses' ? 'activeAcc' : 'notActiveAcc'; ?>">Setujui</button>
+                                <button onclick="openModal('modalReject<?= $value['id_request']; ?>')" class="buttonReq <?= $value['status'] === 'Sedang Diproses' ? 'activeReject' : 'notActiveReject'; ?>">Tolak</button>
+                                <button onclick="openModal('modalAcc<?= $value['id_request']; ?>')" class="buttonReq <?= $value['status'] === 'Sedang Diproses' ? 'activeAcc' : 'notActiveAcc'; ?>">Setujui</button>
                             </td>
                         </tr>
                     <?php $no++;
@@ -70,29 +70,29 @@
     </div>
     <!-- modal acc -->
     <?php foreach ($data['request'] as $value) : ?>
-        <div id="modalAcc<?php echo $value['id_request']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
+        <div id="modalAcc<?= $value['id_request']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
             <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[20%] laptop1:w-[27%] laptop3:w-[30%]">
                 <p class="text-Neutral/100 text-xl font-semibold text-center">Apakah anda yakin ingin menyetujui request
                     ini?</p>
                 <div class="flex justify-between">
-                    <a href="<?= BASEURL; ?>/requestbarang/setujuiRequestBarangById/<?php echo $value['id_request']; ?>">
+                    <a href="<?= BASEURL; ?>/requestbarang/setujuiRequestBarangById/<?= $value['id_request']; ?>">
                         <button class="px-[3.25rem] py-3 text-white bg-Primary-blue rounded-full">Setuju</button>
                     </a>
-                    <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeModalAcc<?php echo $value['id_request']; ?>()">Batal</button>
+                    <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeModal('modalAcc<?= $value['id_request']; ?>')">Batal</button>
                 </div>
             </div>
         </div>
         <!-- end modal acc -->
         <!-- modal reject -->
-        <div id="modalReject<?php echo $value['id_request']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
+        <div id="modalReject<?= $value['id_request']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
             <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[20%] laptop1:w-[27%] laptop3:w-[30%]">
                 <p class="text-Neutral/100 text-xl font-semibold text-center">Apakah anda yakin ingin menolak request
                     ini?</p>
                 <div class="flex justify-between">
-                    <a href="<?= BASEURL; ?>/requestbarang/tolakRequestBarangById/<?php echo $value['id_request']; ?>">
+                    <a href="<?= BASEURL; ?>/requestbarang/tolakRequestBarangById/<?= $value['id_request']; ?>">
                         <button class="px-[3.25rem] py-3 text-white bg-red-600 rounded-full">Tolak</button>
                     </a>
-                    <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeModalReject<?php echo $value['id_request']; ?>()">Batal</button>
+                    <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeModal('modalReject<?= $value['id_request']; ?>')">Batal</button>
                 </div>
             </div>
         </div>
@@ -100,36 +100,8 @@
     <!-- end modal reject -->
 </section>
 <script>
-    <?php foreach ($data['request'] as $value) : ?>
-        const openModalReject<?php echo $value['id_request']; ?> = () => {
-            const modal<?php echo $value['id_request']; ?> = document.getElementById('modalReject<?php echo $value['id_request']; ?>')
-            modal<?php echo $value['id_request']; ?>.classList.remove('hidden');
-            modal<?php echo $value['id_request']; ?>.classList.add('flex');
-        }
-
-        const closeModalReject<?php echo $value['id_request']; ?> = () => {
-            const modal<?php echo $value['id_request']; ?> = document.getElementById('modalReject<?php echo $value['id_request']; ?>')
-            modal<?php echo $value['id_request']; ?>.classList.remove('flex');
-            modal<?php echo $value['id_request']; ?>.classList.add('hidden');
-        }
-
-        const openModalAcc<?php echo $value['id_request']; ?> = () => {
-            const modal<?php echo $value['id_request']; ?> = document.getElementById('modalAcc<?php echo $value['id_request']; ?>')
-            modal<?php echo $value['id_request']; ?>.classList.remove('hidden');
-            modal<?php echo $value['id_request']; ?>.classList.add('flex');
-        }
-
-        const closeModalAcc<?php echo $value['id_request']; ?> = () => {
-            const modal<?php echo $value['id_request']; ?> = document.getElementById('modalAcc<?php echo $value['id_request']; ?>')
-            modal<?php echo $value['id_request']; ?>.classList.remove('flex');
-            modal<?php echo $value['id_request']; ?>.classList.add('hidden');
-        }
-    <?php endforeach; ?>
-</script>
-
-<script>
-    function cariBarang() {
-        var input, filter, table, tr, td, i, txtValue;
+    function cariBarangReq() {
+        let input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("cari-barang");
         filter = input.value.toUpperCase();
         table = document.getElementById("tabel-request");

@@ -83,7 +83,7 @@ $data_produk = $data['barang'];
 
 <script>
 function cariBarang() {
-    var input, filter, section, items, item, title, i, txtValue;
+    let input, filter, section, items, item, title, i, txtValue;
     input = document.getElementById('cari-barang');
     filter = input.value.toUpperCase();
     section = document.getElementById('section-barang');
