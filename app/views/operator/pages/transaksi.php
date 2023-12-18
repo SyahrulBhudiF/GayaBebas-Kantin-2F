@@ -1,20 +1,13 @@
-<?php
-$data_barang = array(
-    array("nama" => "Tricks Bulgogi Keripik Kentang", "hrg_jual" => 6000, "stok" => 219, "kategori" => "Makanan", "tgl_expire" => "26/10/2023"),
-    array("nama" => "Choco Paradise Cookies", "hrg_jual" => 12000, "stok" => 150, "kategori" => "Kue", "tgl_expire" => "30/11/2023"),
-    array("nama" => "Vanilla Dream Ice Cream", "hrg_jual" => 25000, "stok" => 50, "kategori" => "Es Krim", "tgl_expire" => "15/12/2023"),
-);
-?>
 <section class="flex fadeIn p-4 gap-2 w-full h-screen">
     <!-- Col 1 -->
     <div class="flex flex-col w-[80%] laptop1:w-[75%] laptop3:h-[84vh] laptop2:h-[81vh] bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%]">
         <div class="flex justify-between w-fit px-7 py-3 border border-Neutral/30 rounded-full">
-            <input type="search" name="" id="cari-barang" class="outline-none" placeholder="Cari barang">
+            <input type="search" name="" id="cari-barang" onkeyup="cariBarang()" class="outline-none" placeholder="Cari barang">
             <img src="../public/Assets/svg/search-normal.svg" alt="search">
         </div>
         <!-- start grid -->
         <section class="grid grid-cols-4 laptop1:grid-cols-3 laptop3:grid-cols-3 gap-4 p-2 overflow-auto" id="section-barang">
-            <?php foreach ($data_barang as $barang) : ?>
+            <?php foreach ($data['barang'] as $barang) : ?>
                 <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem] div-barang">
                     <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
                         <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start laptop3:text-sm"><?= $barang['stok']; ?>
@@ -36,7 +29,7 @@ $data_barang = array(
                         </div>
                     </div>
                     <div class="flex justify-center w-full p-4">
-                        <button class="bg-Neutral/20 p-3 text-Primary-blue rounded-full w-full active:brightness-90 transition-all duration-300 ease-in-out" onclick="addProductToCart('../public/Assets/img/jajan.png','<?= $barang['nama']; ?>','<?= $barang['hrg_jual']; ?>')">
+                        <button class="bg-Neutral/20 p-3 text-Primary-blue rounded-full w-full active:brightness-90 transition-all duration-300 ease-in-out" onclick="addProductToCart('../public/Assets/img/jajan.png','<?= $barang['id_barang']; ?>','<?= $barang['nama']; ?>','<?= $barang['hrg_jual']; ?>')">
                             Tambah
                         </button>
                     </div>
@@ -96,7 +89,7 @@ $data_barang = array(
                     <p class="font-medium text-sm text-Neutral/100" id="changeAmount">Rp 0,00</p>
                 </div>
             </div>
-            <button class="rounded-full bg-Primary-blue p-3 text-white mt-4 active:opacity-80" onclick="">Simpan</button>
+            <button class="rounded-full bg-Primary-blue p-3 text-white mt-4 active:opacity-80" onclick="sendData()">Simpan</button>
         </div>
     </div>
     <!-- end modal pembayaran -->
@@ -150,12 +143,13 @@ $data_barang = array(
     // Fungsi untuk membuat elemen HTML di keranjang
     function createProductCard({
         imagePath,
+        id,
         name,
         price,
         quantity
     }) {
         return `
-      <div class="flex gap-2 w-full cards">
+      <div class="flex gap-2 w-full cards card-barang">
         <div class="bg-Neutral/20 p-2 rounded-xl w-[30%]">
           <img src="../public/Assets/img/jajan.png" alt="${name}">
         </div>
@@ -172,6 +166,8 @@ $data_barang = array(
               <img src="../public/Assets/svg/plus.svg" alt="plus" class="p-2 rounded-full bg-Neutral/100 border border-Neutral/100 cursor-pointer" onclick="adjustQuantity(this, 1)">
             </div>
           </div>
+        <p class="id-barang" hidden>${id}</p>
+        <p class="price-barang" hidden>${price}</p>
         </div>
       </div>
     `;
@@ -236,10 +232,11 @@ $data_barang = array(
     }
 
     // Fungsi untuk menambah produk ke dalam keranjang
-    function addProductToCart(img, name, price) {
+    function addProductToCart(img, id, name, price) {
         const keranjang = document.getElementById('keranjang');
         const productData = {
             img,
+            id,
             name,
             price,
             quantity: 1
@@ -247,4 +244,76 @@ $data_barang = array(
         keranjang.innerHTML += createProductCard(productData);
         calculateTotal();
     }
+
+    function cariBarang() {
+        let input, filter, section, items, item, title, i, txtValue;
+        input = document.getElementById('cari-barang');
+        filter = input.value.toUpperCase();
+        section = document.getElementById('section-barang');
+        items = section.getElementsByClassName('div-barang');
+
+        for (i = 0; i < items.length; i++) {
+            item = items[i];
+            title = item.querySelector('p.p-barang');
+            txtValue = title.textContent || title.innerText;
+
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        }
+    }
+
+    async function sendData() {
+        // Mengambil nilai dari tabel
+        const keranjang = document.getElementById('keranjang');
+        const rows = keranjang.querySelectorAll('.card-barang');
+
+        let data = [];
+
+        // Iterasi melalui setiap baris section
+        rows.forEach((e) => {
+            // Menambahkan data ke dalam array
+            data.push({
+                idBarang: e.querySelector('.id-barang').textContent,
+                quantity: parseInt(e.querySelector('.quantityValue').textContent),
+                price: parseInt(e.querySelector('.price-barang').textContent) * parseInt(e.querySelector('.quantityValue').textContent)
+            });
+        })
+
+        let Url = '<?= BASEURL; ?>/operatortransaksi/setTransaksi';
+
+        // Menggunakan metode fetch untuk mengirim data
+        try {
+            const response = await fetch(Url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            // Memeriksa status respons
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            // Menunggu respons dalam bentuk JSON
+            // const responseData = await response.json();
+
+            // Lakukan sesuatu dengan respons JSON (opsional)
+            // console.log(responseData);
+
+            // Reload halaman jika pengiriman data berhasil
+            location.reload();
+        } catch (error) {
+            // Tangani kesalahan yang mungkin terjadi selama pengiriman data
+            console.error('Error during data submission:', error);
+        }
+    }
+</script>
+
+<script>
+
 </script>

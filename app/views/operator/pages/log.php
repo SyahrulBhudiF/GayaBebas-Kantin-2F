@@ -1,12 +1,3 @@
-<?php
-// Contoh data
-$data_transaksi = array(
-    array("No" => 1, "Nama Operator" => "Budi Setyaningrum", "Aksi Operator" => "Menghapus data barang", "Tanggal Transaksi" => "26 Oktober 2023"),
-    array("No" => 2, "Nama Operator" => "Andi Saputra", "Aksi Operator" => "Menambah stok barang", "Tanggal Transaksi" => "28 Oktober 2023"),
-    array("No" => 3, "Nama Operator" => "Citra Indah", "Aksi Operator" => "Mengedit detail produk", "Tanggal Transaksi" => "30 Oktober 2023"),
-);
-
-?>
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <!-- Start table -->
@@ -15,20 +6,20 @@ $data_transaksi = array(
                 <thead class="bg-Neutral/20 rounded-thead">
                     <tr>
                         <th class="tableHead">No</th>
-                        <th class="tableHead">Nama Operator</th>
                         <th class="tableHead">Aksi Operator</th>
                         <th class="tableHead">Tanggal Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($data_transaksi as $data) : ?>
+                    <?php $no = 1;
+                    foreach ($data['log'] as $data) : ?>
                         <tr>
-                            <td class="tableContent text-Neutral/60">0<?= $data['No']; ?></td>
-                            <td class="tableContent"><?= $data['Nama Operator']; ?></td>
-                            <td class="tableContent"><?= $data['Aksi Operator']; ?></td>
-                            <td class="tableContent"><?= $data['Tanggal Transaksi']; ?></td>
+                            <td class="tableContent text-Neutral/60"><?= $no; ?></td>
+                            <td class="tableContent"><?= $data['aksi']; ?></td>
+                            <td class="tableContent"><?= tgl_indo($data['tgl_aksi']); ?></td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php $no++;
+                    endforeach; ?>
                 </tbody>
             </table>
         </div>

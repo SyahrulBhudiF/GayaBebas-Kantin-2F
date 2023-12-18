@@ -20,7 +20,8 @@
                             <td class="tableContent"><?= $data['aksi']; ?></td>
                             <td class="tableContent"><?= tgl_indo($data['tgl_aksi']); ?></td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php $no++;
+                    endforeach; ?>
                 </tbody>
             </table>
         </div>
