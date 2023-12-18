@@ -120,4 +120,64 @@ class LogModel
 
         return $this->db->rowCount();
     }
+
+    // Operator
+    public function getLogByName($name)
+    {
+        $this->db->query("SELECT * FROM " . $this->view . " WHERE nama_user = :nama_user ORDER BY id_log DESC");
+        $this->db->bind('nama_user', $name);
+        return $this->db->resultSet();
+    }
+
+    public function afterAddRequestBarang($id)
+    {
+        $query = "INSERT INTO " . $this->table . " VALUES ('', :id_user, :tgl_aksi, :aksi)";
+        $this->db->query($query);
+        $this->db->bind('id_user', $id);
+        $this->db->bind('tgl_aksi', date('Y-m-d'));
+        $this->db->bind('aksi', 'Menambah Request Barang');
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function afterEditRequestBarang($id)
+    {
+        $query = "INSERT INTO " . $this->table . " VALUES ('', :id_user, :tgl_aksi, :aksi)";
+        $this->db->query($query);
+        $this->db->bind('id_user', $id);
+        $this->db->bind('tgl_aksi', date('Y-m-d'));
+        $this->db->bind('aksi', 'Mengubah Request Barang');
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function afterHapusRequestBarang($id)
+    {
+        $query = "INSERT INTO " . $this->table . " VALUES ('', :id_user, :tgl_aksi, :aksi)";
+        $this->db->query($query);
+        $this->db->bind('id_user', $id);
+        $this->db->bind('tgl_aksi', date('Y-m-d'));
+        $this->db->bind('aksi', 'Menghapus Request Barang');
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function afterAddTransaksi($id)
+    {
+        $query = "INSERT INTO " . $this->table . " VALUES ('', :id_user, :tgl_aksi, :aksi)";
+        $this->db->query($query);
+        $this->db->bind('id_user', $id);
+        $this->db->bind('tgl_aksi', date('Y-m-d'));
+        $this->db->bind('aksi', 'Melakukan Transaksi');
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

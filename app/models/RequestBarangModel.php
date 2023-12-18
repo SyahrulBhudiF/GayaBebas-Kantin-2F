@@ -46,4 +46,71 @@ class RequestBarangModel
 
         return $this->db->rowCount();
     }
+
+    // Operator
+    public function getRequestBarangAll()
+    {
+        $this->db->query("SELECT * FROM " . $this->table);
+        return $this->db->resultSet();
+    }
+
+    public function getRequestBarangByOperatorName($name)
+    {
+        $this->db->query("SELECT * FROM " . $this->view . " WHERE nama_user = :nama_user");
+        $this->db->bind('nama_user', $name);
+        return $this->db->resultSet();
+    }
+
+    public function getRequestBarangById($id)
+    {
+        $this->db->query("SELECT * FROM " . $this->table . " WHERE id_request = :id_request");
+        $this->db->bind('id_request', $id);
+        return $this->db->single();
+    }
+
+    public function addRequestBarang($id, $data, $gambar)
+    {
+        $query = "INSERT INTO " . $this->table . " VALUES ('', :id_user, :foto, :nama, :kategori, :stok, :hrg_jual, :tgl_expire, :status)";
+        $this->db->query($query);
+        $this->db->bind('id_user', $id);
+        $this->db->bind('foto', $gambar);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('kategori', $data['kategori']);
+        $this->db->bind('stok', $data['stok']);
+        $this->db->bind('hrg_jual', $data['harga']);
+        $this->db->bind('tgl_expire', $data['date']);
+        $this->db->bind('status', 'Sedang Diproses');
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function editRequestBarang($id, $data, $gambar)
+    {
+        $query = "UPDATE " . $this->table . " SET foto = :foto, nama = :nama, kategori = :kategori, stok = :stok, hrg_jual = :hrg_jual, tgl_expire = :tgl_expire WHERE id_request = :id_request";
+        $this->db->query($query);
+        $this->db->bind('foto', $gambar);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('kategori', $data['kategori']);
+        $this->db->bind('stok', $data['stok']);
+        $this->db->bind('hrg_jual', $data['harga']);
+        $this->db->bind('tgl_expire', $data['date']);
+        $this->db->bind('id_request', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function deleteRequestBarang($id)
+    {
+        $query = "DELETE FROM " . $this->table . " WHERE id_request = :id_request";
+        $this->db->query($query);
+        $this->db->bind('id_request', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
