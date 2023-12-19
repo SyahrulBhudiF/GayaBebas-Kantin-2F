@@ -9,7 +9,6 @@
             </div>
             <label for="date" class="flex items-center py-4 px-6 rounded-full outline-none bg-Neutral/20">
                 <input type="date" name="date" id="date-search" onchange="searchByDate()" onclick="this.value = ''" class="outline-none bg-Neutral/20">
-                <img src="../public/Assets/svg/calendar-2.svg" alt="">
             </label>
         </div>
 

@@ -211,6 +211,7 @@
         currentQuantity += amount;
 
         if (currentQuantity >= 0) {
+            document.getElementById('quantity').textContent = `${currentQuantity} Barang`;
             quantityElement.textContent = currentQuantity;
 
             // Hapus elemen jika jumlah menjadi 0
@@ -278,7 +279,8 @@
             data.push({
                 idBarang: e.querySelector('.id-barang').textContent,
                 quantity: parseInt(e.querySelector('.quantityValue').textContent),
-                price: parseInt(e.querySelector('.price-barang').textContent) * parseInt(e.querySelector('.quantityValue').textContent)
+                price: parseInt(e.querySelector('.price-barang').textContent) * parseInt(e
+                    .querySelector('.quantityValue').textContent)
             });
         })
 
