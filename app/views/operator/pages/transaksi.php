@@ -1,10 +1,10 @@
 <section class="flex fadeIn p-4 gap-2 w-full h-screen">
     <!-- Col 1 -->
     <div class="flex flex-col w-[80%] laptop1:w-[75%] laptop3:h-[84vh] laptop2:h-[81vh] bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%]">
-        <div class="flex justify-between w-fit px-7 py-3 border border-Neutral/30 rounded-full">
+        <label for="cari-barang" class="flex justify-between w-fit px-7 py-3 border border-Neutral/30 rounded-full" aria-label="Search by nama barang" title="search By nama barang">
             <input type="search" name="" id="cari-barang" onkeyup="cariBarang()" class="outline-none" placeholder="Cari barang">
             <img src="../public/Assets/svg/search-normal.svg" alt="search">
-        </div>
+        </label>
         <!-- start grid -->
         <section class="grid grid-cols-4 laptop1:grid-cols-3 laptop3:grid-cols-3 gap-4 p-2 overflow-auto" id="section-barang">
             <?php foreach ($data['barang'] as $barang) : ?>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="flex justify-center w-full p-4">
-                        <button class="bg-Neutral/20 p-3 text-Primary-blue rounded-full w-full active:brightness-90 transition-all duration-300 ease-in-out" onclick="addProductToCart('../public/Assets/img/jajan.png','<?= $barang['id_barang']; ?>','<?= $barang['nama']; ?>','<?= $barang['hrg_jual']; ?>')">
+                        <button aria-label="tambah barang ke keranjang" title="tambah barang" class="bg-Neutral/20 p-3 text-Primary-blue rounded-full w-full active:brightness-90 transition-all duration-300 ease-in-out" onclick="addProductToCart('../public/Assets/img/jajan.png','<?= $barang['id_barang']; ?>','<?= $barang['nama']; ?>','<?= $barang['hrg_jual']; ?>')">
                             Tambah
                         </button>
                     </div>
@@ -44,7 +44,7 @@
         <div class="flex flex-col gap-6">
             <div class="flex justify-between items-center">
                 <p class="text-xl font-semibold text-Neutral/100">Keranjang</p>
-                <p class="text-[#FF0000] font-medium text-xs cursor-pointer" onclick="deleteAll()">Hapus semua</p>
+                <p aria-label="hapus keranjang" title="hapus semua item" class="text-[#FF0000] font-medium text-xs cursor-pointer" onclick="deleteAll()">Hapus semua</p>
             </div>
             <section id="keranjang" class="flex flex-col w-full gap-5 items-center justify-start overflow-auto h-[55vh] laptop2:h-[45vh]">
             </section>
@@ -58,7 +58,7 @@
                 <p class="text-sm font-semibold text-Neutral/100 price">
                     Rp 0,00</p>
             </div>
-            <button class="rounded-full bg-Primary-blue p-3 text-white mt-4 active:opacity-80" onclick="openPembayaran()">Konfirmasi</button>
+            <button aria-label="konfirmasi pembayaran" title="konfirmasi" class="rounded-full bg-Primary-blue p-3 text-white mt-4 active:opacity-80" onclick="openPembayaran()">Konfirmasi</button>
         </div>
     </div>
     <!-- modal pembayaran -->
@@ -161,9 +161,9 @@
           <div class="flex justify-between items-center">
             <p class="text-sm text-Neutral/100 font-medium" id="quantity"> ${quantity} Barang</p>
             <div class="flex justify-between items-center gap-3 bg-Neutral/20 rounded-full">
-              <img src="../public/Assets/svg/minus.svg" alt="minus" class="p-2 rounded-full border border-Neutral/40 bg-white cursor-pointer" onclick="adjustQuantity(this, -1)">
+              <img src="../public/Assets/svg/minus.svg" alt="minus" class="p-2 rounded-full border border-Neutral/40 bg-white cursor-pointer" onclick="adjustQuantity(this, -1)" title="kurang">
               <p class="quantityValue">${quantity}</p>
-              <img src="../public/Assets/svg/plus.svg" alt="plus" class="p-2 rounded-full bg-Neutral/100 border border-Neutral/100 cursor-pointer" onclick="adjustQuantity(this, 1)">
+              <img src="../public/Assets/svg/plus.svg" alt="plus" class="p-2 rounded-full bg-Neutral/100 border border-Neutral/100 cursor-pointer" onclick="adjustQuantity(this, 1)" title="tambah">
             </div>
           </div>
         <p class="id-barang" hidden>${id}</p>
@@ -211,6 +211,7 @@
         currentQuantity += amount;
 
         if (currentQuantity >= 0) {
+            document.getElementById('quantity').textContent = `${currentQuantity} Barang`;
             quantityElement.textContent = currentQuantity;
 
             // Hapus elemen jika jumlah menjadi 0
@@ -278,13 +279,14 @@
             data.push({
                 idBarang: e.querySelector('.id-barang').textContent,
                 quantity: parseInt(e.querySelector('.quantityValue').textContent),
-                price: parseInt(e.querySelector('.price-barang').textContent) * parseInt(e.querySelector('.quantityValue').textContent)
+                price: parseInt(e.querySelector('.price-barang').textContent) * parseInt(e
+                    .querySelector('.quantityValue').textContent)
             });
         })
 
+        // send data ke php
         let Url = '<?= BASEURL; ?>/operatortransaksi/setTransaksi';
 
-        // Menggunakan metode fetch untuk mengirim data
         try {
             const response = await fetch(Url, {
                 method: 'POST',
@@ -294,21 +296,14 @@
                 body: JSON.stringify(data)
             });
 
-            // Memeriksa status respons
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            // Menunggu respons dalam bentuk JSON
-            // const responseData = await response.json();
-
-            // Lakukan sesuatu dengan respons JSON (opsional)
-            // console.log(responseData);
-
-            // Reload halaman jika pengiriman data berhasil
             location.reload();
+
         } catch (error) {
-            // Tangani kesalahan yang mungkin terjadi selama pengiriman data
+
             console.error('Error during data submission:', error);
         }
     }

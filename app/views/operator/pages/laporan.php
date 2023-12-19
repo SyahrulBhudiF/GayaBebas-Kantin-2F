@@ -1,9 +1,8 @@
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <div class="flex justify-end w-full">
-            <label for="date" class="flex items-center py-4 px-6 rounded-full outline-none bg-Neutral/20">
+            <label aria-label="searchByDate" title="Search by date" for="date" class="flex items-center py-4 px-6 rounded-full outline-none bg-Neutral/20">
                 <input type="date" name="date" id="date-search" onchange="searchByDate()" onclick="this.value = ''" class="outline-none bg-Neutral/20">
-                <img src="../public/Assets/svg/calendar-2.svg" alt="">
             </label>
         </div>
 
@@ -47,10 +46,11 @@
         const monthName = months[parseInt(month, 10) - 1];
         return `${day} ${monthName} ${year}`;
     }
-    // Function to search by date
+
+    // Fungsi untuk mencari berdasarkan tanggal
     function searchByDate() {
         const searchDate = document.getElementById('date-search').value;
-        const rows = document.querySelectorAll('#tabel-karyawan tbody tr');
+        const rows = document.querySelectorAll('table tbody tr');
 
         rows.forEach(row => {
             const dateCell = row.querySelector('.tableContent:last-child');
