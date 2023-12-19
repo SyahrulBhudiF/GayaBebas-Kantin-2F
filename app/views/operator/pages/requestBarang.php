@@ -2,11 +2,11 @@
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <div class="flex flex-col w-full gap-4">
             <div class="flex justify-between">
-                <div class="flex justify-between px-7 py-3 border border-Neutral/30 rounded-full">
+                <label for="cari-barang" class="flex justify-between px-7 py-3 border border-Neutral/30 rounded-full" aria-label="Search by nama barang" title="search By nama barang">
                     <input type="search" name="" id="cari-barang" onkeyup="cariBarangReq()" class="outline-none" placeholder="Cari barang">
                     <img src="Assets/svg/search-normal.svg" alt="search">
-                </div>
-                <div>
+                </label>
+                <div aria-label="Tombol untuk menambah barang" title="tambah barang baru">
                     <button class="py-3 px-5 rounded-full text-white bg-Primary-blue active:opacity-80" onclick="openModal('addReqBarang')">Tambahkan</button>
                 </div>
             </div>
@@ -50,8 +50,8 @@
                                 </div>
                             </td>
                             <td class="tableContent flex justify-start gap-2">
-                                <img onclick="openModal('editReqBarang<?= $request['id_request']; ?>')" src="../public/Assets/svg/edit.svg" alt="edit" class="p-3 rounded-full border border-Neutral/40 edit <?= $request['status'] === 'Sedang Diproses' ? '' : 'notActiveReject'; ?>">
-                                <img onclick="openModal('deleteReq<?= $request['id_request']; ?>')" src="../public/Assets/svg/trash.svg" alt="delete" class="p-3 rounded-full border border-Neutral/40 delete <?= $request['status'] === 'Sedang Diproses' ? '' : 'notActiveReject'; ?>">
+                                <img onclick="openModal('editReqBarang<?= $request['id_request']; ?>')" src="../public/Assets/svg/edit.svg" alt="edit" class="p-3 rounded-full border border-Neutral/40 edit <?= $request['status'] === 'Sedang Diproses' ? '' : 'notActiveReject'; ?>" aria-label="edit request" title="edit">
+                                <img onclick="openModal('deleteReq<?= $request['id_request']; ?>')" src="../public/Assets/svg/trash.svg" alt="delete" class="p-3 rounded-full border border-Neutral/40 delete <?= $request['status'] === 'Sedang Diproses' ? '' : 'notActiveReject'; ?>" aria-label="hapus request" title="hapus">
                             </td>
                         </tr>
                     <?php $no++;

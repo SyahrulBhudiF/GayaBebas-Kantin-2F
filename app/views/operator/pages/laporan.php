@@ -1,7 +1,7 @@
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
         <div class="flex justify-end w-full">
-            <label for="date" class="flex items-center py-4 px-6 rounded-full outline-none bg-Neutral/20">
+            <label aria-label="searchByDate" title="Search by date" for="date" class="flex items-center py-4 px-6 rounded-full outline-none bg-Neutral/20">
                 <input type="date" name="date" id="date-search" onchange="searchByDate()" onclick="this.value = ''" class="outline-none bg-Neutral/20">
             </label>
         </div>
