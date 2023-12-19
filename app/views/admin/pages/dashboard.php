@@ -80,25 +80,3 @@ $data_produk = $data['barang'];
     </div>
     <!-- end list item -->
 </section>
-
-<script>
-function cariBarang() {
-    let input, filter, section, items, item, title, i, txtValue;
-    input = document.getElementById('cari-barang');
-    filter = input.value.toUpperCase();
-    section = document.getElementById('section-barang');
-    items = section.getElementsByClassName('div-barang');
-
-    for (i = 0; i < items.length; i++) {
-        item = items[i];
-        title = item.querySelector('p.p-barang');
-        txtValue = title.textContent || title.innerText;
-
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            item.style.display = '';
-        } else {
-            item.style.display = 'none';
-        }
-    }
-}
-</script>
