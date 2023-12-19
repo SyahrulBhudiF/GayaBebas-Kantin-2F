@@ -1,16 +1,10 @@
 <section class="flex flex-col fadeIn p-4 gap-2 w-full h-screen">
     <div class="flex flex-col bg-Neutral/10 rounded-[1.25rem] p-6 gap-6 h-[87%] laptop2:h-[85%]">
-        <div class="flex justify-between w-full">
-            <div class="flex gap-3">
-                <label for="hari" class="inputRadioLapor checked" onchange="toggleCheckedClass(this)">
-                    <input type="radio" name="waktu" id="hari" class="check" checked>
-                    Hari ini
-                </label>
-                <label for="bulan" class="inputRadioLapor" onchange="toggleCheckedClass(this)">
-                    <input type="radio" name="waktu" id="bulan" class="check">
-                    Bulan ini
-                </label>
-            </div>
+        <div class="flex justify-end w-full">
+            <label for="date" class="flex items-center py-4 px-6 rounded-full outline-none bg-Neutral/20">
+                <input type="date" name="date" id="date-search" onchange="searchByDate()" onclick="this.value = ''" class="outline-none bg-Neutral/20">
+                <img src="../public/Assets/svg/calendar-2.svg" alt="">
+            </label>
         </div>
 
         <!-- Start table -->
@@ -43,10 +37,29 @@
         <!-- End Table -->
 </section>
 <script>
-    function toggleCheckedClass(label) {
-        document.querySelectorAll('label.inputRadioLapor').forEach(label => label.classList.remove('checked'));
-        if (label.control.checked) {
-            label.classList.add('checked');
-        }
+    function formatDateString(dateString) {
+        const [year, month, day] = dateString.split('-');
+        const months = [
+            'Januari', 'Februari', 'Maret', 'April',
+            'Mei', 'Juni', 'Juli', 'Agustus',
+            'September', 'Oktober', 'November', 'Desember'
+        ];
+        const monthName = months[parseInt(month, 10) - 1];
+        return `${day} ${monthName} ${year}`;
+    }
+    // Function to search by date
+    function searchByDate() {
+        const searchDate = document.getElementById('date-search').value;
+        const rows = document.querySelectorAll('#tabel-karyawan tbody tr');
+
+        rows.forEach(row => {
+            const dateCell = row.querySelector('.tableContent:last-child');
+
+            if (dateCell.textContent === formatDateString(searchDate)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
     }
 </script>

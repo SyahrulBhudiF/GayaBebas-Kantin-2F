@@ -129,10 +129,6 @@ input[type="radio"] {
   @apply w-4 cursor-pointer;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
-}
-
 input[type="radio"] {
   transform: scale(1.2);
 }
@@ -169,11 +165,11 @@ input[type="radio"]:checked {
 }
 
 .activeReject {
-  @apply text-[#FF0000] border-[#FF0000];
+  @apply text-[#FF0000] border-[#FF0000] cursor-pointer;
 }
 
 .notActiveReject {
-  @apply border-Neutral/50 text-Neutral/50 pointer-events-none;
+  @apply pointer-events-none;
 }
 
 .activeAcc {
@@ -181,5 +177,9 @@ input[type="radio"]:checked {
 }
 
 .notActiveAcc {
-  @apply border-Neutral/50 text-white bg-Neutral/50 pointer-events-none;
+  @apply text-white  pointer-events-none;
+}
+
+.notActive {
+  @apply pointer-events-none opacity-60;
 }
