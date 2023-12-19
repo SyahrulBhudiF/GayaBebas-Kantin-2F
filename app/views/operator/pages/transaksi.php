@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="flex justify-center w-full p-4">
-                        <button aria-label="tambah barang ke keranjang" title="tambah barang" class="bg-Neutral/20 p-3 text-Primary-blue rounded-full w-full active:brightness-90 transition-all duration-300 ease-in-out" onclick="addProductToCart('../public/Assets/img/jajan.png','<?= $barang['id_barang']; ?>','<?= $barang['nama']; ?>','<?= $barang['hrg_jual']; ?>')">
+                        <button aria-label="tambah barang ke keranjang" title="tambah barang" id="cart<?= $barang['id_barang']; ?>" class="bg-Neutral/20 p-3 text-Primary-blue rounded-full w-full active:brightness-90 transition-all duration-300 ease-in-out" onclick="addProductToCart(this,',../public/Assets/img/jajan.png','<?= $barang['id_barang']; ?>','<?= $barang['nama']; ?>','<?= $barang['hrg_jual']; ?>')">
                             Tambah
                         </button>
                     </div>
@@ -138,6 +138,12 @@
         const keranjang = document.getElementById('keranjang');
         keranjang.innerHTML = '';
         calculateTotal()
+
+        const addButtons = document.querySelectorAll('button[onclick^="addProductToCart"]');
+        addButtons.forEach(button => {
+            button.disabled = false;
+            button.classList.remove('pointer-events-none')
+        });
     }
 
     // Fungsi untuk membuat elemen HTML di keranjang
@@ -159,7 +165,7 @@
           </p>
           <p class="text-Primary-blue text-xs font-semibold pricing">${numberFormat(price)}</p>
           <div class="flex justify-between items-center">
-            <p class="text-sm text-Neutral/100 font-medium" id="quantity"> ${quantity} Barang</p>
+            <p class="text-sm text-Neutral/100 font-medium" id="quantity_${id}"> ${quantity} Barang</p>
             <div class="flex justify-between items-center gap-3 bg-Neutral/20 rounded-full">
               <img src="../public/Assets/svg/minus.svg" alt="minus" class="p-2 rounded-full border border-Neutral/40 bg-white cursor-pointer" onclick="adjustQuantity(this, -1)" title="kurang">
               <p class="quantityValue">${quantity}</p>
@@ -206,17 +212,29 @@
     /// Fungsi untuk menangani penambahan atau pengurangan jumlah barang
     function adjustQuantity(element, amount) {
         const quantityElement = element.parentElement.querySelector('.quantityValue');
+
         let currentQuantity = parseInt(quantityElement.textContent, 10);
 
         currentQuantity += amount;
 
         if (currentQuantity >= 0) {
-            document.getElementById('quantity').textContent = `${currentQuantity} Barang`;
+            const productId = element.closest('.flex.gap-2.w-full').querySelector('.id-barang').textContent;
+            const quantityId = `quantity_${productId}`;
+            document.getElementById(quantityId).textContent = `${currentQuantity} Barang`;
             quantityElement.textContent = currentQuantity;
 
             // Hapus elemen jika jumlah menjadi 0
             if (currentQuantity === 0) {
                 const productCard = element.closest('.flex.gap-2.w-full');
+
+                const addButton = document.querySelector(`#cart${productId}`);
+                console.log(addButton)
+
+                if (addButton) {
+                    addButton.disabled = false;
+                    addButton.classList.remove('pointer-events-none');
+                }
+
                 productCard.remove();
             }
 
@@ -233,7 +251,7 @@
     }
 
     // Fungsi untuk menambah produk ke dalam keranjang
-    function addProductToCart(img, id, name, price) {
+    function addProductToCart(button, img, id, name, price) {
         const keranjang = document.getElementById('keranjang');
         const productData = {
             img,
@@ -244,6 +262,9 @@
         }; // Mulai dengan jumlah 1
         keranjang.innerHTML += createProductCard(productData);
         calculateTotal();
+
+        button.disabled = true;
+        button.classList.add('pointer-events-none')
     }
 
     function cariBarang() {
