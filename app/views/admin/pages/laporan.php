@@ -165,13 +165,13 @@ $dataKaryawan = [
                     <div class="flex flex-col gap-3">
                         <label for="operator">Operator</label>
                         <input type="text" name="operator" id="operator"
-                            class="outline-none px-6 py-4 rounded-xl border border-Neutral/30"
+                            class="outline-none px-6 py-4 rounded-xl bg-white border border-Neutral/30"
                             value="<?= $karyawan['nama_operator']; ?>" disabled>
                     </div>
                     <div class="flex flex-col gap-3">
                         <label for="tgl">Tanggal Transaksi</label>
                         <input type="text" name="tgl" id="tgl"
-                            class="outline-none px-6 py-4 rounded-xl border border-Neutral/30"
+                            class="outline-none px-6 py-4 rounded-xl bg-white border border-Neutral/30"
                             value="<?= $karyawan['tanggal_transaksi']; ?>" disabled>
                     </div>
                 </div>
