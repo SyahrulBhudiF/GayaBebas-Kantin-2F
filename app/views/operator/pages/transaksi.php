@@ -228,7 +228,6 @@
                 const productCard = element.closest('.flex.gap-2.w-full');
 
                 const addButton = document.querySelector(`#cart${productId}`);
-                console.log(addButton)
 
                 if (addButton) {
                     addButton.disabled = false;
