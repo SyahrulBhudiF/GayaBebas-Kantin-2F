@@ -19,6 +19,7 @@
             element.classList.add('fadeIn');
             nav.innerHTML = active == 'transaksi' ? 'Transaksi' :
                 active == 'requestBarang' ? 'Request Barang' :
+                active == 'requestStock' ? 'Request Stock' :
                 active == 'laporan' ? 'Laporan' : 'Log Aktivitas';
 
             nav.classList.add('fadeIn')
