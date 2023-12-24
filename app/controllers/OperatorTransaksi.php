@@ -19,7 +19,7 @@ class OperatorTransaksi extends Controller
         }
     }
 
-    public function setTransaksi()
+    public function setTransaksi($bayar, $kembali)
     {
         session_start();
         $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
@@ -32,12 +32,15 @@ class OperatorTransaksi extends Controller
 
         // Melakukan sesuatu dengan data yang diterima
         // Misalnya, menyimpannya ke database atau melakukan operasi lainnya
-        foreach ($data as $d) {
-            $this->model('TransaksiModel')->addTransaksi($user['id_user'], $d);
+        if ($this->model('TransaksiModel')->addTransaksi($user['id_user'], $bayar, $kembali) > 0) {
+            $transaksi = $this->model('TransaksiModel')->getLastTransaksiByIdUser($user['id_user']);
+
+            foreach ($data as $d) {
+                $this->model('DetailTransaksiModel')->addDetailTransaksi($transaksi['id_transaksi'], $d);
+            }
+
+            $this->model('LogModel')->afterAddTransaksi($user['id_user']);
         }
-
-        $this->model('LogModel')->afterAddTransaksi($user['id_user']);
-
 
         // Menyiapkan respons (contoh: mengirim balik data yang diterima)
         // $response = [

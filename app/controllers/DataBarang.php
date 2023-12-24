@@ -9,7 +9,8 @@ class DataBarang extends Controller
         if (isset($_SESSION['nama']) && $_SESSION['level'] == 'Admin') {
             $data['page'] = 'dataBarang';
             $data['barang'] = $this->model('BarangModel')->getBarang();
-            $data['count_req'] = $this->model('RequestBarangModel')->getCountRequestBarang();
+            $data['count_req_barang'] = $this->model('RequestBarangModel')->getCountRequestBarang();
+            $data['count_req_stock'] = $this->model('RequestStockModel')->getCountRequestStock();
             $this->view('admin/templates/header');
             $this->view('admin/pages/dataBarang', $data);
             $this->view('admin/templates/footer', $data);

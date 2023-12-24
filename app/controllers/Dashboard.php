@@ -8,8 +8,8 @@ class Dashboard extends Controller
 
         if (isset($_SESSION['nama']) && $_SESSION['level'] == 'Admin') {
             $data['page'] = 'dashboard';
-            $data['total_penjualan'] = $this->model('TransaksiModel')->getTotalPenjualan();
-            $data['barang_terjual'] = $this->model('TransaksiModel')->getBarangTerjual();
+            $data['total_penjualan'] = $this->model('DetailTransaksiModel')->getTotalPenjualan();
+            $data['barang_terjual'] = $this->model('DetailTransaksiModel')->getBarangTerjual();
             $data['total_stok'] = $this->model('BarangModel')->getTotalStok();
             $data['barang'] = $this->model('BarangModel')->getBarang();
             $this->view('admin/templates/header');

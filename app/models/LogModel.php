@@ -121,6 +121,32 @@ class LogModel
         return $this->db->rowCount();
     }
 
+    public function afterAcceptRequestStock($id)
+    {
+        $query = "INSERT INTO " . $this->table . " VALUES ('', :id_user, :tgl_aksi, :aksi)";
+        $this->db->query($query);
+        $this->db->bind('id_user', $id);
+        $this->db->bind('tgl_aksi', date('Y-m-d'));
+        $this->db->bind('aksi', 'Menyetujui Request Stock');
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function afterRejectRequestStock($id)
+    {
+        $query = "INSERT INTO " . $this->table . " VALUES ('', :id_user, :tgl_aksi, :aksi)";
+        $this->db->query($query);
+        $this->db->bind('id_user', $id);
+        $this->db->bind('tgl_aksi', date('Y-m-d'));
+        $this->db->bind('aksi', 'Menolak Request Stock');
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     // Operator
     public function getLogByName($name)
     {
@@ -175,6 +201,19 @@ class LogModel
         $this->db->bind('id_user', $id);
         $this->db->bind('tgl_aksi', date('Y-m-d'));
         $this->db->bind('aksi', 'Melakukan Transaksi');
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function afterAddRequestStock($id)
+    {
+        $query = "INSERT INTO " . $this->table . " VALUES ('', :id_user, :tgl_aksi, :aksi)";
+        $this->db->query($query);
+        $this->db->bind('id_user', $id);
+        $this->db->bind('tgl_aksi', date('Y-m-d'));
+        $this->db->bind('aksi', 'Menambah Request Stock');
 
         $this->db->execute();
 

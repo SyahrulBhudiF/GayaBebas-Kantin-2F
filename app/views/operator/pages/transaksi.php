@@ -292,6 +292,7 @@
         const rows = keranjang.querySelectorAll('.card-barang');
 
         let data = [];
+        let sum_price = 0;
 
         // Iterasi melalui setiap baris section
         rows.forEach((e) => {
@@ -302,10 +303,15 @@
                 price: parseInt(e.querySelector('.price-barang').textContent) * parseInt(e
                     .querySelector('.quantityValue').textContent)
             });
+
+            sum_price = sum_price + parseInt(e.querySelector('.price-barang').textContent) * parseInt(e.querySelector('.quantityValue').textContent);
         })
 
+        const bayar = document.getElementById('money').value;
+        const kembali = bayar - sum_price;
+
         // send data ke php
-        let Url = '<?= BASEURL; ?>/operatortransaksi/setTransaksi';
+        let Url = `<?= BASEURL; ?>/operatortransaksi/setTransaksi/${bayar}/${kembali}`;
 
         try {
             const response = await fetch(Url, {
@@ -320,8 +326,7 @@
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            location.reload();
-
+            location.reload(true);
         } catch (error) {
 
             console.error('Error during data submission:', error);

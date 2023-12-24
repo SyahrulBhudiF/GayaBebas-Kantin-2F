@@ -50,8 +50,8 @@
                                 </div>
                             </td>
                             <td class="tableContent flex justify-start gap-2">
-                                <img onclick="openModal('editReqBarang<?= $request['id_request']; ?>')" src="../public/Assets/svg/edit.svg" alt="edit" class="p-3 rounded-full border border-Neutral/40 edit <?= $request['status'] === 'Sedang Diproses' ? '' : 'notActiveReject'; ?>" aria-label="edit request" title="edit">
-                                <img onclick="openModal('deleteReq<?= $request['id_request']; ?>')" src="../public/Assets/svg/trash.svg" alt="delete" class="p-3 rounded-full border border-Neutral/40 delete <?= $request['status'] === 'Sedang Diproses' ? '' : 'notActiveReject'; ?>" aria-label="hapus request" title="hapus">
+                                <img onclick="openModal('editReqBarang<?= $request['id_request_barang']; ?>')" src="../public/Assets/svg/edit.svg" alt="edit" class="p-3 rounded-full border border-Neutral/40 edit <?= $request['status'] === 'Sedang Diproses' ? '' : 'notActiveReject'; ?>" aria-label="edit request" title="edit">
+                                <img onclick="openModal('deleteReq<?= $request['id_request_barang']; ?>')" src="../public/Assets/svg/trash.svg" alt="delete" class="p-3 rounded-full border border-Neutral/40 delete <?= $request['status'] === 'Sedang Diproses' ? '' : 'notActiveReject'; ?>" aria-label="hapus request" title="hapus">
                             </td>
                         </tr>
                     <?php $no++;
@@ -136,15 +136,15 @@
     <!-- end modal add -->
     <!-- start modal edit -->
     <?php foreach ($data['request'] as $value) : ?>
-        <div id="editReqBarang<?= $value['id_request']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
+        <div id="editReqBarang<?= $value['id_request_barang']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
             <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[50%] laptop1:w-[62%] laptop3:w-[68%]">
                 <div class="flex justify-between items-center">
                     <h2 class="text-xl font-semibold text-Neutral/100">Edit Data Barang</h2>
-                    <button id="closeModal" class="cursor-pointer" onclick="closeModal('editReqBarang<?= $value['id_request']; ?>')">
+                    <button id="closeModal" class="cursor-pointer" onclick="closeModal('editReqBarang<?= $value['id_request_barang']; ?>')">
                         <img src="../public/Assets/svg/close.svg" alt="close">
                     </button>
                 </div>
-                <form id="formEdit" class="flex flex-col gap-8 justify-center items-stretch" action="<?= BASEURL; ?>/operatorrequestbarang/ubahDataRequestById/<?= $value['id_request']; ?>" method="POST" enctype="multipart/form-data">
+                <form id="formEdit" class="flex flex-col gap-8 justify-center items-stretch" action="<?= BASEURL; ?>/operatorrequestbarang/ubahDataRequestById/<?= $value['id_request_barang']; ?>" method="POST" enctype="multipart/form-data">
                     <div class="grid grid-cols-2 gap-8">
                         <div class="flex flex-col gap-3">
                             <label for="editNamaBarang" class="textInputKaryawan">Nama Barang</label>
@@ -157,15 +157,15 @@
                         <div class="flex flex-col gap-3">
                             <label for="inputImg" class="textInputKaryawan">Upload gambar produk</label>
                             <div class="flex flex-col items-center border-2 border-dashed border-Primary-surface rounded-3xl gap-2 cursor-pointer">
-                                <label for="inputImgEdit<?= $value['id_request']; ?>" id="drop-area-edit<?= $value['id_request']; ?>" class="flex flex-col justify-center items-center m-2 px-[20%] py-[2%] h-[28vh] laptop1:h-[32vh] laptop3:h-[30vh] laptop2:h-[36vh]">
+                                <label for="inputImgEdit<?= $value['id_request_barang']; ?>" id="drop-area-edit<?= $value['id_request_barang']; ?>" class="flex flex-col justify-center items-center m-2 px-[20%] py-[2%] h-[28vh] laptop1:h-[32vh] laptop3:h-[30vh] laptop2:h-[36vh]">
                                     <div class="flex flex-col items-start w-fit">
-                                        <div class="flex justify-end w-full -mb-2 cursor-pointer" onclick="cancelUpEdit<?= $value['id_request']; ?>()">
+                                        <div class="flex justify-end w-full -mb-2 cursor-pointer" onclick="cancelUpEdit<?= $value['id_request_barang']; ?>()">
                                             <img src="../public/Assets/svg/close.svg" alt="" class="-mr-[0.8rem]">
                                         </div>
                                         <img src="../../GayaBebas-Kantin-2F/public/Assets/img/barang/<?= $value['foto']; ?>" alt="" class="px-10 py-7 bg-Neutral/20 rounded-3xl">
                                     </div>
                                 </label>
-                                <input type="file" name="inputImgEdit" id="inputImgEdit<?= $value['id_request']; ?>" class="inputImg" hidden>
+                                <input type="file" name="inputImgEdit" id="inputImgEdit<?= $value['id_request_barang']; ?>" class="inputImg" hidden>
                             </div>
                         </div>
                         <div class="flex flex-col gap-8">
@@ -210,15 +210,15 @@
         </div>
         <!-- end modal edit -->
         <!-- start modal delete -->
-        <div id="deleteReq<?= $value['id_request']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
+        <div id="deleteReq<?= $value['id_request_barang']; ?>" class="fixed inset-0 items-center justify-center z-50 bg-black bg-opacity-60 hidden">
             <div class="flex flex-col modal bg-white p-8 rounded-[2rem] shadow-lg gap-8 w-[20%] laptop1:w-[27%] laptop3:w-[30%]">
                 <p class="text-Neutral/100 text-xl font-semibold text-center">Apakah anda yakin ingin menghapus data
                     ini?</p>
                 <div class="flex justify-between">
-                    <a href="<?= BASEURL; ?>/operatorrequestbarang/hapusDataRequestById/<?= $value['id_request']; ?>">
+                    <a href="<?= BASEURL; ?>/operatorrequestbarang/hapusDataRequestById/<?= $value['id_request_barang']; ?>">
                         <button class="px-[3.25rem] py-3 text-white bg-red-600 rounded-full">Hapus</button>
                     </a>
-                    <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeModal('deleteReq<?= $value['id_request']; ?>')">Batal</button>
+                    <button class="px-[3.25rem] py-3 text-Neutral/100 bg-[#EEE] rounded-full" onclick="closeModal('deleteReq<?= $value['id_request_barang']; ?>')">Batal</button>
                 </div>
             </div>
         </div>
@@ -306,55 +306,55 @@
 
     // modal edit
     <?php foreach ($data['request'] as $value) : ?>
-        let fileEdit<?= $value['id_request']; ?>;
+        let fileEdit<?= $value['id_request_barang']; ?>;
 
-        const imgEdit<?= $value['id_request']; ?> = document.getElementById("inputImgEdit<?= $value['id_request']; ?>")
-        const dropAreaEdit<?= $value['id_request']; ?> = document.getElementById("drop-area-edit<?= $value['id_request']; ?>")
+        const imgEdit<?= $value['id_request_barang']; ?> = document.getElementById("inputImgEdit<?= $value['id_request_barang']; ?>")
+        const dropAreaEdit<?= $value['id_request_barang']; ?> = document.getElementById("drop-area-edit<?= $value['id_request_barang']; ?>")
         // const originalEdit = dropAreaEdit.innerHTML
 
-        imgEdit<?= $value['id_request']; ?>.addEventListener("change", function() {
-            fileEdit<?= $value['id_request']; ?> = this.files[0]
-            showFileEdit<?= $value['id_request']; ?>()
+        imgEdit<?= $value['id_request_barang']; ?>.addEventListener("change", function() {
+            fileEdit<?= $value['id_request_barang']; ?> = this.files[0]
+            showFileEdit<?= $value['id_request_barang']; ?>()
         })
 
-        dropAreaEdit<?= $value['id_request']; ?>.addEventListener("dragover", e => {
+        dropAreaEdit<?= $value['id_request_barang']; ?>.addEventListener("dragover", e => {
             e.preventDefault()
         })
 
-        dropAreaEdit<?= $value['id_request']; ?>.addEventListener("drop", e => {
+        dropAreaEdit<?= $value['id_request_barang']; ?>.addEventListener("drop", e => {
             e.preventDefault()
-            fileEdit<?= $value['id_request']; ?> = e.dataTransfer.files[0]
-            showFileEdit<?= $value['id_request']; ?>()
+            fileEdit<?= $value['id_request_barang']; ?> = e.dataTransfer.files[0]
+            showFileEdit<?= $value['id_request_barang']; ?>()
         })
 
-        const cancelUpEdit<?= $value['id_request']; ?> = () => {
-            dropAreaEdit<?= $value['id_request']; ?>.innerHTML = null
-            dropAreaEdit<?= $value['id_request']; ?>.innerHTML = `<img src="../public/Assets/svg/upload.svg" alt="upload">
+        const cancelUpEdit<?= $value['id_request_barang']; ?> = () => {
+            dropAreaEdit<?= $value['id_request_barang']; ?>.innerHTML = null
+            dropAreaEdit<?= $value['id_request_barang']; ?>.innerHTML = `<img src="../public/Assets/svg/upload.svg" alt="upload">
                                         <p class="text-Neutral/80 text-center text-sm"><span class="text-Neutral/100 font-semibold underline">Pilih gambar</span> untuk
                                             diunggah
                                             atau tarik dan
                                             lepas gambar disini</p>`
-            dropAreaEdit<?= $value['id_request']; ?>.parentNode.classList.add("bg-Neutral/20")
+            dropAreaEdit<?= $value['id_request_barang']; ?>.parentNode.classList.add("bg-Neutral/20")
         }
 
 
-        const showFileEdit<?= $value['id_request']; ?> = () => {
-            let fileType = fileEdit<?= $value['id_request']; ?>.type;
+        const showFileEdit<?= $value['id_request_barang']; ?> = () => {
+            let fileType = fileEdit<?= $value['id_request_barang']; ?>.type;
             let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
             if (validExtensions.includes(fileType)) {
                 let fileReader = new FileReader();
                 fileReader.onload = () => {
                     let fileURL = fileReader.result;
-                    dropAreaEdit<?= $value['id_request']; ?>.parentNode.classList.remove("bg-Neutral/20")
-                    dropAreaEdit<?= $value['id_request']; ?>.innerHTML = null;
-                    dropAreaEdit<?= $value['id_request']; ?>.innerHTML = `<div class="flex flex-col items-start w-fit">
-                                <div class="flex justify-end w-full -mb-2 cursor-pointer" onclick="cancelUpEdit<?= $value['id_request']; ?>()">
+                    dropAreaEdit<?= $value['id_request_barang']; ?>.parentNode.classList.remove("bg-Neutral/20")
+                    dropAreaEdit<?= $value['id_request_barang']; ?>.innerHTML = null;
+                    dropAreaEdit<?= $value['id_request_barang']; ?>.innerHTML = `<div class="flex flex-col items-start w-fit">
+                                <div class="flex justify-end w-full -mb-2 cursor-pointer" onclick="cancelUpEdit<?= $value['id_request_barang']; ?>()">
                                     <img src="../public/Assets/svg/close.svg" alt="" class="-mr-[0.8rem]">
                                 </div>
                                     <img src="${fileURL}" alt="" class="px-10 py-7 bg-Neutral/20 rounded-3xl">
                                 </div>`;
                 }
-                fileReader.readAsDataURL(fileEdit<?= $value['id_request']; ?>);
+                fileReader.readAsDataURL(fileEdit<?= $value['id_request_barang']; ?>);
             } else {
                 alert("This is not an Image File!");
             }

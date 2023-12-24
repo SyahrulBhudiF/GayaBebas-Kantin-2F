@@ -1,6 +1,10 @@
 <?php
-foreach ($data['count_req'] as $jml) :
-    $jml_req = $jml;
+foreach ($data['count_req_barang'] as $jml) :
+    $jml_req_barang = $jml;
+endforeach;
+
+foreach ($data['count_req_stock'] as $jml) :
+    $jml_req_stock = $jml;
 endforeach;
 ?>
 
@@ -17,7 +21,7 @@ endforeach;
                         <p>
                             Request Stok
                         </p>
-                        <div class="bg-Primary-surface rounded-full px-[0.65rem]">100</div>
+                        <div class="bg-Primary-surface rounded-full px-[0.65rem]"><?= $jml_req_stock; ?></div>
                     </span>
                 </a>
                 <a href="<?= BASEURL; ?>/requestbarang">
@@ -25,7 +29,7 @@ endforeach;
                         <p>
                             Request Barang
                         </p>
-                        <div class="bg-Primary-surface rounded-full px-[0.65rem]"><?= $jml_req; ?></div>
+                        <div class="bg-Primary-surface rounded-full px-[0.65rem]"><?= $jml_req_barang; ?></div>
                     </span>
                 </a>
                 <button id="addBarang" class="addButton" onclick="openModal('addModalBarang')" aria-label="tambah barang" title="tambah barang">Tambahkan</button>
