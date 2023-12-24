@@ -21,6 +21,23 @@
             <?php foreach ($data['request'] as $value) : ?>
                 <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem] div-barang">
                     <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
+                        <?php
+                        if ($value['status'] === 'Sedang Diproses') : ?>
+                            <span class="statusProsesStock">
+                                <img src="Assets/svg/kuning.svg" alt="">
+                                Menunggu
+                            </span>
+                        <?php elseif ($value['status'] === 'Ditolak') : ?>
+                            <span class="statusProsesStock">
+                                <img src="Assets/svg/merah.svg" alt="">
+                                <?= $value['status']; ?>
+                            </span>
+                        <?php elseif ($value['status'] === 'Disetujui') : ?>
+                            <span class="statusProsesStock">
+                                <img src="Assets/svg/hijau.svg" alt="">
+                                <?= $value['status']; ?>
+                            </span>
+                        <?php endif; ?>
                         <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
                     </div>
                     <div class="flex flex-col gap-3 p-4">
@@ -33,12 +50,11 @@
                         <p class="text-Neutral/70 font-medium text-sm w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
                             by <?= $value['nama_user']; ?>
                         </p>
-
                     </div>
                     <div class="flex gap-2 p-4 -mt-2 w-full">
 
-                        <button class="w-full bg-Neutral/30 rounded-full text-center p-3 text-red-600 active:opacity-80" onclick="openModal('modalReject<?= $value['id_request_stok']; ?>')" aria-label="reject" title="reject">Tolak</button>
-                        <button class="w-full bg-Primary-blue rounded-full text-center p-3 text-white active:opacity-80" onclick="openModal('modalAcc<?= $value['id_request_stok']; ?>')" aria-label="acc" title="acc">Setujui</button>
+                        <button class="w-full bg-Neutral/30 rounded-full text-center p-3 text-red-600 active:opacity-80 <?= $value['status'] === 'Sedang Diproses' ? 'cursor-pointer' : 'notActiveReject'; ?>" onclick="openModal('modalReject<?= $value['id_request_stok']; ?>')" aria-label="reject" title="reject">Tolak</button>
+                        <button class="w-full bg-Primary-blue rounded-full text-center p-3 text-white active:opacity-80 <?= $value['status'] === 'Sedang Diproses' ? 'cursor-pointer' : 'notActiveReject'; ?>" onclick="openModal('modalAcc<?= $value['id_request_stok']; ?>')" aria-label="acc" title="acc">Setujui</button>
                     </div>
                 </div>
             <?php endforeach; ?>

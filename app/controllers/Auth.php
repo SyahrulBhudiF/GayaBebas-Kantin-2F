@@ -33,6 +33,7 @@ class Auth extends Controller
             $_SESSION['level'] = $user['level'];
             header("Location: " . BASEURL . "/operatortransaksi");
         } else {
+            $_SESSION['message'] = true;
             header("Location: " . BASEURL);
         }
     }

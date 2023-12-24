@@ -31,7 +31,35 @@ if (session_status() === PHP_SESSION_NONE) {
                 Masuk
             </button>
         </form>
+        <div id="flashMessage" class="fixed inset-0 items-start justify-center z-50 bg-black bg-opacity-20 hidden">
+            <div id="contentFlash" class="flex modal m-2 bg-red-100 border border-red-500 p-8 rounded-lg shadow-lg gap-8 w-[20%] laptop1:w-[27%] laptop3:w-[30%]">
+                <p class="text-red-500 font-semibold text-lg text-center">Password atau Email salah!!!</p>
+                <button id="closeModal" class="cursor-pointer" onclick="closeModal('flashMessage')">
+                    <img src="../public/Assets/svg/close.svg" alt="close">
+                </button>
+            </div>
+        </div>
     </main>
 </body>
 
 </html>
+<script>
+    if (<?= $_SESSION['message'] ?>) {
+        const element = document.getElementById("flashMessage")
+        element.classList.remove('hidden')
+        element.classList.add('flex')
+        <?php unset($_SESSION['message']); ?>
+    }
+
+    const closeModal = (modalId) => {
+        const modalElement = document.getElementById(modalId);
+        modalElement.classList.add('hidden');
+        modalElement.classList.remove('flex');
+    };
+
+    setTimeout(() => {
+        const element = document.getElementById("flashMessage")
+        element.classList.remove('flex')
+        element.classList.add('hidden')
+    }, 2000)
+</script>

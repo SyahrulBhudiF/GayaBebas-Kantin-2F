@@ -41,7 +41,7 @@
                                     if ($value['status'] === 'Sedang Diproses') : ?>
                                         <span class="statusProses">
                                             <img src="Assets/svg/kuning.svg" alt="">
-                                            <?= $value['status']; ?>
+                                            Menunggu
                                         </span>
                                     <?php elseif ($value['status'] === 'Ditolak') : ?>
                                         <span class="statusProses">

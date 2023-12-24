@@ -61,7 +61,7 @@
                         </div>
                         <div class="flex flex-col gap-3">
                             <label for="tgl">Tanggal Transaksi</label>
-                            <input type="text" name="tgl" id="tgl" class="outline-none px-6 py-4 rounded-xl bg-white border border-Neutral/30" value="<?= $laporan['tgl_transaksi']; ?>" disabled>
+                            <input type="text" name="tgl" id="tgl" class="outline-none px-6 py-4 rounded-xl bg-white border border-Neutral/30" value="<?= tgl_indo($laporan['tgl_transaksi']); ?>" disabled>
                         </div>
                     </div>
                     <div class="flex flex-col p-3 gap-5 border border-Neutral/30 rounded-2xl h-[40vh]">
@@ -72,15 +72,18 @@
                             <div class="flex justify-between items-center py-3 border-t border-b  border-t-Neutral/40 border-b-Neutral/40">
                                 <p class="text-Neutral/100 text-sm font-semibold">
                                     Total</p>
-                                <p class="text-Neutral/100 text-sm font-semibold"><?= "Rp " . number_format($laporan['total'], 0, ',', '.'); ?></p>
+                                <p class="text-Neutral/100 text-sm font-semibold">
+                                    <?= "Rp " . number_format($laporan['total'], 0, ',', '.'); ?></p>
                             </div>
                             <div class="flex justify-between items-center">
                                 <p class="text-Neutral/80 text-sm font-medium">Bayar</p>
-                                <p class="text-Neutral/80 text-sm font-medium"><?= "Rp " . number_format($laporan['bayar'], 0, ',', '.'); ?></p>
+                                <p class="text-Neutral/80 text-sm font-medium">
+                                    <?= "Rp " . number_format($laporan['bayar'], 0, ',', '.'); ?></p>
                             </div>
                             <div class="flex justify-between items-center">
                                 <p class="text-Neutral/80 text-sm font-medium">Kembali</p>
-                                <p class="text-Neutral/80 text-sm font-medium"><?= "Rp " . number_format($laporan['kembali'], 0, ',', '.'); ?></p>
+                                <p class="text-Neutral/80 text-sm font-medium">
+                                    <?= "Rp " . number_format($laporan['kembali'], 0, ',', '.'); ?></p>
                             </div>
                         </div>
                     </div>

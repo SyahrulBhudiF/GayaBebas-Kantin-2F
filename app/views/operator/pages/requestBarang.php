@@ -34,7 +34,7 @@
                                     if ($request['status'] === 'Sedang Diproses') : ?>
                                         <span class="statusProses">
                                             <img src="Assets/svg/kuning.svg" alt="">
-                                            <?= $request['status']; ?>
+                                            Menunggu
                                         </span>
                                     <?php elseif ($request['status'] === 'Ditolak') : ?>
                                         <span class="statusProses">
@@ -50,8 +50,8 @@
                                 </div>
                             </td>
                             <td class="tableContent flex justify-start gap-2">
-                                <img onclick="openModal('editReqBarang<?= $request['id_request_barang']; ?>')" src="../public/Assets/svg/edit.svg" alt="edit" class="p-3 rounded-full border border-Neutral/40 edit <?= $request['status'] === 'Sedang Diproses' ? '' : 'notActiveReject'; ?>" aria-label="edit request" title="edit">
-                                <img onclick="openModal('deleteReq<?= $request['id_request_barang']; ?>')" src="../public/Assets/svg/trash.svg" alt="delete" class="p-3 rounded-full border border-Neutral/40 delete <?= $request['status'] === 'Sedang Diproses' ? '' : 'notActiveReject'; ?>" aria-label="hapus request" title="hapus">
+                                <img onclick="openModal('editReqBarang<?= $request['id_request_barang']; ?>')" src="../public/Assets/svg/edit.svg" alt="edit" class="p-3 rounded-full border border-Neutral/40 edit <?= $request['status'] === 'Sedang Diproses' ? 'cursor-pointer' : 'notActiveReject'; ?>" aria-label="edit request" title="edit">
+                                <img onclick="openModal('deleteReq<?= $request['id_request_barang']; ?>')" src="../public/Assets/svg/trash.svg" alt="delete" class="p-3 rounded-full border border-Neutral/40 delete <?= $request['status'] === 'Sedang Diproses' ? 'cursor-pointer' : 'notActiveReject'; ?>" aria-label="hapus request" title="hapus">
                             </td>
                         </tr>
                     <?php $no++;
@@ -308,8 +308,10 @@
     <?php foreach ($data['request'] as $value) : ?>
         let fileEdit<?= $value['id_request_barang']; ?>;
 
-        const imgEdit<?= $value['id_request_barang']; ?> = document.getElementById("inputImgEdit<?= $value['id_request_barang']; ?>")
-        const dropAreaEdit<?= $value['id_request_barang']; ?> = document.getElementById("drop-area-edit<?= $value['id_request_barang']; ?>")
+        const imgEdit<?= $value['id_request_barang']; ?> = document.getElementById(
+            "inputImgEdit<?= $value['id_request_barang']; ?>")
+        const dropAreaEdit<?= $value['id_request_barang']; ?> = document.getElementById(
+            "drop-area-edit<?= $value['id_request_barang']; ?>")
         // const originalEdit = dropAreaEdit.innerHTML
 
         imgEdit<?= $value['id_request_barang']; ?>.addEventListener("change", function() {

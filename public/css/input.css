@@ -39,7 +39,7 @@
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -160,6 +160,10 @@ input[type="radio"]:checked {
   @apply flex py-2 px-3 w-fit gap-3 rounded-full bg-Neutral/20;
 }
 
+.statusProsesStock {
+  @apply flex w-fit gap-3 bg-Neutral/10 px-5 py-2 rounded-full self-start;
+}
+
 .buttonReq {
   @apply py-3 px-6 border rounded-full active:opacity-60;
 }
@@ -169,7 +173,7 @@ input[type="radio"]:checked {
 }
 
 .notActiveReject {
-  @apply opacity-25 border border-Neutral/50 pointer-events-none;
+  @apply opacity-25 border border-Neutral/50 pointer-events-none cursor-none;
 }
 
 .activeAcc {
