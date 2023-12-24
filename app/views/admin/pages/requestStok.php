@@ -21,23 +21,11 @@
             <?php foreach ($data['request'] as $value) : ?>
                 <div class="flex flex-col border border-Neutral/30 rounded-3xl p-[0.2rem] div-barang">
                     <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
-                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
-                    </div>
-                    <div class="flex flex-col gap-3 p-4">
-                        <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
-                            <?= $value['nama_barang']; ?>
-                        </p>
-                        <p class="text-Primary-blue font-semibold text-xl w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
-                            <?= $value['stok']; ?> pcs
-                        </p>
-                        <p class="text-Neutral/70 font-medium text-sm w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
-                            by <?= $value['nama_user']; ?>
-                        </p>
                         <?php
                         if ($value['status'] === 'Sedang Diproses') : ?>
                             <span class="statusProsesStock">
                                 <img src="Assets/svg/kuning.svg" alt="">
-                                <?= $value['status']; ?>
+                                Menunggu
                             </span>
                         <?php elseif ($value['status'] === 'Ditolak') : ?>
                             <span class="statusProsesStock">
@@ -50,7 +38,18 @@
                                 <?= $value['status']; ?>
                             </span>
                         <?php endif; ?>
-
+                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                    </div>
+                    <div class="flex flex-col gap-3 p-4">
+                        <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
+                            <?= $value['nama_barang']; ?>
+                        </p>
+                        <p class="text-Primary-blue font-semibold text-xl w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
+                            <?= $value['stok']; ?> pcs
+                        </p>
+                        <p class="text-Neutral/70 font-medium text-sm w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
+                            by <?= $value['nama_user']; ?>
+                        </p>
                     </div>
                     <div class="flex gap-2 p-4 -mt-2 w-full">
 
