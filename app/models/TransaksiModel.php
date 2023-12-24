@@ -3,24 +3,12 @@
 class TransaksiModel
 {
     private $table = 'transaksi';
-    private $view = 'laporan_transaksi';
+    private $view = 'laporan_transaksi_admin';
     private $db;
 
     public function __construct()
     {
         $this->db = new Database;
-    }
-
-    public function getTotalPenjualan()
-    {
-        $this->db->query("SELECT SUM(total) FROM " . $this->table);
-        return $this->db->single();
-    }
-
-    public function getBarangTerjual()
-    {
-        $this->db->query("SELECT SUM(jumlah) FROM " . $this->table);
-        return $this->db->single();
     }
 
     public function getLaporan()
@@ -30,22 +18,21 @@ class TransaksiModel
     }
 
     // Operator
-    public function getLaporanByName($name)
+    public function getLastTransaksiByIdUser($id)
     {
-        $this->db->query("SELECT * FROM " . $this->view . " WHERE nama_user = :nama_user ORDER BY id_transaksi DESC");
-        $this->db->bind('nama_user', $name);
-        return $this->db->resultSet();
+        $this->db->query("SELECT * FROM " . $this->table . " WHERE id_user = :id_user ORDER BY id_transaksi DESC LIMIT 1");
+        $this->db->bind('id_user', $id);
+        return $this->db->single();
     }
 
-    public function addTransaksi($id, $data)
+    public function addTransaksi($id, $bayar, $kembali)
     {
-        $query = "INSERT INTO " . $this->table . " VALUES ('', :id_user, :id_barang, :jumlah, :total, :tgl_transaksi)";
+        $query = "INSERT INTO " . $this->table . " VALUES ('', :id_user, :tgl_transaksi, :bayar, :kembali)";
         $this->db->query($query);
         $this->db->bind('id_user', $id);
-        $this->db->bind('id_barang', $data['idBarang']);
-        $this->db->bind('jumlah', $data['quantity']);
-        $this->db->bind('total', $data['price']);
         $this->db->bind('tgl_transaksi', date('Y-m-d'));
+        $this->db->bind('bayar', $bayar);
+        $this->db->bind('kembali', $kembali);
 
         $this->db->execute();
 

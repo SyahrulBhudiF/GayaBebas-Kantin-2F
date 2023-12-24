@@ -2,8 +2,8 @@
 
 class RequestBarangModel
 {
-    private $table = 'request';
-    private $view = 'request_user';
+    private $table = 'request_barang';
+    private $view = 'user_request_barang';
     private $db;
 
     public function __construct()
@@ -25,10 +25,10 @@ class RequestBarangModel
 
     public function acceptRequest($id)
     {
-        $query = "UPDATE " . $this->table . " SET status = :status WHERE id_request = :id_request";
+        $query = "UPDATE " . $this->table . " SET status = :status WHERE id_request_barang = :id_request_barang";
         $this->db->query($query);
         $this->db->bind('status', 'Disetujui');
-        $this->db->bind('id_request', $id);
+        $this->db->bind('id_request_barang', $id);
 
         $this->db->execute();
 
@@ -37,10 +37,10 @@ class RequestBarangModel
 
     public function rejectRequest($id)
     {
-        $query = "UPDATE " . $this->table . " SET status = :status WHERE id_request = :id_request";
+        $query = "UPDATE " . $this->table . " SET status = :status WHERE id_request_barang = :id_request_barang";
         $this->db->query($query);
         $this->db->bind('status', 'Ditolak');
-        $this->db->bind('id_request', $id);
+        $this->db->bind('id_request_barang', $id);
 
         $this->db->execute();
 
@@ -63,8 +63,8 @@ class RequestBarangModel
 
     public function getRequestBarangById($id)
     {
-        $this->db->query("SELECT * FROM " . $this->table . " WHERE id_request = :id_request");
-        $this->db->bind('id_request', $id);
+        $this->db->query("SELECT * FROM " . $this->table . " WHERE id_request_barang = :id_request_barang");
+        $this->db->bind('id_request_barang', $id);
         return $this->db->single();
     }
 
@@ -88,7 +88,7 @@ class RequestBarangModel
 
     public function editRequestBarang($id, $data, $gambar)
     {
-        $query = "UPDATE " . $this->table . " SET foto = :foto, nama = :nama, kategori = :kategori, stok = :stok, hrg_jual = :hrg_jual, tgl_expire = :tgl_expire WHERE id_request = :id_request";
+        $query = "UPDATE " . $this->table . " SET foto = :foto, nama = :nama, kategori = :kategori, stok = :stok, hrg_jual = :hrg_jual, tgl_expire = :tgl_expire WHERE id_request_barang = :id_request_barang";
         $this->db->query($query);
         $this->db->bind('foto', $gambar);
         $this->db->bind('nama', $data['nama']);
@@ -96,7 +96,7 @@ class RequestBarangModel
         $this->db->bind('stok', $data['stok']);
         $this->db->bind('hrg_jual', $data['harga']);
         $this->db->bind('tgl_expire', $data['date']);
-        $this->db->bind('id_request', $id);
+        $this->db->bind('id_request_barang', $id);
 
         $this->db->execute();
 
@@ -105,9 +105,9 @@ class RequestBarangModel
 
     public function deleteRequestBarang($id)
     {
-        $query = "DELETE FROM " . $this->table . " WHERE id_request = :id_request";
+        $query = "DELETE FROM " . $this->table . " WHERE id_request_barang = :id_request_barang";
         $this->db->query($query);
-        $this->db->bind('id_request', $id);
+        $this->db->bind('id_request_barang', $id);
 
         $this->db->execute();
 

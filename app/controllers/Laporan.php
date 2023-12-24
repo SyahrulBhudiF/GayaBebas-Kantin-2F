@@ -18,4 +18,13 @@ class Laporan extends Controller
             header("Location: " . BASEURL);
         }
     }
+
+    public function getDetailTransaksi($id)
+    {
+        $data = $this->model('DetailTransaksiModel')->getDetailLaporanByIdTransaksi($id);
+
+        header('Content-Type: application/json');
+
+        echo json_encode($data);
+    }
 }
