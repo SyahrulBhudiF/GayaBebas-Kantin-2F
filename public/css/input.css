@@ -169,7 +169,7 @@ input[type="radio"]:checked {
 }
 
 .notActiveReject {
-  @apply opacity-25 border border-Neutral/50 pointer-events-none;
+  @apply opacity-25 border border-Neutral/50 pointer-events-none cursor-none;
 }
 
 .activeAcc {
