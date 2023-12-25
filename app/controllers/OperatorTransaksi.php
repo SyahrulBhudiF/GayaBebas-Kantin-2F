@@ -40,6 +40,8 @@ class OperatorTransaksi extends Controller
             }
 
             $this->model('LogModel')->afterAddTransaksi($user['id_user']);
+
+            Flasher::setFlash('Berhasil !', 'Transaksi berhasil di catat.', 'success');
         }
 
         // Menyiapkan respons (contoh: mengirim balik data yang diterima)

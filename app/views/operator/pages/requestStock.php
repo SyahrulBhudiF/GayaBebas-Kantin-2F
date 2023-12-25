@@ -61,6 +61,8 @@
     <?php endforeach; ?>
 </section>
 
+<?php Flasher::flash(); ?>
+
 <script>
     function cariBarang() {
         let input, filter, section, items, item, title, i, txtValue;

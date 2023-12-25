@@ -91,3 +91,5 @@
     <?php endforeach; ?>
     <!-- end modal reject -->
 </section>
+
+<?php Flasher::flash(); ?>

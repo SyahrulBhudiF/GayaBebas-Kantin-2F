@@ -27,6 +27,7 @@ class DataKaryawan extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterAddKaryawan($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Data karyawan baru berhasil di tambahkan.', 'success');
             header('Location: ' . BASEURL . '/datakaryawan');
         }
     }
@@ -38,6 +39,7 @@ class DataKaryawan extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterEditKaryawan($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Data karyawan berhasil di ubah.', 'success');
             header('Location: ' . BASEURL . '/datakaryawan');
         }
     }
@@ -50,6 +52,7 @@ class DataKaryawan extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterDeleteKaryawan($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Data karyawan berhasil di hapus.', 'success');
             header('Location: ' . BASEURL . '/datakaryawan');
         }
     }

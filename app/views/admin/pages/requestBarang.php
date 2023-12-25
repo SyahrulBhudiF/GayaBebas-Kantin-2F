@@ -99,6 +99,9 @@
     <?php endforeach; ?>
     <!-- end modal reject -->
 </section>
+
+<?php Flasher::flash(); ?>
+
 <script>
     function cariBarangReq() {
         let input, filter, table, tr, td, i, txtValue;

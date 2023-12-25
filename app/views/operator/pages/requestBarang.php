@@ -225,6 +225,9 @@
     <?php endforeach; ?>
     <!-- end modal delete -->
 </section>
+
+<?php Flasher::flash(); ?>
+
 <script>
     // upload
     const inputFile = document.getElementById("inputImg")

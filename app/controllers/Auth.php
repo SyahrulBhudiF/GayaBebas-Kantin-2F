@@ -27,13 +27,15 @@ class Auth extends Controller
         if ($user['level'] == "Admin") {
             $_SESSION['nama'] = $user['nama'];
             $_SESSION['level'] = $user['level'];
+            Flasher::setFlash('Berhasil !', 'Selamat datang ' . $_SESSION['nama'], 'success');
             header("Location: " . BASEURL . "/dashboard");
         } else if ($user['level'] == "Operator") {
             $_SESSION['nama'] = $user['nama'];
             $_SESSION['level'] = $user['level'];
+            Flasher::setFlash('Berhasil !', 'Selamat datang ' . $_SESSION['nama'], 'success');
             header("Location: " . BASEURL . "/operatortransaksi");
         } else {
-            $_SESSION['message'] = true;
+            Flasher::setFlash('Gagal !', 'Username atau Password salah.', 'danger');
             header("Location: " . BASEURL);
         }
     }
@@ -48,7 +50,8 @@ class Auth extends Controller
         session_start();
         unset($_SESSION['nama']);
         unset($_SESSION['level']);
-        session_destroy();
+
+        Flasher::setFlash('Berhasil !', 'Anda telah logout dari sistem.', 'success');
         header("Location:" . BASEURL);
     }
 }

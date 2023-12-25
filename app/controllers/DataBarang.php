@@ -49,6 +49,7 @@ class DataBarang extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterAddBarang($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Data barang baru berhasil di tambahkan.', 'success');
             header('Location: ' . BASEURL . '/databarang');
         }
     }
@@ -84,6 +85,7 @@ class DataBarang extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterEditBarang($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Data barang berhasil di ubah.', 'success');
             header('Location: ' . BASEURL . '/databarang');
         }
     }
@@ -102,6 +104,7 @@ class DataBarang extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterHapusBarang($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Data barang berhasil di hapus.', 'success');
             header('Location: ' . BASEURL . '/databarang');
         }
     }

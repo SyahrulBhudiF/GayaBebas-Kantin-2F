@@ -94,6 +94,9 @@
     </div>
     <!-- end modal pembayaran -->
 </section>
+
+<?php Flasher::flash(); ?>
+
 <script>
     let total = 0;
 

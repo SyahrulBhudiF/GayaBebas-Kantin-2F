@@ -27,6 +27,7 @@ class RequestBarang extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterAcceptRequest($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Request barang di setujui.', 'success');
             header('Location: ' . BASEURL . '/requestbarang');
         }
     }
@@ -39,6 +40,7 @@ class RequestBarang extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterRejectRequest($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Request barang di tolak.', 'success');
             header('Location: ' . BASEURL . '/requestbarang');
         }
     }
