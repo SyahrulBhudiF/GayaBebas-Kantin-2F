@@ -235,6 +235,9 @@ endforeach;
         <!-- end modal delete -->
     </div>
 </section>
+
+<?php Flasher::flash(); ?>
+
 <script>
     // modal data Barang
 

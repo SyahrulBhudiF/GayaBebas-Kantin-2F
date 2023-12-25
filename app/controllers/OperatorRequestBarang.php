@@ -48,6 +48,7 @@ class OperatorRequestBarang extends Controller
         if ($this->model('RequestBarangModel')->addRequestBarang($user['id_user'], $_POST, $namaFile) > 0) {
             $this->model('LogModel')->afterAddRequestBarang($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Request barang berhasil di tambahkan.', 'success');
             header('Location: ' . BASEURL . '/operatorrequestbarang');
         }
     }
@@ -83,6 +84,7 @@ class OperatorRequestBarang extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterEditRequestBarang($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Request barang berhasil di ubah.', 'success');
             header('Location: ' . BASEURL . '/operatorrequestbarang');
         }
     }
@@ -101,6 +103,7 @@ class OperatorRequestBarang extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterHapusRequestBarang($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Request barang berhasil di hapus.', 'success');
             header('Location: ' . BASEURL . '/operatorrequestbarang');
         }
     }

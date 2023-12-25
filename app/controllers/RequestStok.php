@@ -27,6 +27,7 @@ class RequestStok extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterAcceptRequestStock($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Request stock di setujui.', 'success');
             header('Location: ' . BASEURL . '/requeststok');
         }
     }
@@ -39,6 +40,7 @@ class RequestStok extends Controller
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterRejectRequestStock($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Request stock di tolak.', 'success');
             header('Location: ' . BASEURL . '/requeststok');
         }
     }

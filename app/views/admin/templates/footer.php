@@ -88,6 +88,16 @@
             item.style.display = txtValue?.toUpperCase().includes(filter) ? '' : 'none';
         });
     }
+
+    const closeModalAlert = () => {
+        const modalElement = document.getElementById("flashMessage");
+        modalElement.classList.add('hidden');
+    };
+
+    setTimeout(() => {
+        const element = document.getElementById("flashMessage")
+        element.classList.add('hidden')
+    }, 2000)
 </script>
 
 </html>

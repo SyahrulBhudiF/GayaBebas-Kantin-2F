@@ -27,6 +27,7 @@ class OperatorRequestStock extends Controller
         if ($this->model('RequestStockModel')->addRequestStock($user['id_user'], $_POST) > 0) {
             $this->model('LogModel')->afterAddRequestStock($user['id_user']);
 
+            Flasher::setFlash('Berhasil !', 'Request stock berhasil di kirim.', 'success');
             header('Location: ' . BASEURL . '/operatorrequeststock');
         }
     }

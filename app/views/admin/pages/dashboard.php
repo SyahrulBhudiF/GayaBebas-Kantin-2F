@@ -77,3 +77,5 @@ $data_produk = $data['barang'];
     </div>
     <!-- end list item -->
 </section>
+
+<?php Flasher::flash(); ?>
