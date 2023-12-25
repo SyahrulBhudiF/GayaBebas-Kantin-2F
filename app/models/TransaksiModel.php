@@ -38,4 +38,10 @@ class TransaksiModel
 
         return $this->db->rowCount();
     }
+
+    public function getLastTransaksiDate()
+    {
+        $this->db->query("SELECT tgl_transaksi FROM " . $this->table . " ORDER BY id_transaksi DESC LIMIT 1");
+        return $this->db->single();
+    }
 }

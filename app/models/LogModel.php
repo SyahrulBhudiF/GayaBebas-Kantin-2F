@@ -219,4 +219,10 @@ class LogModel
 
         return $this->db->rowCount();
     }
+
+    public function getLastLog()
+    {
+        $this->db->query("SELECT tgl_aksi FROM " . $this->table . " ORDER BY tgl_aksi DESC LIMIT 1");
+        return $this->db->single();
+    }
 }

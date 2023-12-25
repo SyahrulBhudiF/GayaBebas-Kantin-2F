@@ -54,7 +54,12 @@
                 </g>
             </svg>
 
-            <p class="textSidebar text-Neutral/70">Laporan</p>
+            <div class="flex justify-between items-center">
+                <p class="textSidebar text-Neutral/70">Laporan</p>
+                <svg class="hidden" id="laporanDot" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle id="Ellipse 3" cx="4" cy="4" r="4" fill="#5E51D9" />
+                </svg>
+            </div>
         </a>
         <a id="log" class="containerSidebar" href="<?= BASEURL; ?>/log">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +74,12 @@
                     </g>
                 </g>
             </svg>
-            <p class="textSidebar text-Neutral/70">Log Aktivitas</p>
+            <div class="flex justify-between items-center">
+                <p class="textSidebar text-Neutral/70">Log Aktivitas</p>
+                <svg class="hidden" id="logDot" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle id="Ellipse 3" cx="4" cy="4" r="4" fill="#5E51D9" />
+                </svg>
+            </div>
         </a>
     </div>
     <a href="<?= BASEURL; ?>/auth/logout">

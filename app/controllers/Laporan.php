@@ -9,6 +9,9 @@ class Laporan extends Controller
         if (isset($_SESSION['nama']) && $_SESSION['level'] == 'Admin') {
             $data['page'] = 'laporan';
             $data['laporan'] = $this->model('TransaksiModel')->getLaporan();
+
+            $this->model('NotifModel')->updateNotif($_SESSION['id'], "laporan", date('Y-m-d'));
+
             $this->view('admin/templates/header');
             $this->view('admin/pages/laporan', $data);
             $this->view('admin/templates/footer', $data);

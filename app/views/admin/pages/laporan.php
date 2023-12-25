@@ -161,4 +161,6 @@
             }
         });
     }
+
+    document.getElementById("laporanDot").classList.add("hidden");
 </script>

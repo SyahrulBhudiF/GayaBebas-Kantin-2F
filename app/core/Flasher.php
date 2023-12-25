@@ -31,7 +31,13 @@ class Flasher
                             </div>
                         </div>
                     </div>
-                </div>';
+                </div>
+                <script>
+                    setTimeout(() => {
+                        const element = document.getElementById("flashMessage")
+                        element.classList.add("hidden")
+                    }, 1500)
+                </script>';
             elseif ($_SESSION['flash']['tipe'] == 'success') :
                 echo '
                 <div id="flashMessage" class="fixed inset-0 items-start justify-center z-50 flex">
@@ -55,7 +61,13 @@ class Flasher
                             </div>
                         </div>
                     </div>
-                </div>';
+                </div>
+                <script>
+                    setTimeout(() => {
+                        const element = document.getElementById("flashMessage")
+                        element.classList.add("hidden")
+                    }, 1500)
+                </script>';
             endif;
             unset($_SESSION['flash']);
         }
