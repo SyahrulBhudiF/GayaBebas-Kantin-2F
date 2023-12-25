@@ -59,7 +59,7 @@
     setTimeout(() => {
         const element = document.getElementById("flashMessage")
         element.classList.add('hidden')
-    }, 2000)
+    }, 1500)
 </script>
 
 </html>

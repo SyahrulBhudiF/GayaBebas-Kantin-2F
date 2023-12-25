@@ -13,12 +13,11 @@ class Flasher
     public static function flash()
     {
         if (isset($_SESSION['flash'])) {
-            if ($_SESSION['flash']['tipe'] == 'danger') {
+            if ($_SESSION['flash']['tipe'] == 'danger') :
                 echo '
-                <div id="flashMessage" class="fixed inset-0 items-start justify-center z-50 bg-black bg-opacity-20 flex">
-                    <div class="flex flex-col gap-5 m-2">
-                        <div class="max-w-lg rounded bg-red-100 text-red-700 overflow-hidden shadow-md shadow-red-500/20">
-                            <div class="flex">
+                <div id="flashMessage" class="fixed inset-0 items-start justify-center z-50 flex">
+                    <div class="flex flex-col gap-5 m-[5%]">
+                        <div class="max-w-lg rounded bg-Neutral/10 text-[#FF0000] shadow-md">
                                 <div class="flex items-center gap-4 p-4">
                                     <div class="shrink-0">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -26,51 +25,38 @@ class Flasher
                                         </svg>
                                     </div>
                                     <div class="space-y-1">
-                                        <p class="font-bold">' . $_SESSION['flash']['pesan'] . '</p>
                                         <p class="text-sm">' . $_SESSION['flash']['aksi']  . '</p>
                                     </div>
-                                </div>
-                                <div class="flex cursor-pointer items-center border-l border-red-200 hover:bg-red-200 px-5" onclick="closeModalAlert()">
-                                    <button>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
-                                        </svg>
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>';
-            } else if ($_SESSION['flash']['tipe'] == 'success') {
+            elseif ($_SESSION['flash']['tipe'] == 'success') :
                 echo '
-                <div id="flashMessage" class="fixed inset-0 items-start justify-center z-50 bg-black bg-opacity-20 flex">
-                    <div class="flex flex-col gap-5 m-2">
-                        <div class="max-w-lg rounded bg-green-100 text-green-700 overflow-hidden shadow-md shadow-green-500/20">
-                            <div class="flex">
+                <div id="flashMessage" class="fixed inset-0 items-start justify-center z-50 flex">
+                    <div class="flex flex-col gap-5 m-[5%]">
+                        <div class="max-w-lg rounded bg-Neutral/10 text-[#0DA700] shadow-md">
                                 <div class="flex items-center gap-4 p-4">
                                     <div class="shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="vuesax/bold/tick-circle">
+                                    <g id="tick-circle">
+                                    <path id="Vector" d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM16.78 9.7L11.11 15.37C10.97 15.51 10.78 15.59 10.58 15.59C10.38 15.59 10.19 15.51 10.05 15.37L7.22 12.54C6.93 12.25 6.93 11.77 7.22 11.48C7.51 11.19 7.99 11.19 8.28 11.48L10.58 13.78L15.72 8.64C16.01 8.35 16.49 8.35 16.78 8.64C17.07 8.93 17.07 9.4 16.78 9.7Z" fill="#0DA700"/>
+                                    </g>
+                                    </g>
                                     </svg>
+
                                     </div>
                                     <div class="space-y-1">
-                                        <p class="font-bold">' . $_SESSION['flash']['pesan'] . '</p>
                                         <p class="text-sm">' . $_SESSION['flash']['aksi']  . '</p>
                                     </div>
-                                </div>
-                                <div class="flex cursor-pointer items-center border-l border-green-200 hover:bg-green-200 px-5" onclick="closeModalAlert()">
-                                    <button>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
-                                        </svg>
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>';
-            }
+            endif;
             unset($_SESSION['flash']);
         }
     }

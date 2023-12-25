@@ -1,3 +1,9 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+Flasher::flash();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,19 +31,15 @@
                 Masuk
             </button>
         </form>
-        <?php Flasher::flash(); ?>
+
     </main>
 </body>
-
-</html>
 <script>
-    const closeModalAlert = () => {
-        const modalElement = document.getElementById("flashMessage");
-        modalElement.classList.add('hidden');
-    };
-
     setTimeout(() => {
         const element = document.getElementById("flashMessage")
+        element.classList.remove('flex')
         element.classList.add('hidden')
-    }, 2000)
+    }, 1500)
 </script>
+
+</html>
