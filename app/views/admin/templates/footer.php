@@ -11,11 +11,14 @@
 
         try {
             const [dot, laporan, log] = await Promise.all([
-                fetch(`<?= BASEURL; ?>/Notif/getNotif/${<?= $_SESSION["id"] ?>}`).then(response => response.ok ?
+                fetch(`<?= BASEURL; ?>/Notif/getNotif/${<?= $_SESSION["id"] ?>}`)
+                .then(response => response.ok ?
                     response.json() : handleError(response)),
-                fetch(`<?= BASEURL; ?>/Notif/getLastLaporan`).then(response => response.ok ? response.json() :
+                fetch(`<?= BASEURL; ?>/Notif/getLastLaporan`)
+                .then(response => response.ok ? response.json() :
                     handleError(response)),
-                fetch(`<?= BASEURL; ?>/Notif/getLastLog`).then(response => response.ok ? response.json() :
+                fetch(`<?= BASEURL; ?>/Notif/getLastLog`)
+                .then(response => response.ok ? response.json() :
                     handleError(response)),
             ]);
 

@@ -10,7 +10,8 @@ class Log extends Controller
             $data['page'] = 'log';
             $data['log'] = $this->model('LogModel')->getLog();
 
-            $this->model('NotifModel')->updateNotif($_SESSION['id'], "log", date('Y-m-d'));
+            date_default_timezone_set('Asia/Jakarta');
+            $this->model('NotifModel')->updateNotif($_SESSION['id'], "log", date('Y-m-d H:i'));
 
             $this->view('admin/templates/header');
             $this->view('admin/pages/log', $data);

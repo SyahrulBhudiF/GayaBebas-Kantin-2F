@@ -10,7 +10,8 @@ class Laporan extends Controller
             $data['page'] = 'laporan';
             $data['laporan'] = $this->model('TransaksiModel')->getLaporan();
 
-            $this->model('NotifModel')->updateNotif($_SESSION['id'], "laporan", date('Y-m-d'));
+            date_default_timezone_set('Asia/Jakarta');
+            $this->model('NotifModel')->updateNotif($_SESSION['id'], "laporan", date('Y-m-d H:i'));
 
             $this->view('admin/templates/header');
             $this->view('admin/pages/laporan', $data);
