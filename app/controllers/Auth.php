@@ -27,11 +27,19 @@ class Auth extends Controller
         if ($user['level'] == "Admin") {
             $_SESSION['nama'] = $user['nama'];
             $_SESSION['level'] = $user['level'];
+            $_SESSION['id'] = $user['id_user'];
+
+            $this->model('NotifModel')->insert($user['id_user']);
+
             Flasher::setFlash('Berhasil !', 'Selamat datang ' . $_SESSION['nama'], 'success');
             header("Location: " . BASEURL . "/dashboard");
         } else if ($user['level'] == "Operator") {
             $_SESSION['nama'] = $user['nama'];
             $_SESSION['level'] = $user['level'];
+            $_SESSION['id'] = $user['id_user'];
+
+            $this->model('NotifModel')->insert($user['id_user']);
+
             Flasher::setFlash('Berhasil !', 'Selamat datang ' . $_SESSION['nama'], 'success');
             header("Location: " . BASEURL . "/operatortransaksi");
         } else {

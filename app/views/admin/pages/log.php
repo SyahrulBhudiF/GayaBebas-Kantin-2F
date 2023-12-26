@@ -27,4 +27,7 @@
         </div>
         <!-- End Table -->
     </div>
+    <script>
+        document.getElementById("logDot").classList.add("hidden");
+    </script>
 </section>

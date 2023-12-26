@@ -2,7 +2,7 @@
 function tgl_indo($tanggal)
 {
     $bulan = array(
-        1 =>   'Januari',
+        1 => 'Januari',
         'Februari',
         'Maret',
         'April',
@@ -15,7 +15,12 @@ function tgl_indo($tanggal)
         'November',
         'Desember'
     );
-    $pecahkan = explode('-', $tanggal);
+
+    $dateTime = new DateTime($tanggal);
+
+    $tanggal_tanpa_waktu = $dateTime->format('Y-m-d');
+
+    $pecahkan = explode('-', $tanggal_tanpa_waktu);
 
     return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
 }
