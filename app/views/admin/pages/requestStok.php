@@ -38,7 +38,7 @@
                                 <?= $value['status']; ?>
                             </span>
                         <?php endif; ?>
-                        <img src="../public/Assets/img/jajan.png" alt="jajan" class="w-[50%]">
+                        <img src="../public/Assets/img/barang/<?= $value['foto']; ?>" alt="jajan" class="w-[50%]">
                     </div>
                     <div class="flex flex-col gap-3 p-4">
                         <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">

@@ -61,7 +61,7 @@ $data_produk = $data['barang'];
                         <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
                             <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start"><?= $produk['stok']; ?>
                                 Tersedia</span>
-                            <img src="<?= /* $produk['Image']; */ "Assets/img/jajan.png"; ?>" alt="jajan" class="w-[50%]">
+                            <img src="Assets/img/barang/<?= $produk['foto']; ?>" alt="jajan" class="w-[50%]">
                         </div>
                         <div class="flex flex-col gap-3 p-4">
                             <p class="text-Neutral/100 font-semibold text-base w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">

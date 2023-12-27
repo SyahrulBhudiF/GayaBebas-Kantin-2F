@@ -12,7 +12,7 @@
                     <div class="flex flex-col items-center bg-Neutral/20 p-4 rounded-[1.25rem]">
                         <span class="bg-Neutral/10 px-5 py-2 rounded-full w-fit self-start laptop3:text-sm"><?= $barang['stok']; ?>
                             Tersedia</span>
-                        <img src="../public/Assets/img/jajan.png" alt="jajan">
+                        <img src="../public/Assets/img/barang/<?= $barang['foto']; ?>" alt="jajan">
                     </div>
                     <div class="flex flex-col gap-3 p-4">
                         <p class="text-Neutral/100 font-semibold text-base laptop3:text-sm w-full overflow-hidden whitespace-nowrap text-ellipsis p-barang">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="flex justify-center w-full p-4">
-                        <button aria-label="tambah barang ke keranjang" title="tambah barang" id="cart<?= $barang['id_barang']; ?>" class="bg-Neutral/20 p-3 text-Primary-blue rounded-full w-full active:brightness-90 transition-all duration-300 ease-in-out" onclick="addProductToCart(this,',../public/Assets/img/jajan.png','<?= $barang['id_barang']; ?>','<?= $barang['nama']; ?>','<?= $barang['hrg_jual']; ?>')">
+                        <button aria-label="tambah barang ke keranjang" title="tambah barang" id="cart<?= $barang['id_barang']; ?>" class="bg-Neutral/20 p-3 text-Primary-blue rounded-full w-full active:brightness-90 transition-all duration-300 ease-in-out" onclick="addProductToCart(this,'../public/Assets/img/barang/<?= $barang['foto']; ?>','<?= $barang['id_barang']; ?>','<?= $barang['nama']; ?>','<?= $barang['hrg_jual']; ?>')">
                             Tambah
                         </button>
                     </div>
@@ -151,7 +151,7 @@
 
     // Fungsi untuk membuat elemen HTML di keranjang
     function createProductCard({
-        imagePath,
+        img,
         id,
         name,
         price,
@@ -160,7 +160,7 @@
         return `
       <div class="flex gap-2 w-full cards card-barang">
         <div class="bg-Neutral/20 p-2 rounded-xl w-[30%]">
-          <img src="../public/Assets/img/jajan.png" alt="${name}">
+          <img src="${img}" alt="${name}">
         </div>
         <div class="flex flex-col justify-between w-[70%]">
           <p class="text-Neutral/100 font-semibold text-sm overflow-hidden whitespace-nowrap text-ellipsis p-barang">
