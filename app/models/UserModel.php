@@ -24,6 +24,12 @@ class UserModel
         $this->db->bind("nama", $name);
         return $this->db->single();
     }
+    public function getUserById($id)
+    {
+        $this->db->query("SELECT * FROM " . $this->table . " WHERE id_user = :id_user");
+        $this->db->bind("id_user", $id);
+        return $this->db->single();
+    }
 
     public function getKaryawan()
     {

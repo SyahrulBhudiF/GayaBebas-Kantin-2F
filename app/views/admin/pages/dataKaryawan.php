@@ -94,7 +94,7 @@
                         </div>
                         <div class="flex flex-col gap-3">
                             <label for="password" class="textInputKaryawan">Password</label>
-                            <input type="text" name="password" id="editpassword" class="inputKaryawan" placeholder="Masukkan password" value="<?= $karyawan['password']; ?>">
+                            <input type="text" name="password" id="editpassword" class="inputKaryawan" placeholder="Masukkan password">
                         </div>
                         <button class="addButton">Simpan</button>
                     </form>
