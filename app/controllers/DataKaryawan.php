@@ -23,7 +23,9 @@ class DataKaryawan extends Controller
     {
         session_start();
 
-        if ($this->model('UserModel')->addKaryawan($_POST) > 0) {
+        $hashPassword = hash_hmac('sha256', $_POST['password'], '6hUb#1iWB');
+
+        if ($this->model('UserModel')->addKaryawan($_POST, $hashPassword) > 0) {
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterAddKaryawan($user['id_user']);
 
@@ -35,7 +37,9 @@ class DataKaryawan extends Controller
     {
         session_start();
 
-        if ($this->model('UserModel')->editKaryawan($id, $_POST) > 0) {
+        $hashPassword = hash_hmac('sha256', $_POST['password'], '6hUb#1iWB');
+
+        if ($this->model('UserModel')->editKaryawan($id, $_POST, $hashPassword) > 0) {
             $user = $this->model('UserModel')->getUserByName($_SESSION['nama']);
             $this->model('LogModel')->afterEditKaryawan($user['id_user']);
 

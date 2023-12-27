@@ -18,7 +18,7 @@ class BarangModel
 
     public function getBarang()
     {
-        $this->db->query("SELECT * FROM " . $this->table . " ORDER BY stok ASC");
+        $this->db->query("SELECT * FROM " . $this->table . " WHERE status = 'Aktif' ORDER BY stok ASC");
         return $this->db->resultSet();
     }
 
@@ -31,7 +31,7 @@ class BarangModel
 
     public function addBarang($data, $gambar)
     {
-        $query = "INSERT INTO " . $this->table . " VALUES ('', :foto, :nama, :kategori, :stok, :hrg_jual, :tgl_expire)";
+        $query = "INSERT INTO " . $this->table . " VALUES ('', :foto, :nama, :kategori, :stok, :hrg_jual, :tgl_expire, :status)";
         $this->db->query($query);
         $this->db->bind('foto', $gambar);
         $this->db->bind('nama', $data['nama']);
@@ -39,6 +39,7 @@ class BarangModel
         $this->db->bind('stok', $data['stok']);
         $this->db->bind('hrg_jual', $data['harga']);
         $this->db->bind('tgl_expire', $data['date']);
+        $this->db->bind('status', 'Aktif');
 
         $this->db->execute();
 
@@ -64,8 +65,9 @@ class BarangModel
 
     public function deleteBarang($id)
     {
-        $query = "DELETE FROM " . $this->table . " WHERE id_barang = :id_barang";
+        $query = "UPDATE " . $this->table . " SET status = :status WHERE id_barang = :id_barang";
         $this->db->query($query);
+        $this->db->bind('status', 'Non-Aktif');
         $this->db->bind('id_barang', $id);
 
         $this->db->execute();

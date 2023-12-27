@@ -20,7 +20,7 @@ class Auth extends Controller
         session_start();
 
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = substr(hash_hmac('sha256', $_POST['password'], '6hUb#1iWB'), 0, 50);
 
         $user = $this->model('UserModel')->getUser($username, $password);
 
