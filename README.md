@@ -17,12 +17,12 @@ npm run dev
 ```
 
 ## Team
-- DYINASTIE M.P. (2241720166)
-- EMIR ABIYYU D. (2241720197)
-- FARID FITRIANSAH A. (2241720055)
-- NANDA PUTRA K. (2241720180)
-- RAFFI ILHAM M. (2241720226)
-- SYAHRUL BUDI F. (2241720167)
+- DYINASTIE M.P. (2241720166) https://github.com/Dyinastie
+- EMIR ABIYYU D. (2241720197) https://github.com/emirabiyyu
+- FARID FITRIANSAH A. (2241720055) https://github.com/FaridFitriansahAlfarizi
+- NANDA PUTRA K. (2241720180) https://github.com/putrakhamdani16
+- RAFFI ILHAM M. (2241720226) https://github.com/raffiilham
+- SYAHRUL BUDI F. (2241720167) https://github.com/SyahrulBhudiF
 
 ## Link Website
 https://kantinjti.online/
