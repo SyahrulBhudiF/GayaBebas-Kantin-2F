@@ -35,6 +35,8 @@ operator :
 username  : operator1
 password  : operator1
 ```
+## SRS
+https://drive.google.com/file/d/1bCfp0brydmnceg3aWo3ONzsB1JUvb3A9/view?usp=sharing
 
 ## Laporan
 https://drive.google.com/file/d/13JJJiBa-Up6xel5FFhVc8KUIHinEmr25/view
