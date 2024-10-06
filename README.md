@@ -1,6 +1,12 @@
 # GayaBebas-Kantin-2F
 Repo tugas akhir semester 3 
 
+# Mockup
+- Admin
+  ![Desktop - 2](https://github.com/user-attachments/assets/2fcbc3cb-dc47-4b51-932d-c37c252c3b5c)
+- Operator
+  ![Desktop - 1](https://github.com/user-attachments/assets/fb25a8df-455e-4f97-bbc0-06ef64ee7210)
+
 ## Req
 - Node.js
 - PHP
